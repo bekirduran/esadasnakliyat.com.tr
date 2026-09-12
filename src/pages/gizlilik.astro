@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+  title="Gizlilik ve Teklif Formu Bilgilendirmesi"
+  description="Esadaş Nakliyat teklif formunda toplanan bilgiler, kullanım amacı, saklama süresi ve iletişim kanalları."
+  noindex
+>
+  <article class="section prose">
+    <h1>
+      Gizlilik ve
+      <br />
+      teklif bilgileri.
+    </h1>
+    <p>
+      Teklif formunda ad, telefon, çıkış ve varış bölgesi, tercih edilen tarih ve hizmet detayları
+      alınır. Bilgiler talebinizi değerlendirmek, teklif hazırlamak ve sizinle bu talep hakkında
+      iletişime geçmek amacıyla kullanılır.
+    </p>
+    <h2>Saklama ve erişim</h2>
+    <p>
+      Bu web uygulamasındaki teklif kayıtları 90 gün sonra otomatik silinecek şekilde
+      yapılandırılmıştır. Kayıtlara yalnızca yetkili yönetim oturumu üzerinden erişilir. Pazarlama
+      aboneliği oluşturulmaz.
+    </p>
+    <h2>Teknik hizmetler</h2>
+    <p>
+      Site ve form altyapısı Cloudflare üzerinde çalışır. Yazı tipleri bu sitenin kendi
+      altyapısından yüklenir. WhatsApp bağlantısına tıkladığınızda ilgili hizmetin kendi koşulları
+      uygulanır. Yönetim oturumu için gerekli bir oturum çerezi kullanılır.
+    </p>
+    <h2>İletişim</h2>
+    <p>
+      Talebinizle ilgili bilgi veya kayıtlarınızın silinmesini istemek için{' '}
+      <a href={`mailto:${site.email}`}>{site.email}</a> adresine yazabilirsiniz.
+    </p>
+    <p class="admin-note">
+      Bu metin teknik veri akışını açıklar. Canlı alan adı geçişinden önce veri sorumlusunun resmi
+      unvanı, işleme hukuki sebepleri, aktarım koşulları ve başvuru yöntemi işletme tarafından
+      tamamlanmalıdır.
+    </p>
+  </article>
+</Layout>

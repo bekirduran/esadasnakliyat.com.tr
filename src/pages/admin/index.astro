@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Yönetim Paneli"
+  description="Esadaş Nakliyat görsel, bölgesel içerik ve teklif yönetimi."
+  noindex
+>
+  <section class="section admin-shell">
+    <span class="eyebrow">ESADAŞ / YÖNETİM</span>
+    <h1>
+      İçeriğiniz,
+      <br />
+      sizin kontrolünüzde.
+    </h1>
+    <p id="admin-status" class="status" role="status" aria-live="polite">
+      Oturum kontrol ediliyor…
+    </p>
+    <form id="login-form" class="form-panel" hidden>
+      <label>
+        Yönetici parolası
+        <input
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          required
+          maxlength="256"
+        />
+      </label>
+      <button type="submit" class="button">
+        Giriş yap ↗
+      </button>
+    </form>
+    <div id="admin-content" hidden>
+      <div class="admin-note">
+        Ortam: <strong id="environment"></strong>. Görseller ve içerikler bu ortama kaydedilir.
+        Staging değişiklikleri production içeriğini değiştirmez.
+      </div>
+      <div class="admin-tabs" role="tablist" aria-label="Yönetim bölümleri">
+        <button
+          class="admin-tab"
+          role="tab"
+          id="tab-media"
+          aria-controls="media-panel"
+          data-panel="media-panel"
+          aria-selected="true"
+        >
+          Görseller
+        </button>
+        <button
+          class="admin-tab"
+          role="tab"
+          id="tab-locations"
+          aria-controls="locations-panel"
+          data-panel="locations-panel"
+          aria-selected="false"
+        >
+          İl / ilçe içerikleri
+        </button>
+        <button
+          class="admin-tab"
+          role="tab"
+          id="tab-leads"
+          aria-controls="leads-panel"
+          data-panel="leads-panel"
+          aria-selected="false"
+        >
+          Teklif talepleri
+        </button>
+        <button
+          class="admin-tab"
+          role="tab"
+          id="tab-audits"
+          aria-controls="audits-panel"
+          data-panel="audits-panel"
+          aria-selected="false"
+        >
+          Otomasyon
+        </button>
+        <button class="admin-tab" id="logout">
+          Çıkış
+        </button>
+      </div>
+      <section id="media-panel" role="tabpanel" aria-labelledby="tab-media">
+        <p>
+          Temsili görselleri gerçek firma fotoğraflarıyla değiştirin. JPEG, PNG veya WebP; en fazla
+          8 MB. Görsel açıklaması sayfadaki alternatif metni de günceller.
+        </p>
+        <div id="media-list" class="admin-grid"></div>
+      </section>
+      <section id="locations-panel" role="tabpanel" aria-labelledby="tab-locations" hidden>
+        <div class="admin-note">
+          Bölge ağı otomatik oluşturulur. Yayın için doğrulanmış hizmet, bölgeye özgü içerik ve
+          kanıt bağlantısı gerekir. Kelime sınırı tek başına kalite garantisi değildir. Onaylı
+          içerik sitemap ve indeksleme işaretlerini otomatik günceller.
+        </div>
+        <div class="form-grid">
+          <label>
+            İl<select id="city-select"></select>
+          </label>
+          <label>
+            İlçe<select id="district-select"></select>
+          </label>
+        </div>
+        <div id="keyword-brief" class="admin-note"></div>
+        <form id="location-form" class="admin-form admin-card">
+          <input type="hidden" name="path" />
+          <a id="region-preview" target="_blank" rel="noopener">
+            Sayfayı görüntüle ↗
+          </a>
+          <label>
+            Sayfa başlığı
+            <input name="title" maxlength="160" required />
+          </label>
+          <label>
+            Hizmet açıklaması (yayın için en az 100 kelime)
+            <textarea name="description" maxlength="10000" rows="9"></textarea>
+          </label>
+          <label>
+            Bölgeye özel bilgiler (en az 50 kelime)
+            <textarea
+              name="local_details"
+              maxlength="8000"
+              rows="7"
+              placeholder="Doğrulanmış bina erişimi, operasyon koşulları, gerçek iş örneği…"
+            ></textarea>
+          </label>
+          <label>
+            Hizmet kanıtı / iş örneği bağlantısı
+            <input name="evidence_url" type="url" maxlength="1000" placeholder="https://…" />
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="service_confirmed" />
+            <span>Bu bölgede belirtilen hizmet koşullarını doğruladım.</span>
+          </label>
+          <label>
+            Yayın durumu
+            <select name="status">
+              <option value="draft">Taslak — indekslenmez</option>
+              <option value="published">Yayınla — kalite kontrolünden geçerse indekslenir</option>
+            </select>
+          </label>
+          <button class="button" type="submit">
+            İçeriği kaydet ↗
+          </button>
+        </form>
+        <h2>Kaydedilen bölgeler</h2>
+        <div id="saved-locations"></div>
+      </section>
+      <section id="leads-panel" role="tabpanel" aria-labelledby="tab-leads" hidden>
+        <p>Son 200 talep gösterilir. Kayıtlar 90 gün sonra otomatik silinir.</p>
+        <button id="refresh-leads" class="button outline">
+          Talepleri yenile
+        </button>
+        <div id="lead-list" class="admin-card"></div>
+      </section>
+      <section id="audits-panel" role="tabpanel" aria-labelledby="tab-audits" hidden>
+        <h2>Bölgesel içerik denetimi</h2>
+        <p>
+          Her gün yayın koşulları kontrol edilir; koşulları karşılamayan bölge içerikleri taslağa
+          döner. Sitemap yalnızca geçerli yayınları içerir. Yeni coğrafi veri, sürümlü veri
+          güncelleme komutuyla alınır; otomasyon yerel hizmet veya referans uydurmaz.
+        </p>
+        <div id="audit-list"></div>
+      </section>
+    </div>
+  </section>
+  <script src="/admin.js" is:inline></script>
+</Layout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  slot: string;
+  alt: string;
+  eager?: boolean;
+  class?: string;
+}
+const { slot, alt, eager = false, class: className } = Astro.props;
+---
+
+<img
+  data-media-slot={slot}
+  class={className}
+  src={`/media/${slot}`}
+  alt={alt}
+  width="1200"
+  height="900"
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+  fetchpriority={eager ? 'high' : 'auto'}
+/>

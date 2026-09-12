@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+  title="İletişim — Ankara"
+  description="Esadaş Nakliyat Ankara iletişim: telefon, WhatsApp, e-posta ve teklif formu. Taşınma ve depolama planınızı birlikte oluşturalım."
+>
+  <section class="section">
+    <span class="eyebrow">BİZE ULAŞIN</span>
+    <h1>
+      Bir merhaba,
+      <br />
+      iyi bir başlangıç.
+    </h1>
+    <div class="service-grid">
+      <article class="admin-card">
+        <h2>Arayın</h2>
+        <a href={`tel:${site.tel}`}>{site.phone}</a>
+        <p>
+          Alternatif hat: <a href="tel:+903124819839">0312 481 98 39</a>
+        </p>
+        <a class="button" href={`https://wa.me/${site.whatsapp}`}>
+          WhatsApp ↗
+        </a>
+      </article>
+      <article class="admin-card">
+        <h2>Yazın</h2>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <p>Adres, tarih ve eşya bilgilerinizi teklif formuyla iletebilirsiniz.</p>
+        <a class="button outline" href="/teklif/">
+          Teklif formu ↗
+        </a>
+      </article>
+      <article class="admin-card">
+        <h2>Ankara</h2>
+        <p>{site.address}</p>
+        <p>Ziyaret öncesinde telefonla iletişime geçin.</p>
+      </article>
+    </div>
+  </section>
+</Layout>

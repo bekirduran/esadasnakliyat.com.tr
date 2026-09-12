@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Media from '../../components/Media.astro';
+import { services } from '../../data/site';
+---
+
+<Layout
+  title="Nakliyat ve Depolama Hizmetleri"
+  description="Evden eve, asansörlü, şehirler arası, ofis ve parça eşya taşıma; Ankara eşya depolama çözümlerini inceleyin."
+>
+  <section class="section">
+    <span class="eyebrow">ESADAŞ HİZMETLERİ</span>
+    <h1>
+      Hayatın her değişimine
+      <br />
+      uygun bir plan.
+    </h1>
+    <div class="service-grid">
+      {services.map((s) => (
+        <a class="service-card" href={`/${s.slug}/`}>
+          <div class="card-image">
+            <Media slot={s.image} alt={`${s.name} temsili görsel`} />
+            <span class="round-arrow">↗</span>
+          </div>
+          <div class="card-copy">
+            <h2>{s.name}</h2>
+            <p>{s.summary}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

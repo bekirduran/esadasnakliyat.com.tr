@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Media from '../components/Media.astro';
+import { services, site } from '../data/site';
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { service: service.slug }, props: { service } }));
+}
+const { service: s } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.name,
+  description: s.summary,
+  provider: { '@id': site.url + '/#business' },
+  url: site.url + '/' + s.slug + '/',
+};
+---
+
+<Layout title={`${s.name} — Ankara`} description={s.summary} schema={schema}>
+  <section class="page-hero">
+    <div>
+      <a class="eyebrow" href="/hizmetler/">
+        HİZMETLER / {s.label.toLocaleUpperCase('tr')}
+      </a>
+      <h1>{s.name}</h1>
+      <p>{s.summary}</p>
+      <a class="button" href={`/teklif/?hizmet=${s.slug}`}>
+        Bu hizmet için teklif alın ↗
+      </a>
+    </div>
+    <Media slot={s.image} alt={`${s.name} için temsili illüstrasyon`} eager />
+  </section>
+  <section class="section prose">
+    <h2>İhtiyacınızdan başlayan bir hizmet.</h2>
+    <p>{s.details}</p>
+    <h2>Teklif öncesi hangi bilgiler gerekli?</h2>
+    <p>
+      Eşya miktarı, çıkış ve varış adresleri, katlar, bina erişimi ve tercih ettiğiniz tarih
+      planlamanın başlangıç noktasıdır. Depolamada saklama süresini de belirtin. Hizmete dahil
+      işlemler, ek ücretler ve varsa sigorta koşulları yazılı teklif sırasında netleştirilir.
+    </p>
+    <h2>Sık sorulan sorular</h2>
+    {s.questions.map(([q, a]) => (
+      <details>
+        <summary>{q}</summary>
+        <p>{a}</p>
+      </details>
+    ))}
+    {s.image === 'storage' && (
+      <p>
+        Daha fazla depolama bilgisi için aynı firmanın{' '}
+        <a href={site.storageUrl}>Esadaş Ankara Eşya Depolama web sitesini</a> ziyaret edin.
+      </p>
+    )}
+    <h2>Hizmet bölgenizi seçin</h2>
+    <p>
+      Adres ve tarih uygunluğu üzerinden size özel plan hazırlanır. Bölge sayfaları o bölgede bir
+      şube veya depo bulunduğu anlamına gelmez.
+    </p>
+    <a class="button outline" href="/hizmetler/bolgeler/">
+      İl ve ilçeleri inceleyin ↗
+    </a>
+  </section>
+</Layout>

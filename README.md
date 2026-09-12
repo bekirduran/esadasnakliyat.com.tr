@@ -1,0 +1,60 @@
+# Esadaş Nakliyat
+
+Ankara merkezli nakliyat ve depolama sitesi. Astro + Cloudflare Workers, D1 ve R2. 81 il / 973 ilçe ağı, görsel yönetimi, bölgesel içerik editörü ve teklif paneli içerir.
+
+## Branch ve dağıtım
+
+| Branch | GitHub environment | Cloudflare Worker | Veri         |
+| ------ | ------------------ | ----------------- | ------------ |
+| `dev`  | staging            | esadas-staging    | Ayrı D1 + R2 |
+| `main` | production         | esadas-production | Ayrı D1 + R2 |
+
+Geliştirmeler `dev` üzerinde yapılır. Push → typecheck, test, build, dry-run → ilgili ortam migrasyonu → deploy → smoke test. PR'larda doğrulama yapılır, deploy yapılmaz. Production'a geçiş: `dev` değişikliklerini `main` ile birleştirip push edin. Aynı branch dağıtımları sıraya alınır.
+
+**CI/CD aktivasyonu:** GitHub repo Settings → Secrets and variables → Actions altında `CLOUDFLARE_API_TOKEN` ekleyin. Mevcut hesabın Workers Scripts:Edit, D1:Edit ve Workers R2 Storage:Edit yetkileri gerekir. Özel alan adı/route yönetimi eklendiğinde ilgili zone yetkileri de gerekir. Token yokken workflow doğrulamaları çalışır, deploy adımı uyarıyla atlanır; otomatik dağıtım yapılmış sayılmaz. Token ekledikten sonra son workflow'u yeniden çalıştırın veya ilgili branch'e push edin.
+
+Cloudflare account ID ve kaynak ID'leri secret değildir; `wrangler.jsonc` içinde sürümlenir. `ADMIN_PASSWORD_HASH` ve `SESSION_SECRET` Cloudflare secret olarak ayrı ayrı yüklenmiştir. Bunlar GitHub'a gönderilmez.
+
+## Yerel çalışma
+
+Node.js 22.12+:
+
+```sh
+npm ci
+npm run types
+npm run db:local
+npm run dev
+```
+
+Site ve admin: http://localhost:8787. `npm run dev` ilk build sonrası yerel Worker başlatır. Astro sayfası değiştiğinde başka terminalde `npm run build` çalıştırın; Worker asset değişikliğini algılar. Worker kaynak değişiklikleri otomatik yüklenir. Yerel D1/R2 canlı veriyi kullanmaz.
+
+Yerel yönetim için `.dev.vars.staging` dosyasına iki secret gerekir. Güvenli bir dış klasörde yeni anahtarlar üretmek için `node scripts/create-admin-secrets.mjs /private/tmp/esadas-new-secrets` kullanın. Komut hedef dosyalar varsa üzerine yazmaz. Oluşan JSON'u `wrangler secret bulk ... --env staging` ile göndermek mevcut ortamın yönetici parolasını değiştirir ve oturumları geçersiz kılar; bunu sadece bilinçli parola yenilemede yapın.
+
+## Admin
+
+Her ortamın `/admin/` yolu ayrı parolaya sahiptir. İlk kurulum erişim dosyaları yerel `.local/admin/` klasörüne, Git dışında kaydedilir. Parolaları parola yöneticinize alın.
+
+- **Görseller:** Sekiz görsel alanına JPEG, PNG veya WebP yükleyin. Alternatif metin dahil güncellemeler yeni deploy olmadan görünür. En fazla 8 MB; önerilen boyut 1600px civarı, sıkıştırılmış WebP. Kendi fotoğraflarınızı kullanın.
+- **İl/ilçe:** Bölge seçin, açıklama, yerel bilgiler ve kanıt URL'si ekleyin. Yayın kontrolü yetersiz içeriği reddeder. Taslaklar indekslenmez. Yayın koşulları ve sitemap otomatik yönetilir.
+- **Teklifler:** Talepleri okuyun ve durumunu değiştirin. E-posta/WhatsApp bildirimi gönderilmez; panelden takip edilir. 90 gün sonra otomatik silinir.
+- **Otomasyon:** Günlük denetim sonuçlarını inceleyin.
+
+## Kontroller
+
+```sh
+npm run check
+npm test
+npm run build
+npx wrangler deploy --dry-run --env staging
+node scripts/integration-local.mjs /path/to/private/staging-admin.txt
+```
+
+Entegrasyon testi yalnızca localhost:8787 üzerinde test kayıtları oluşturur. Canlı veritabanına çalışmaz. Birim testleri coğrafi bütünlük, yayın kontrolü, form doğrulama, oturum ve dosya güvenliğini kapsar.
+
+## Alan adı geçişi
+
+İlk dağıtım workers.dev ortamlarına yapılır. Staging ve workers.dev adresleri indekslemeye kapalıdır. Production özel alan adı `esadasnakliyat.com.tr` olarak tasarlanmıştır, ancak alan adı başka bir Cloudflare hesabında olduğundan özel domain bağlanmamıştır. Doğru hesap erişimi sağlandığında kaynakların aynı hesaba taşınması veya deployment hesabının yeniden yapılandırılması değerlendirilmelidir.
+
+Alan adı doğru Cloudflare hesabına eklendikten, eski URL envanteri/301 eşlemesi, gerçek şirket bilgileri, görseller ve gizlilik metni tamamlandıktan sonra `production.routes` içinde `{"pattern":"esadasnakliyat.com.tr","custom_domain":true}` tanımlanır. www yönlendirmesi, mevcut DNS/MX kayıtları ve geri dönüş planı ayrıca doğrulanır. Staging için `staging.esadasnakliyat.com.tr` ayrı custom domain olarak bağlanabilir. Domain kesintisinde önceki DNS/hosting geri dönüşü ile Worker rollback ayrı operasyonlardır.
+
+Mimari: [docs/architecture.md](docs/architecture.md). Coğrafi veri: [docs/data-source.md](docs/data-source.md). Ortam adresleri: [deployment-urls.json](deployment-urls.json).

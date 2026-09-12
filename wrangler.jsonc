@@ -1,0 +1,57 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "esadas-nakliyat",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+  "observability": { "enabled": true },
+  "vars": { "ENVIRONMENT": "local", "SITE_URL": "https://esadasnakliyat.com.tr" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "esadas-local",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "esadas-local-media" }],
+  "env": {
+    "staging": {
+      "name": "esadas-staging",
+      "workers_dev": true,
+      "vars": { "ENVIRONMENT": "staging", "SITE_URL": "https://esadasnakliyat.com.tr" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "esadas-staging",
+          "database_id": "6c33234c-9337-455b-9266-6534db97334c",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "esadas-staging-media" }],
+      "triggers": { "crons": ["17 3 * * *"] },
+    },
+    "production": {
+      "name": "esadas-production",
+      "workers_dev": true,
+      "vars": { "ENVIRONMENT": "production", "SITE_URL": "https://esadasnakliyat.com.tr" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "esadas-production",
+          "database_id": "f4b97a76-57ca-438f-b647-537e7ec00726",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "esadas-production-media" }],
+      "triggers": { "crons": ["37 3 * * *"] },
+    },
+  },
+}

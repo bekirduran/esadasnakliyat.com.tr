@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS media (
+ slot TEXT PRIMARY KEY, object_key TEXT NOT NULL, alt TEXT NOT NULL,
+ mime TEXT NOT NULL, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS locations (
+ path TEXT PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL,
+ local_details TEXT NOT NULL, evidence_url TEXT NOT NULL DEFAULT '',
+ service_confirmed INTEGER NOT NULL DEFAULT 0,
+ status TEXT NOT NULL DEFAULT 'draft' CHECK(status IN ('draft','published')),
+ content_hash TEXT NOT NULL, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS locations_status ON locations(status);
+CREATE INDEX IF NOT EXISTS locations_hash ON locations(content_hash);
+CREATE TABLE IF NOT EXISTS leads (
+ id TEXT PRIMARY KEY, name TEXT NOT NULL, phone TEXT NOT NULL, service TEXT NOT NULL,
+ origin TEXT NOT NULL, destination TEXT NOT NULL, date TEXT NOT NULL,
+ details TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'new',
+ created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS audit_runs (id TEXT PRIMARY KEY, result TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);

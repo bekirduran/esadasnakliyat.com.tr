@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { services } from '../data/site';
+---
+
+<Layout
+  title="Nakliyat ve Depolama Teklifi Alın"
+  description="Taşınma veya eşya depolama ihtiyacınızı Esadaş'a iletin. Adres, tarih ve eşya bilgilerinize göre teklif kapsamını birlikte belirleyelim."
+  noindex
+>
+  <section class="section">
+    <span class="eyebrow">BİRLİKTE PLANLAYALIM</span>
+    <h1>
+      Yeni başlangıcınızı
+      <br />
+      bize anlatın.
+    </h1>
+    <p class="intro">
+      Bu form bir teklif talebidir. Fiyat ve rezervasyon, ekibimizle görüşmeniz sonrasında
+      kesinleşir.
+    </p>
+    <form id="lead-form" class="form-panel form-grid">
+      <label>
+        Adınız soyadınız
+        <input name="name" autocomplete="name" minlength="2" maxlength="100" required />
+      </label>
+      <label>
+        Telefon numaranız
+        <input
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          inputmode="tel"
+          placeholder="05xx xxx xx xx"
+          required
+          maxlength="25"
+        />
+      </label>
+      <label>
+        İhtiyacınız
+        <select name="service" required>
+          {services.map((s) => (
+            <option value={s.slug}>{s.name}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Tercih ettiğiniz tarih
+        <input name="date" type="date" required />
+      </label>
+      <label>
+        Çıkış ili / ilçesi
+        <input
+          name="origin"
+          autocomplete="off"
+          maxlength="200"
+          required
+          placeholder="Örneğin Ankara, Çankaya"
+        />
+      </label>
+      <label>
+        Varış ili / ilçesi
+        <input
+          name="destination"
+          maxlength="200"
+          required
+          placeholder="Depolama için Ankara depo yazabilirsiniz"
+        />
+      </label>
+      <label class="wide">
+        Eşya miktarı ve bina bilgileri
+        <textarea
+          name="details"
+          maxlength="2000"
+          placeholder="Örneğin 2+1 ev, çıkış 3. kat, varış 5. kat. Depolama ise tahmini süre."
+          required
+        ></textarea>
+      </label>
+      <label class="honeypot" aria-hidden="true">
+        Web sitesi
+        <input name="website" tabindex="-1" autocomplete="off" />
+      </label>
+      <label class="wide consent">
+        <input name="consent" type="checkbox" required />
+        <span>
+          <a href="/gizlilik/">Kişisel verilerin işlenmesine ilişkin bilgilendirmeyi</a> okudum. Bu
+          talebimle ilgili iletişime geçilmesini istiyorum.
+        </span>
+      </label>
+      <div class="wide">
+        <button class="button" type="submit">
+          Teklif talebimi gönder ↗
+        </button>
+        <p id="lead-status" role="status" aria-live="polite" hidden></p>
+      </div>
+    </form>
+  </section>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('#lead-form')!;
+    const params = new URLSearchParams(location.search);
+    const service = form.elements.namedItem('service') as HTMLSelectElement;
+    if (params.has('hizmet') && [...service.options].some((o) => o.value === params.get('hizmet')))
+      service.value = params.get('hizmet')!;
+    if (params.has('bolge'))
+      (form.elements.namedItem('destination') as HTMLInputElement).value = params.get('bolge')!;
+    const date = form.elements.namedItem('date') as HTMLInputElement;
+    date.min = new Date().toLocaleDateString('en-CA');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector('button')!;
+      const status = document.querySelector<HTMLElement>('#lead-status')!;
+      button.disabled = true;
+      status.hidden = false;
+      status.className = 'status';
+      status.textContent = 'Talebiniz gönderiliyor…';
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const result = await response.json();
+        if (!response.ok) throw Error(result.error || 'Talep gönderilemedi.');
+        status.textContent = `Talebiniz kaydedildi. Talep numarası: ${result.id}. Bu, kesinleşmiş rezervasyon değildir.`;
+        form.reset();
+      } catch (error) {
+        status.textContent =
+          error instanceof Error ? error.message : 'Bağlantı kurulamadı. Lütfen telefonla ulaşın.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</Layout>

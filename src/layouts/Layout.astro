@@ -1,0 +1,139 @@
+---
+import { site } from '../data/site';
+import '../styles.css';
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>;
+}
+const { title, description, noindex = false, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'MovingCompany',
+  '@id': site.url + '/#business',
+  name: site.name,
+  url: site.url,
+  telephone: site.tel,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address,
+    addressLocality: 'Ankara',
+    addressCountry: 'TR',
+  },
+};
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102c3c" />
+    <title>{title} | Esadaş Nakliyat</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/json" href="/hizmetler.json" title="Hizmet kataloğu" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:image" content={site.url + '/media/hero'} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        schema ? { '@context': 'https://schema.org', '@graph': [business, schema] } : business,
+      ).replaceAll('<', '\\u003c')}
+    ></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      İçeriğe geç
+    </a>
+    <div class="topbar">
+      <span>Ankara’dan yeni başlangıçlara.</span>
+      <a href={`tel:${site.tel}`}>Bizi arayın: {site.phone}</a>
+    </div>
+    <header>
+      <a class="brand" href="/" aria-label="Esadaş Nakliyat ana sayfa">
+        <span class="brand-symbol">
+          e<span>↗</span>
+        </span>
+        <span>
+          ESADAŞ<small>NAKLİYAT & DEPOLAMA</small>
+        </span>
+      </a>
+      <nav aria-label="Ana menü">
+        <a href="/hizmetler/">Hizmetler</a>
+        <a href="/esya-depolama-2/">Depolama</a>
+        <a href="/hizmetler/bolgeler/">Bölgeler</a>
+        <a href="/hakkimizda/">Hakkımızda</a>
+        <a href="/iletisim-2/">İletişim</a>
+      </nav>
+      <a class="button small" href="/teklif/">
+        Teklif alın <span>↗</span>
+      </a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <section class="closing">
+      <div>
+        <span class="eyebrow">YENİ BİR BAŞLANGIÇ İÇİN</span>
+        <h2>
+          Siz yeni hayatınızı planlayın.
+          <br />
+          Taşınmayı birlikte çözelim.
+        </h2>
+      </div>
+      <a class="button cream" href="/teklif/">
+        Taşınma planı oluşturun ↗
+      </a>
+    </section>
+    <footer>
+      <div>
+        <a class="brand" href="/">
+          ESADAŞ<small>NAKLİYAT & DEPOLAMA</small>
+        </a>
+        <p>
+          Taşınırken de, beklerken de
+          <br />
+          eşyalarınız için düşünülmüş çözümler.
+        </p>
+      </div>
+      <div>
+        <h3>Keşfedin</h3>
+        <a href="/hizmetler/">Hizmetlerimiz</a>
+        <a href="/hizmetler/bolgeler/">Hizmet bölgeleri</a>
+        <a href="/rehber/">Taşınma rehberi</a>
+        <a href={site.storageUrl} rel="noopener">
+          Esadaş Ankara Eşya Depolama ↗
+        </a>
+      </div>
+      <div>
+        <h3>Birlikte planlayalım</h3>
+        <a href={`tel:${site.tel}`}>{site.phone}</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <p>{site.address}</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Esadaş Nakliyat</span>
+        <a href="/gizlilik/">Gizlilik ve kişisel veriler</a>
+        <a href="/admin/">Yönetim</a>
+      </div>
+    </footer>
+    <a
+      class="contact-float"
+      href={`https://wa.me/${site.whatsapp}`}
+      aria-label="WhatsApp ile Esadaş'a ulaşın"
+    >
+      WhatsApp ↗
+    </a>
+  </body>
+</html>

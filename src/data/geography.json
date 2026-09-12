@@ -1,0 +1,5439 @@
+{
+  "source": "https://api.turkiyeapi.dev/v1/provinces",
+  "license": "MIT; see docs/data-source.md",
+  "retrievedAt": "2026-09-12T14:42:10.887Z",
+  "provinces": [
+    {
+      "id": 1,
+      "name": "Adana",
+      "slug": "adana",
+      "districts": [
+        {
+          "id": 1757,
+          "name": "Aladağ",
+          "slug": "aladag"
+        },
+        {
+          "id": 1219,
+          "name": "Ceyhan",
+          "slug": "ceyhan"
+        },
+        {
+          "id": 2033,
+          "name": "Çukurova",
+          "slug": "cukurova"
+        },
+        {
+          "id": 1329,
+          "name": "Feke",
+          "slug": "feke"
+        },
+        {
+          "id": 1806,
+          "name": "İmamoğlu",
+          "slug": "imamoglu"
+        },
+        {
+          "id": 1437,
+          "name": "Karaisalı",
+          "slug": "karaisali"
+        },
+        {
+          "id": 1443,
+          "name": "Karataş",
+          "slug": "karatas"
+        },
+        {
+          "id": 1486,
+          "name": "Kozan",
+          "slug": "kozan"
+        },
+        {
+          "id": 1580,
+          "name": "Pozantı",
+          "slug": "pozanti"
+        },
+        {
+          "id": 1588,
+          "name": "Saimbeyli",
+          "slug": "saimbeyli"
+        },
+        {
+          "id": 2032,
+          "name": "Sarıçam",
+          "slug": "saricam"
+        },
+        {
+          "id": 1104,
+          "name": "Seyhan",
+          "slug": "seyhan"
+        },
+        {
+          "id": 1687,
+          "name": "Tufanbeyli",
+          "slug": "tufanbeyli"
+        },
+        {
+          "id": 1734,
+          "name": "Yumurtalık",
+          "slug": "yumurtalik"
+        },
+        {
+          "id": 1748,
+          "name": "Yüreğir",
+          "slug": "yuregir"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Adıyaman",
+      "slug": "adiyaman",
+      "districts": [
+        {
+          "id": 1182,
+          "name": "Besni",
+          "slug": "besni"
+        },
+        {
+          "id": 1246,
+          "name": "Çelikhan",
+          "slug": "celikhan"
+        },
+        {
+          "id": 1347,
+          "name": "Gerger",
+          "slug": "gerger"
+        },
+        {
+          "id": 1354,
+          "name": "Gölbaşı",
+          "slug": "golbasi"
+        },
+        {
+          "id": 1425,
+          "name": "Kahta",
+          "slug": "kahta"
+        },
+        {
+          "id": 1105,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1592,
+          "name": "Samsat",
+          "slug": "samsat"
+        },
+        {
+          "id": 1985,
+          "name": "Sincik",
+          "slug": "sincik"
+        },
+        {
+          "id": 1989,
+          "name": "Tut",
+          "slug": "tut"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Afyonkarahisar",
+      "slug": "afyonkarahisar",
+      "districts": [
+        {
+          "id": 1771,
+          "name": "Başmakçı",
+          "slug": "basmakci"
+        },
+        {
+          "id": 1773,
+          "name": "Bayat",
+          "slug": "bayat"
+        },
+        {
+          "id": 1200,
+          "name": "Bolvadin",
+          "slug": "bolvadin"
+        },
+        {
+          "id": 1239,
+          "name": "Çay",
+          "slug": "cay"
+        },
+        {
+          "id": 1906,
+          "name": "Çobanlar",
+          "slug": "cobanlar"
+        },
+        {
+          "id": 1267,
+          "name": "Dazkırı",
+          "slug": "dazkiri"
+        },
+        {
+          "id": 1281,
+          "name": "Dinar",
+          "slug": "dinar"
+        },
+        {
+          "id": 1306,
+          "name": "Emirdağ",
+          "slug": "emirdag"
+        },
+        {
+          "id": 1923,
+          "name": "Evciler",
+          "slug": "evciler"
+        },
+        {
+          "id": 1944,
+          "name": "Hocalar",
+          "slug": "hocalar"
+        },
+        {
+          "id": 1404,
+          "name": "İhsaniye",
+          "slug": "ihsaniye"
+        },
+        {
+          "id": 1809,
+          "name": "İscehisar",
+          "slug": "iscehisar"
+        },
+        {
+          "id": 1961,
+          "name": "Kızılören",
+          "slug": "kiziloren"
+        },
+        {
+          "id": 1108,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1594,
+          "name": "Sandıklı",
+          "slug": "sandikli"
+        },
+        {
+          "id": 1626,
+          "name": "Sinanpaşa",
+          "slug": "sinanpasa"
+        },
+        {
+          "id": 1639,
+          "name": "Sultandağı",
+          "slug": "sultandagi"
+        },
+        {
+          "id": 1664,
+          "name": "Şuhut",
+          "slug": "suhut"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Ağrı",
+      "slug": "agri",
+      "districts": [
+        {
+          "id": 1283,
+          "name": "Diyadin",
+          "slug": "diyadin"
+        },
+        {
+          "id": 1287,
+          "name": "Doğubayazıt",
+          "slug": "dogubayazit"
+        },
+        {
+          "id": 1301,
+          "name": "Eleşkirt",
+          "slug": "eleskirt"
+        },
+        {
+          "id": 1379,
+          "name": "Hamur",
+          "slug": "hamur"
+        },
+        {
+          "id": 1111,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1568,
+          "name": "Patnos",
+          "slug": "patnos"
+        },
+        {
+          "id": 1667,
+          "name": "Taşlıçay",
+          "slug": "taslicay"
+        },
+        {
+          "id": 1691,
+          "name": "Tutak",
+          "slug": "tutak"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Amasya",
+      "slug": "amasya",
+      "districts": [
+        {
+          "id": 1363,
+          "name": "Göynücek",
+          "slug": "goynucek"
+        },
+        {
+          "id": 1368,
+          "name": "Gümüşhacıköy",
+          "slug": "gumushacikoy"
+        },
+        {
+          "id": 1938,
+          "name": "Hamamözü",
+          "slug": "hamamozu"
+        },
+        {
+          "id": 1134,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1524,
+          "name": "Merzifon",
+          "slug": "merzifon"
+        },
+        {
+          "id": 1641,
+          "name": "Suluova",
+          "slug": "suluova"
+        },
+        {
+          "id": 1668,
+          "name": "Taşova",
+          "slug": "tasova"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Ankara",
+      "slug": "ankara",
+      "districts": [
+        {
+          "id": 1872,
+          "name": "Akyurt",
+          "slug": "akyurt"
+        },
+        {
+          "id": 1130,
+          "name": "Altındağ",
+          "slug": "altindag"
+        },
+        {
+          "id": 1157,
+          "name": "Ayaş",
+          "slug": "ayas"
+        },
+        {
+          "id": 1167,
+          "name": "Bala",
+          "slug": "bala"
+        },
+        {
+          "id": 1187,
+          "name": "Beypazarı",
+          "slug": "beypazari"
+        },
+        {
+          "id": 1227,
+          "name": "Çamlıdere",
+          "slug": "camlidere"
+        },
+        {
+          "id": 1231,
+          "name": "Çankaya",
+          "slug": "cankaya"
+        },
+        {
+          "id": 1260,
+          "name": "Çubuk",
+          "slug": "cubuk"
+        },
+        {
+          "id": 1302,
+          "name": "Elmadağ",
+          "slug": "elmadag"
+        },
+        {
+          "id": 1922,
+          "name": "Etimesgut",
+          "slug": "etimesgut"
+        },
+        {
+          "id": 1924,
+          "name": "Evren",
+          "slug": "evren"
+        },
+        {
+          "id": 1744,
+          "name": "Gölbaşı",
+          "slug": "golbasi"
+        },
+        {
+          "id": 1365,
+          "name": "Güdül",
+          "slug": "gudul"
+        },
+        {
+          "id": 1387,
+          "name": "Haymana",
+          "slug": "haymana"
+        },
+        {
+          "id": 1815,
+          "name": "Kahramankazan",
+          "slug": "kahramankazan"
+        },
+        {
+          "id": 1427,
+          "name": "Kalecik",
+          "slug": "kalecik"
+        },
+        {
+          "id": 1745,
+          "name": "Keçiören",
+          "slug": "kecioren"
+        },
+        {
+          "id": 1473,
+          "name": "Kızılcahamam",
+          "slug": "kizilcahamam"
+        },
+        {
+          "id": 1746,
+          "name": "Mamak",
+          "slug": "mamak"
+        },
+        {
+          "id": 1539,
+          "name": "Nallıhan",
+          "slug": "nallihan"
+        },
+        {
+          "id": 1578,
+          "name": "Polatlı",
+          "slug": "polatli"
+        },
+        {
+          "id": 2034,
+          "name": "Pursaklar",
+          "slug": "pursaklar"
+        },
+        {
+          "id": 1747,
+          "name": "Sincan",
+          "slug": "sincan"
+        },
+        {
+          "id": 1658,
+          "name": "Şereflikoçhisar",
+          "slug": "sereflikochisar"
+        },
+        {
+          "id": 1723,
+          "name": "Yenimahalle",
+          "slug": "yenimahalle"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Antalya",
+      "slug": "antalya",
+      "districts": [
+        {
+          "id": 1121,
+          "name": "Akseki",
+          "slug": "akseki"
+        },
+        {
+          "id": 2035,
+          "name": "Aksu",
+          "slug": "aksu"
+        },
+        {
+          "id": 1126,
+          "name": "Alanya",
+          "slug": "alanya"
+        },
+        {
+          "id": 1811,
+          "name": "Demre",
+          "slug": "demre"
+        },
+        {
+          "id": 2036,
+          "name": "Döşemealtı",
+          "slug": "dosemealti"
+        },
+        {
+          "id": 1303,
+          "name": "Elmalı",
+          "slug": "elmali"
+        },
+        {
+          "id": 1333,
+          "name": "Finike",
+          "slug": "finike"
+        },
+        {
+          "id": 1337,
+          "name": "Gazipaşa",
+          "slug": "gazipasa"
+        },
+        {
+          "id": 1370,
+          "name": "Gündoğmuş",
+          "slug": "gundogmus"
+        },
+        {
+          "id": 1946,
+          "name": "İbradı",
+          "slug": "ibradi"
+        },
+        {
+          "id": 1451,
+          "name": "Kaş",
+          "slug": "kas"
+        },
+        {
+          "id": 1959,
+          "name": "Kemer",
+          "slug": "kemer"
+        },
+        {
+          "id": 2037,
+          "name": "Kepez",
+          "slug": "kepez"
+        },
+        {
+          "id": 2038,
+          "name": "Konyaaltı",
+          "slug": "konyaalti"
+        },
+        {
+          "id": 1483,
+          "name": "Korkuteli",
+          "slug": "korkuteli"
+        },
+        {
+          "id": 1492,
+          "name": "Kumluca",
+          "slug": "kumluca"
+        },
+        {
+          "id": 1512,
+          "name": "Manavgat",
+          "slug": "manavgat"
+        },
+        {
+          "id": 2039,
+          "name": "Muratpaşa",
+          "slug": "muratpasa"
+        },
+        {
+          "id": 1616,
+          "name": "Serik",
+          "slug": "serik"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Artvin",
+      "slug": "artvin",
+      "districts": [
+        {
+          "id": 1145,
+          "name": "Ardanuç",
+          "slug": "ardanuc"
+        },
+        {
+          "id": 1147,
+          "name": "Arhavi",
+          "slug": "arhavi"
+        },
+        {
+          "id": 1202,
+          "name": "Borçka",
+          "slug": "borcka"
+        },
+        {
+          "id": 1395,
+          "name": "Hopa",
+          "slug": "hopa"
+        },
+        {
+          "id": 2105,
+          "name": "Kemalpaşa",
+          "slug": "kemalpasa"
+        },
+        {
+          "id": 1152,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1828,
+          "name": "Murgul",
+          "slug": "murgul"
+        },
+        {
+          "id": 1653,
+          "name": "Şavşat",
+          "slug": "savsat"
+        },
+        {
+          "id": 1736,
+          "name": "Yusufeli",
+          "slug": "yusufeli"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Aydın",
+      "slug": "aydin",
+      "districts": [
+        {
+          "id": 1206,
+          "name": "Bozdoğan",
+          "slug": "bozdogan"
+        },
+        {
+          "id": 1781,
+          "name": "Buharkent",
+          "slug": "buharkent"
+        },
+        {
+          "id": 1256,
+          "name": "Çine",
+          "slug": "cine"
+        },
+        {
+          "id": 2000,
+          "name": "Didim",
+          "slug": "didim"
+        },
+        {
+          "id": 2076,
+          "name": "Efeler",
+          "slug": "efeler"
+        },
+        {
+          "id": 1348,
+          "name": "Germencik",
+          "slug": "germencik"
+        },
+        {
+          "id": 1807,
+          "name": "İncirliova",
+          "slug": "incirliova"
+        },
+        {
+          "id": 1435,
+          "name": "Karacasu",
+          "slug": "karacasu"
+        },
+        {
+          "id": 1957,
+          "name": "Karpuzlu",
+          "slug": "karpuzlu"
+        },
+        {
+          "id": 1479,
+          "name": "Koçarlı",
+          "slug": "kocarli"
+        },
+        {
+          "id": 1968,
+          "name": "Köşk",
+          "slug": "kosk"
+        },
+        {
+          "id": 1497,
+          "name": "Kuşadası",
+          "slug": "kusadasi"
+        },
+        {
+          "id": 1498,
+          "name": "Kuyucak",
+          "slug": "kuyucak"
+        },
+        {
+          "id": 1542,
+          "name": "Nazilli",
+          "slug": "nazilli"
+        },
+        {
+          "id": 1637,
+          "name": "Söke",
+          "slug": "soke"
+        },
+        {
+          "id": 1640,
+          "name": "Sultanhisar",
+          "slug": "sultanhisar"
+        },
+        {
+          "id": 1724,
+          "name": "Yenipazar",
+          "slug": "yenipazar"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Balıkesir",
+      "slug": "balikesir",
+      "districts": [
+        {
+          "id": 2077,
+          "name": "Altıeylül",
+          "slug": "altieylul"
+        },
+        {
+          "id": 1161,
+          "name": "Ayvalık",
+          "slug": "ayvalik"
+        },
+        {
+          "id": 1169,
+          "name": "Balya",
+          "slug": "balya"
+        },
+        {
+          "id": 1171,
+          "name": "Bandırma",
+          "slug": "bandirma"
+        },
+        {
+          "id": 1191,
+          "name": "Bigadiç",
+          "slug": "bigadic"
+        },
+        {
+          "id": 1216,
+          "name": "Burhaniye",
+          "slug": "burhaniye"
+        },
+        {
+          "id": 1291,
+          "name": "Dursunbey",
+          "slug": "dursunbey"
+        },
+        {
+          "id": 1294,
+          "name": "Edremit",
+          "slug": "edremit"
+        },
+        {
+          "id": 1310,
+          "name": "Erdek",
+          "slug": "erdek"
+        },
+        {
+          "id": 1928,
+          "name": "Gömeç",
+          "slug": "gomec"
+        },
+        {
+          "id": 1360,
+          "name": "Gönen",
+          "slug": "gonen"
+        },
+        {
+          "id": 1384,
+          "name": "Havran",
+          "slug": "havran"
+        },
+        {
+          "id": 1418,
+          "name": "İvrindi",
+          "slug": "ivrindi"
+        },
+        {
+          "id": 2078,
+          "name": "Karesi",
+          "slug": "karesi"
+        },
+        {
+          "id": 1462,
+          "name": "Kepsut",
+          "slug": "kepsut"
+        },
+        {
+          "id": 1514,
+          "name": "Manyas",
+          "slug": "manyas"
+        },
+        {
+          "id": 1824,
+          "name": "Marmara",
+          "slug": "marmara"
+        },
+        {
+          "id": 1608,
+          "name": "Savaştepe",
+          "slug": "savastepe"
+        },
+        {
+          "id": 1619,
+          "name": "Sındırgı",
+          "slug": "sindirgi"
+        },
+        {
+          "id": 1644,
+          "name": "Susurluk",
+          "slug": "susurluk"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Bilecik",
+      "slug": "bilecik",
+      "districts": [
+        {
+          "id": 1210,
+          "name": "Bozüyük",
+          "slug": "bozuyuk"
+        },
+        {
+          "id": 1359,
+          "name": "Gölpazarı",
+          "slug": "golpazari"
+        },
+        {
+          "id": 1948,
+          "name": "İnhisar",
+          "slug": "inhisar"
+        },
+        {
+          "id": 1192,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1559,
+          "name": "Osmaneli",
+          "slug": "osmaneli"
+        },
+        {
+          "id": 1571,
+          "name": "Pazaryeri",
+          "slug": "pazaryeri"
+        },
+        {
+          "id": 1636,
+          "name": "Söğüt",
+          "slug": "sogut"
+        },
+        {
+          "id": 1857,
+          "name": "Yenipazar",
+          "slug": "yenipazar"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bingöl",
+      "slug": "bingol",
+      "districts": [
+        {
+          "id": 1750,
+          "name": "Adaklı",
+          "slug": "adakli"
+        },
+        {
+          "id": 1344,
+          "name": "Genç",
+          "slug": "genc"
+        },
+        {
+          "id": 1446,
+          "name": "Karlıova",
+          "slug": "karliova"
+        },
+        {
+          "id": 1475,
+          "name": "Kiğı",
+          "slug": "kigi"
+        },
+        {
+          "id": 1193,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1633,
+          "name": "Solhan",
+          "slug": "solhan"
+        },
+        {
+          "id": 1855,
+          "name": "Yayladere",
+          "slug": "yayladere"
+        },
+        {
+          "id": 1996,
+          "name": "Yedisu",
+          "slug": "yedisu"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Bitlis",
+      "slug": "bitlis",
+      "districts": [
+        {
+          "id": 1106,
+          "name": "Adilcevaz",
+          "slug": "adilcevaz"
+        },
+        {
+          "id": 1112,
+          "name": "Ahlat",
+          "slug": "ahlat"
+        },
+        {
+          "id": 1798,
+          "name": "Güroymak",
+          "slug": "guroymak"
+        },
+        {
+          "id": 1394,
+          "name": "Hizan",
+          "slug": "hizan"
+        },
+        {
+          "id": 1196,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1537,
+          "name": "Mutki",
+          "slug": "mutki"
+        },
+        {
+          "id": 1669,
+          "name": "Tatvan",
+          "slug": "tatvan"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Bolu",
+      "slug": "bolu",
+      "districts": [
+        {
+          "id": 1916,
+          "name": "Dörtdivan",
+          "slug": "dortdivan"
+        },
+        {
+          "id": 1346,
+          "name": "Gerede",
+          "slug": "gerede"
+        },
+        {
+          "id": 1364,
+          "name": "Göynük",
+          "slug": "goynuk"
+        },
+        {
+          "id": 1466,
+          "name": "Kıbrıscık",
+          "slug": "kibriscik"
+        },
+        {
+          "id": 1522,
+          "name": "Mengen",
+          "slug": "mengen"
+        },
+        {
+          "id": 1199,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1531,
+          "name": "Mudurnu",
+          "slug": "mudurnu"
+        },
+        {
+          "id": 1610,
+          "name": "Seben",
+          "slug": "seben"
+        },
+        {
+          "id": 1997,
+          "name": "Yeniçağa",
+          "slug": "yenicaga"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Burdur",
+      "slug": "burdur",
+      "districts": [
+        {
+          "id": 1109,
+          "name": "Ağlasun",
+          "slug": "aglasun"
+        },
+        {
+          "id": 1874,
+          "name": "Altınyayla",
+          "slug": "altinyayla"
+        },
+        {
+          "id": 1211,
+          "name": "Bucak",
+          "slug": "bucak"
+        },
+        {
+          "id": 1899,
+          "name": "Çavdır",
+          "slug": "cavdir"
+        },
+        {
+          "id": 1903,
+          "name": "Çeltikçi",
+          "slug": "celtikci"
+        },
+        {
+          "id": 1357,
+          "name": "Gölhisar",
+          "slug": "golhisar"
+        },
+        {
+          "id": 1813,
+          "name": "Karamanlı",
+          "slug": "karamanli"
+        },
+        {
+          "id": 1816,
+          "name": "Kemer",
+          "slug": "kemer"
+        },
+        {
+          "id": 1215,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1672,
+          "name": "Tefenni",
+          "slug": "tefenni"
+        },
+        {
+          "id": 1728,
+          "name": "Yeşilova",
+          "slug": "yesilova"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Bursa",
+      "slug": "bursa",
+      "districts": [
+        {
+          "id": 1783,
+          "name": "Büyükorhan",
+          "slug": "buyukorhan"
+        },
+        {
+          "id": 1343,
+          "name": "Gemlik",
+          "slug": "gemlik"
+        },
+        {
+          "id": 1935,
+          "name": "Gürsu",
+          "slug": "gursu"
+        },
+        {
+          "id": 1799,
+          "name": "Harmancık",
+          "slug": "harmancik"
+        },
+        {
+          "id": 1411,
+          "name": "İnegöl",
+          "slug": "inegol"
+        },
+        {
+          "id": 1420,
+          "name": "İznik",
+          "slug": "iznik"
+        },
+        {
+          "id": 1434,
+          "name": "Karacabey",
+          "slug": "karacabey"
+        },
+        {
+          "id": 1457,
+          "name": "Keles",
+          "slug": "keles"
+        },
+        {
+          "id": 1960,
+          "name": "Kestel",
+          "slug": "kestel"
+        },
+        {
+          "id": 1530,
+          "name": "Mudanya",
+          "slug": "mudanya"
+        },
+        {
+          "id": 1535,
+          "name": "Mustafakemalpaşa",
+          "slug": "mustafakemalpasa"
+        },
+        {
+          "id": 1829,
+          "name": "Nilüfer",
+          "slug": "nilufer"
+        },
+        {
+          "id": 1553,
+          "name": "Orhaneli",
+          "slug": "orhaneli"
+        },
+        {
+          "id": 1554,
+          "name": "Orhangazi",
+          "slug": "orhangazi"
+        },
+        {
+          "id": 1832,
+          "name": "Osmangazi",
+          "slug": "osmangazi"
+        },
+        {
+          "id": 1725,
+          "name": "Yenişehir",
+          "slug": "yenisehir"
+        },
+        {
+          "id": 1859,
+          "name": "Yıldırım",
+          "slug": "yildirim"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Çanakkale",
+      "slug": "canakkale",
+      "districts": [
+        {
+          "id": 1160,
+          "name": "Ayvacık",
+          "slug": "ayvacik"
+        },
+        {
+          "id": 1180,
+          "name": "Bayramiç",
+          "slug": "bayramic"
+        },
+        {
+          "id": 1190,
+          "name": "Biga",
+          "slug": "biga"
+        },
+        {
+          "id": 1205,
+          "name": "Bozcaada",
+          "slug": "bozcaada"
+        },
+        {
+          "id": 1229,
+          "name": "Çan",
+          "slug": "can"
+        },
+        {
+          "id": 1293,
+          "name": "Eceabat",
+          "slug": "eceabat"
+        },
+        {
+          "id": 1326,
+          "name": "Ezine",
+          "slug": "ezine"
+        },
+        {
+          "id": 1340,
+          "name": "Gelibolu",
+          "slug": "gelibolu"
+        },
+        {
+          "id": 1408,
+          "name": "Gökçeada",
+          "slug": "gokceada"
+        },
+        {
+          "id": 1503,
+          "name": "Lapseki",
+          "slug": "lapseki"
+        },
+        {
+          "id": 1230,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1722,
+          "name": "Yenice",
+          "slug": "yenice"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Çankırı",
+      "slug": "cankiri",
+      "districts": [
+        {
+          "id": 1765,
+          "name": "Atkaracalar",
+          "slug": "atkaracalar"
+        },
+        {
+          "id": 1885,
+          "name": "Bayramören",
+          "slug": "bayramoren"
+        },
+        {
+          "id": 1248,
+          "name": "Çerkeş",
+          "slug": "cerkes"
+        },
+        {
+          "id": 1300,
+          "name": "Eldivan",
+          "slug": "eldivan"
+        },
+        {
+          "id": 1399,
+          "name": "Ilgaz",
+          "slug": "ilgaz"
+        },
+        {
+          "id": 1817,
+          "name": "Kızılırmak",
+          "slug": "kizilirmak"
+        },
+        {
+          "id": 1963,
+          "name": "Korgun",
+          "slug": "korgun"
+        },
+        {
+          "id": 1494,
+          "name": "Kurşunlu",
+          "slug": "kursunlu"
+        },
+        {
+          "id": 1232,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1555,
+          "name": "Orta",
+          "slug": "orta"
+        },
+        {
+          "id": 1649,
+          "name": "Şabanözü",
+          "slug": "sabanozu"
+        },
+        {
+          "id": 1718,
+          "name": "Yapraklı",
+          "slug": "yaprakli"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Çorum",
+      "slug": "corum",
+      "districts": [
+        {
+          "id": 1124,
+          "name": "Alaca",
+          "slug": "alaca"
+        },
+        {
+          "id": 1177,
+          "name": "Bayat",
+          "slug": "bayat"
+        },
+        {
+          "id": 1778,
+          "name": "Boğazkale",
+          "slug": "bogazkale"
+        },
+        {
+          "id": 1911,
+          "name": "Dodurga",
+          "slug": "dodurga"
+        },
+        {
+          "id": 1414,
+          "name": "İskilip",
+          "slug": "iskilip"
+        },
+        {
+          "id": 1445,
+          "name": "Kargı",
+          "slug": "kargi"
+        },
+        {
+          "id": 1972,
+          "name": "Laçin",
+          "slug": "lacin"
+        },
+        {
+          "id": 1520,
+          "name": "Mecitözü",
+          "slug": "mecitozu"
+        },
+        {
+          "id": 1259,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1976,
+          "name": "Oğuzlar",
+          "slug": "oguzlar"
+        },
+        {
+          "id": 1556,
+          "name": "Ortaköy",
+          "slug": "ortakoy"
+        },
+        {
+          "id": 1558,
+          "name": "Osmancık",
+          "slug": "osmancik"
+        },
+        {
+          "id": 1642,
+          "name": "Sungurlu",
+          "slug": "sungurlu"
+        },
+        {
+          "id": 1850,
+          "name": "Uğurludağ",
+          "slug": "ugurludag"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Denizli",
+      "slug": "denizli",
+      "districts": [
+        {
+          "id": 1102,
+          "name": "Acıpayam",
+          "slug": "acipayam"
+        },
+        {
+          "id": 1769,
+          "name": "Babadağ",
+          "slug": "babadag"
+        },
+        {
+          "id": 1881,
+          "name": "Baklan",
+          "slug": "baklan"
+        },
+        {
+          "id": 1774,
+          "name": "Bekilli",
+          "slug": "bekilli"
+        },
+        {
+          "id": 1888,
+          "name": "Beyağaç",
+          "slug": "beyagac"
+        },
+        {
+          "id": 1889,
+          "name": "Bozkurt",
+          "slug": "bozkurt"
+        },
+        {
+          "id": 1214,
+          "name": "Buldan",
+          "slug": "buldan"
+        },
+        {
+          "id": 1224,
+          "name": "Çal",
+          "slug": "cal"
+        },
+        {
+          "id": 1226,
+          "name": "Çameli",
+          "slug": "cameli"
+        },
+        {
+          "id": 1233,
+          "name": "Çardak",
+          "slug": "cardak"
+        },
+        {
+          "id": 1257,
+          "name": "Çivril",
+          "slug": "civril"
+        },
+        {
+          "id": 1371,
+          "name": "Güney",
+          "slug": "guney"
+        },
+        {
+          "id": 1803,
+          "name": "Honaz",
+          "slug": "honaz"
+        },
+        {
+          "id": 1426,
+          "name": "Kale",
+          "slug": "kale"
+        },
+        {
+          "id": 2079,
+          "name": "Merkezefendi",
+          "slug": "merkezefendi"
+        },
+        {
+          "id": 1871,
+          "name": "Pamukkale",
+          "slug": "pamukkale"
+        },
+        {
+          "id": 1597,
+          "name": "Sarayköy",
+          "slug": "saraykoy"
+        },
+        {
+          "id": 1840,
+          "name": "Serinhisar",
+          "slug": "serinhisar"
+        },
+        {
+          "id": 1670,
+          "name": "Tavas",
+          "slug": "tavas"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Diyarbakır",
+      "slug": "diyarbakir",
+      "districts": [
+        {
+          "id": 2040,
+          "name": "Bağlar",
+          "slug": "baglar"
+        },
+        {
+          "id": 1195,
+          "name": "Bismil",
+          "slug": "bismil"
+        },
+        {
+          "id": 1249,
+          "name": "Çermik",
+          "slug": "cermik"
+        },
+        {
+          "id": 1253,
+          "name": "Çınar",
+          "slug": "cinar"
+        },
+        {
+          "id": 1263,
+          "name": "Çüngüş",
+          "slug": "cungus"
+        },
+        {
+          "id": 1278,
+          "name": "Dicle",
+          "slug": "dicle"
+        },
+        {
+          "id": 1791,
+          "name": "Eğil",
+          "slug": "egil"
+        },
+        {
+          "id": 1315,
+          "name": "Ergani",
+          "slug": "ergani"
+        },
+        {
+          "id": 1381,
+          "name": "Hani",
+          "slug": "hani"
+        },
+        {
+          "id": 1389,
+          "name": "Hazro",
+          "slug": "hazro"
+        },
+        {
+          "id": 2041,
+          "name": "Kayapınar",
+          "slug": "kayapinar"
+        },
+        {
+          "id": 1962,
+          "name": "Kocaköy",
+          "slug": "kocakoy"
+        },
+        {
+          "id": 1490,
+          "name": "Kulp",
+          "slug": "kulp"
+        },
+        {
+          "id": 1504,
+          "name": "Lice",
+          "slug": "lice"
+        },
+        {
+          "id": 1624,
+          "name": "Silvan",
+          "slug": "silvan"
+        },
+        {
+          "id": 2042,
+          "name": "Sur",
+          "slug": "sur"
+        },
+        {
+          "id": 2043,
+          "name": "Yenişehir",
+          "slug": "yenisehir"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Edirne",
+      "slug": "edirne",
+      "districts": [
+        {
+          "id": 1307,
+          "name": "Enez",
+          "slug": "enez"
+        },
+        {
+          "id": 1385,
+          "name": "Havsa",
+          "slug": "havsa"
+        },
+        {
+          "id": 1412,
+          "name": "İpsala",
+          "slug": "ipsala"
+        },
+        {
+          "id": 1464,
+          "name": "Keşan",
+          "slug": "kesan"
+        },
+        {
+          "id": 1502,
+          "name": "Lalapaşa",
+          "slug": "lalapasa"
+        },
+        {
+          "id": 1523,
+          "name": "Meriç",
+          "slug": "meric"
+        },
+        {
+          "id": 1295,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1988,
+          "name": "Süloğlu",
+          "slug": "suloglu"
+        },
+        {
+          "id": 1705,
+          "name": "Uzunköprü",
+          "slug": "uzunkopru"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Elazığ",
+      "slug": "elazig",
+      "districts": [
+        {
+          "id": 1110,
+          "name": "Ağın",
+          "slug": "agin"
+        },
+        {
+          "id": 1873,
+          "name": "Alacakaya",
+          "slug": "alacakaya"
+        },
+        {
+          "id": 1762,
+          "name": "Arıcak",
+          "slug": "aricak"
+        },
+        {
+          "id": 1173,
+          "name": "Baskil",
+          "slug": "baskil"
+        },
+        {
+          "id": 1438,
+          "name": "Karakoçan",
+          "slug": "karakocan"
+        },
+        {
+          "id": 1455,
+          "name": "Keban",
+          "slug": "keban"
+        },
+        {
+          "id": 1820,
+          "name": "Kovancılar",
+          "slug": "kovancilar"
+        },
+        {
+          "id": 1506,
+          "name": "Maden",
+          "slug": "maden"
+        },
+        {
+          "id": 1298,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1566,
+          "name": "Palu",
+          "slug": "palu"
+        },
+        {
+          "id": 1631,
+          "name": "Sivrice",
+          "slug": "sivrice"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Erzincan",
+      "slug": "erzincan",
+      "districts": [
+        {
+          "id": 1243,
+          "name": "Çayırlı",
+          "slug": "cayirli"
+        },
+        {
+          "id": 1406,
+          "name": "İliç",
+          "slug": "ilic"
+        },
+        {
+          "id": 1459,
+          "name": "Kemah",
+          "slug": "kemah"
+        },
+        {
+          "id": 1460,
+          "name": "Kemaliye",
+          "slug": "kemaliye"
+        },
+        {
+          "id": 1318,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1977,
+          "name": "Otlukbeli",
+          "slug": "otlukbeli"
+        },
+        {
+          "id": 1583,
+          "name": "Refahiye",
+          "slug": "refahiye"
+        },
+        {
+          "id": 1675,
+          "name": "Tercan",
+          "slug": "tercan"
+        },
+        {
+          "id": 1853,
+          "name": "Üzümlü",
+          "slug": "uzumlu"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Erzurum",
+      "slug": "erzurum",
+      "districts": [
+        {
+          "id": 1153,
+          "name": "Aşkale",
+          "slug": "askale"
+        },
+        {
+          "id": 1945,
+          "name": "Aziziye",
+          "slug": "aziziye"
+        },
+        {
+          "id": 1235,
+          "name": "Çat",
+          "slug": "cat"
+        },
+        {
+          "id": 1392,
+          "name": "Hınıs",
+          "slug": "hinis"
+        },
+        {
+          "id": 1396,
+          "name": "Horasan",
+          "slug": "horasan"
+        },
+        {
+          "id": 1416,
+          "name": "İspir",
+          "slug": "ispir"
+        },
+        {
+          "id": 1812,
+          "name": "Karaçoban",
+          "slug": "karacoban"
+        },
+        {
+          "id": 1444,
+          "name": "Karayazı",
+          "slug": "karayazi"
+        },
+        {
+          "id": 1967,
+          "name": "Köprüköy",
+          "slug": "koprukoy"
+        },
+        {
+          "id": 1540,
+          "name": "Narman",
+          "slug": "narman"
+        },
+        {
+          "id": 1550,
+          "name": "Oltu",
+          "slug": "oltu"
+        },
+        {
+          "id": 1551,
+          "name": "Olur",
+          "slug": "olur"
+        },
+        {
+          "id": 2044,
+          "name": "Palandöken",
+          "slug": "palandoken"
+        },
+        {
+          "id": 1567,
+          "name": "Pasinler",
+          "slug": "pasinler"
+        },
+        {
+          "id": 1865,
+          "name": "Pazaryolu",
+          "slug": "pazaryolu"
+        },
+        {
+          "id": 1657,
+          "name": "Şenkaya",
+          "slug": "senkaya"
+        },
+        {
+          "id": 1674,
+          "name": "Tekman",
+          "slug": "tekman"
+        },
+        {
+          "id": 1683,
+          "name": "Tortum",
+          "slug": "tortum"
+        },
+        {
+          "id": 1851,
+          "name": "Uzundere",
+          "slug": "uzundere"
+        },
+        {
+          "id": 2045,
+          "name": "Yakutiye",
+          "slug": "yakutiye"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Eskişehir",
+      "slug": "eskisehir",
+      "districts": [
+        {
+          "id": 1759,
+          "name": "Alpu",
+          "slug": "alpu"
+        },
+        {
+          "id": 1777,
+          "name": "Beylikova",
+          "slug": "beylikova"
+        },
+        {
+          "id": 1255,
+          "name": "Çifteler",
+          "slug": "cifteler"
+        },
+        {
+          "id": 1934,
+          "name": "Günyüzü",
+          "slug": "gunyuzu"
+        },
+        {
+          "id": 1939,
+          "name": "Han",
+          "slug": "han"
+        },
+        {
+          "id": 1808,
+          "name": "İnönü",
+          "slug": "inonu"
+        },
+        {
+          "id": 1508,
+          "name": "Mahmudiye",
+          "slug": "mahmudiye"
+        },
+        {
+          "id": 1973,
+          "name": "Mihalgazi",
+          "slug": "mihalgazi"
+        },
+        {
+          "id": 1527,
+          "name": "Mihalıççık",
+          "slug": "mihaliccik"
+        },
+        {
+          "id": 2046,
+          "name": "Odunpazarı",
+          "slug": "odunpazari"
+        },
+        {
+          "id": 1599,
+          "name": "Sarıcakaya",
+          "slug": "saricakaya"
+        },
+        {
+          "id": 1618,
+          "name": "Seyitgazi",
+          "slug": "seyitgazi"
+        },
+        {
+          "id": 1632,
+          "name": "Sivrihisar",
+          "slug": "sivrihisar"
+        },
+        {
+          "id": 2047,
+          "name": "Tepebaşı",
+          "slug": "tepebasi"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Gaziantep",
+      "slug": "gaziantep",
+      "districts": [
+        {
+          "id": 1139,
+          "name": "Araban",
+          "slug": "araban"
+        },
+        {
+          "id": 1415,
+          "name": "İslahiye",
+          "slug": "islahiye"
+        },
+        {
+          "id": 1956,
+          "name": "Karkamış",
+          "slug": "karkamis"
+        },
+        {
+          "id": 1546,
+          "name": "Nizip",
+          "slug": "nizip"
+        },
+        {
+          "id": 1974,
+          "name": "Nurdağı",
+          "slug": "nurdagi"
+        },
+        {
+          "id": 1549,
+          "name": "Oğuzeli",
+          "slug": "oguzeli"
+        },
+        {
+          "id": 1841,
+          "name": "Şahinbey",
+          "slug": "sahinbey"
+        },
+        {
+          "id": 1844,
+          "name": "Şehitkamil",
+          "slug": "sehitkamil"
+        },
+        {
+          "id": 1720,
+          "name": "Yavuzeli",
+          "slug": "yavuzeli"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Giresun",
+      "slug": "giresun",
+      "districts": [
+        {
+          "id": 1133,
+          "name": "Alucra",
+          "slug": "alucra"
+        },
+        {
+          "id": 1212,
+          "name": "Bulancak",
+          "slug": "bulancak"
+        },
+        {
+          "id": 1893,
+          "name": "Çamoluk",
+          "slug": "camoluk"
+        },
+        {
+          "id": 1894,
+          "name": "Çanakçı",
+          "slug": "canakci"
+        },
+        {
+          "id": 1272,
+          "name": "Dereli",
+          "slug": "dereli"
+        },
+        {
+          "id": 1912,
+          "name": "Doğankent",
+          "slug": "dogankent"
+        },
+        {
+          "id": 1320,
+          "name": "Espiye",
+          "slug": "espiye"
+        },
+        {
+          "id": 1324,
+          "name": "Eynesil",
+          "slug": "eynesil"
+        },
+        {
+          "id": 1361,
+          "name": "Görele",
+          "slug": "gorele"
+        },
+        {
+          "id": 1930,
+          "name": "Güce",
+          "slug": "guce"
+        },
+        {
+          "id": 1465,
+          "name": "Keşap",
+          "slug": "kesap"
+        },
+        {
+          "id": 1352,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1837,
+          "name": "Piraziz",
+          "slug": "piraziz"
+        },
+        {
+          "id": 1654,
+          "name": "Şebinkarahisar",
+          "slug": "sebinkarahisar"
+        },
+        {
+          "id": 1678,
+          "name": "Tirebolu",
+          "slug": "tirebolu"
+        },
+        {
+          "id": 1854,
+          "name": "Yağlıdere",
+          "slug": "yaglidere"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Gümüşhane",
+      "slug": "gumushane",
+      "districts": [
+        {
+          "id": 1458,
+          "name": "Kelkit",
+          "slug": "kelkit"
+        },
+        {
+          "id": 1822,
+          "name": "Köse",
+          "slug": "kose"
+        },
+        {
+          "id": 1971,
+          "name": "Kürtün",
+          "slug": "kurtun"
+        },
+        {
+          "id": 1369,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1660,
+          "name": "Şiran",
+          "slug": "siran"
+        },
+        {
+          "id": 1684,
+          "name": "Torul",
+          "slug": "torul"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Hakkari",
+      "slug": "hakkari",
+      "districts": [
+        {
+          "id": 1261,
+          "name": "Çukurca",
+          "slug": "cukurca"
+        },
+        {
+          "id": 2107,
+          "name": "Derecik",
+          "slug": "derecik"
+        },
+        {
+          "id": 1377,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1656,
+          "name": "Şemdinli",
+          "slug": "semdinli"
+        },
+        {
+          "id": 1737,
+          "name": "Yüksekova",
+          "slug": "yuksekova"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Hatay",
+      "slug": "hatay",
+      "districts": [
+        {
+          "id": 1131,
+          "name": "Altınözü",
+          "slug": "altinozu"
+        },
+        {
+          "id": 2080,
+          "name": "Antakya",
+          "slug": "antakya"
+        },
+        {
+          "id": 2081,
+          "name": "Arsuz",
+          "slug": "arsuz"
+        },
+        {
+          "id": 1887,
+          "name": "Belen",
+          "slug": "belen"
+        },
+        {
+          "id": 2082,
+          "name": "Defne",
+          "slug": "defne"
+        },
+        {
+          "id": 1289,
+          "name": "Dörtyol",
+          "slug": "dortyol"
+        },
+        {
+          "id": 1792,
+          "name": "Erzin",
+          "slug": "erzin"
+        },
+        {
+          "id": 1382,
+          "name": "Hassa",
+          "slug": "hassa"
+        },
+        {
+          "id": 1413,
+          "name": "İskenderun",
+          "slug": "iskenderun"
+        },
+        {
+          "id": 1468,
+          "name": "Kırıkhan",
+          "slug": "kirikhan"
+        },
+        {
+          "id": 1970,
+          "name": "Kumlu",
+          "slug": "kumlu"
+        },
+        {
+          "id": 2083,
+          "name": "Payas",
+          "slug": "payas"
+        },
+        {
+          "id": 1585,
+          "name": "Reyhanlı",
+          "slug": "reyhanli"
+        },
+        {
+          "id": 1591,
+          "name": "Samandağ",
+          "slug": "samandag"
+        },
+        {
+          "id": 1721,
+          "name": "Yayladağı",
+          "slug": "yayladagi"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Isparta",
+      "slug": "isparta",
+      "districts": [
+        {
+          "id": 1755,
+          "name": "Aksu",
+          "slug": "aksu"
+        },
+        {
+          "id": 1154,
+          "name": "Atabey",
+          "slug": "atabey"
+        },
+        {
+          "id": 1297,
+          "name": "Eğirdir",
+          "slug": "egirdir"
+        },
+        {
+          "id": 1341,
+          "name": "Gelendost",
+          "slug": "gelendost"
+        },
+        {
+          "id": 1929,
+          "name": "Gönen",
+          "slug": "gonen"
+        },
+        {
+          "id": 1456,
+          "name": "Keçiborlu",
+          "slug": "keciborlu"
+        },
+        {
+          "id": 1401,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1615,
+          "name": "Senirkent",
+          "slug": "senirkent"
+        },
+        {
+          "id": 1648,
+          "name": "Sütçüler",
+          "slug": "sutculer"
+        },
+        {
+          "id": 1651,
+          "name": "Şarkikaraağaç",
+          "slug": "sarkikaraagac"
+        },
+        {
+          "id": 1699,
+          "name": "Uluborlu",
+          "slug": "uluborlu"
+        },
+        {
+          "id": 1717,
+          "name": "Yalvaç",
+          "slug": "yalvac"
+        },
+        {
+          "id": 2001,
+          "name": "Yenişarbademli",
+          "slug": "yenisarbademli"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Mersin",
+      "slug": "mersin",
+      "districts": [
+        {
+          "id": 2064,
+          "name": "Akdeniz",
+          "slug": "akdeniz"
+        },
+        {
+          "id": 1135,
+          "name": "Anamur",
+          "slug": "anamur"
+        },
+        {
+          "id": 1766,
+          "name": "Aydıncık",
+          "slug": "aydincik"
+        },
+        {
+          "id": 1779,
+          "name": "Bozyazı",
+          "slug": "bozyazi"
+        },
+        {
+          "id": 1892,
+          "name": "Çamlıyayla",
+          "slug": "camliyayla"
+        },
+        {
+          "id": 1311,
+          "name": "Erdemli",
+          "slug": "erdemli"
+        },
+        {
+          "id": 1366,
+          "name": "Gülnar",
+          "slug": "gulnar"
+        },
+        {
+          "id": 2065,
+          "name": "Mezitli",
+          "slug": "mezitli"
+        },
+        {
+          "id": 1536,
+          "name": "Mut",
+          "slug": "mut"
+        },
+        {
+          "id": 1621,
+          "name": "Silifke",
+          "slug": "silifke"
+        },
+        {
+          "id": 1665,
+          "name": "Tarsus",
+          "slug": "tarsus"
+        },
+        {
+          "id": 2066,
+          "name": "Toroslar",
+          "slug": "toroslar"
+        },
+        {
+          "id": 2067,
+          "name": "Yenişehir",
+          "slug": "yenisehir"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "İstanbul",
+      "slug": "istanbul",
+      "districts": [
+        {
+          "id": 1103,
+          "name": "Adalar",
+          "slug": "adalar"
+        },
+        {
+          "id": 2048,
+          "name": "Arnavutköy",
+          "slug": "arnavutkoy"
+        },
+        {
+          "id": 2049,
+          "name": "Ataşehir",
+          "slug": "atasehir"
+        },
+        {
+          "id": 2003,
+          "name": "Avcılar",
+          "slug": "avcilar"
+        },
+        {
+          "id": 2004,
+          "name": "Bağcılar",
+          "slug": "bagcilar"
+        },
+        {
+          "id": 2005,
+          "name": "Bahçelievler",
+          "slug": "bahcelievler"
+        },
+        {
+          "id": 1166,
+          "name": "Bakırköy",
+          "slug": "bakirkoy"
+        },
+        {
+          "id": 2050,
+          "name": "Başakşehir",
+          "slug": "basaksehir"
+        },
+        {
+          "id": 1886,
+          "name": "Bayrampaşa",
+          "slug": "bayrampasa"
+        },
+        {
+          "id": 1183,
+          "name": "Beşiktaş",
+          "slug": "besiktas"
+        },
+        {
+          "id": 1185,
+          "name": "Beykoz",
+          "slug": "beykoz"
+        },
+        {
+          "id": 2051,
+          "name": "Beylikdüzü",
+          "slug": "beylikduzu"
+        },
+        {
+          "id": 1186,
+          "name": "Beyoğlu",
+          "slug": "beyoglu"
+        },
+        {
+          "id": 1782,
+          "name": "Büyükçekmece",
+          "slug": "buyukcekmece"
+        },
+        {
+          "id": 1237,
+          "name": "Çatalca",
+          "slug": "catalca"
+        },
+        {
+          "id": 2052,
+          "name": "Çekmeköy",
+          "slug": "cekmekoy"
+        },
+        {
+          "id": 2016,
+          "name": "Esenler",
+          "slug": "esenler"
+        },
+        {
+          "id": 2053,
+          "name": "Esenyurt",
+          "slug": "esenyurt"
+        },
+        {
+          "id": 1325,
+          "name": "Eyüpsultan",
+          "slug": "eyupsultan"
+        },
+        {
+          "id": 1327,
+          "name": "Fatih",
+          "slug": "fatih"
+        },
+        {
+          "id": 1336,
+          "name": "Gaziosmanpaşa",
+          "slug": "gaziosmanpasa"
+        },
+        {
+          "id": 2010,
+          "name": "Güngören",
+          "slug": "gungoren"
+        },
+        {
+          "id": 1421,
+          "name": "Kadıköy",
+          "slug": "kadikoy"
+        },
+        {
+          "id": 1810,
+          "name": "Kağıthane",
+          "slug": "kagithane"
+        },
+        {
+          "id": 1449,
+          "name": "Kartal",
+          "slug": "kartal"
+        },
+        {
+          "id": 1823,
+          "name": "Küçükçekmece",
+          "slug": "kucukcekmece"
+        },
+        {
+          "id": 2012,
+          "name": "Maltepe",
+          "slug": "maltepe"
+        },
+        {
+          "id": 1835,
+          "name": "Pendik",
+          "slug": "pendik"
+        },
+        {
+          "id": 2054,
+          "name": "Sancaktepe",
+          "slug": "sancaktepe"
+        },
+        {
+          "id": 1604,
+          "name": "Sarıyer",
+          "slug": "sariyer"
+        },
+        {
+          "id": 1622,
+          "name": "Silivri",
+          "slug": "silivri"
+        },
+        {
+          "id": 2014,
+          "name": "Sultanbeyli",
+          "slug": "sultanbeyli"
+        },
+        {
+          "id": 2055,
+          "name": "Sultangazi",
+          "slug": "sultangazi"
+        },
+        {
+          "id": 1659,
+          "name": "Şile",
+          "slug": "sile"
+        },
+        {
+          "id": 1663,
+          "name": "Şişli",
+          "slug": "sisli"
+        },
+        {
+          "id": 2015,
+          "name": "Tuzla",
+          "slug": "tuzla"
+        },
+        {
+          "id": 1852,
+          "name": "Ümraniye",
+          "slug": "umraniye"
+        },
+        {
+          "id": 1708,
+          "name": "Üsküdar",
+          "slug": "uskudar"
+        },
+        {
+          "id": 1739,
+          "name": "Zeytinburnu",
+          "slug": "zeytinburnu"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "İzmir",
+      "slug": "izmir",
+      "districts": [
+        {
+          "id": 1128,
+          "name": "Aliağa",
+          "slug": "aliaga"
+        },
+        {
+          "id": 2006,
+          "name": "Balçova",
+          "slug": "balcova"
+        },
+        {
+          "id": 1178,
+          "name": "Bayındır",
+          "slug": "bayindir"
+        },
+        {
+          "id": 2056,
+          "name": "Bayraklı",
+          "slug": "bayrakli"
+        },
+        {
+          "id": 1181,
+          "name": "Bergama",
+          "slug": "bergama"
+        },
+        {
+          "id": 1776,
+          "name": "Beydağ",
+          "slug": "beydag"
+        },
+        {
+          "id": 1203,
+          "name": "Bornova",
+          "slug": "bornova"
+        },
+        {
+          "id": 1780,
+          "name": "Buca",
+          "slug": "buca"
+        },
+        {
+          "id": 1251,
+          "name": "Çeşme",
+          "slug": "cesme"
+        },
+        {
+          "id": 2007,
+          "name": "Çiğli",
+          "slug": "cigli"
+        },
+        {
+          "id": 1280,
+          "name": "Dikili",
+          "slug": "dikili"
+        },
+        {
+          "id": 1334,
+          "name": "Foça",
+          "slug": "foca"
+        },
+        {
+          "id": 2009,
+          "name": "Gaziemir",
+          "slug": "gaziemir"
+        },
+        {
+          "id": 2018,
+          "name": "Güzelbahçe",
+          "slug": "guzelbahce"
+        },
+        {
+          "id": 2057,
+          "name": "Karabağlar",
+          "slug": "karabaglar"
+        },
+        {
+          "id": 1432,
+          "name": "Karaburun",
+          "slug": "karaburun"
+        },
+        {
+          "id": 1448,
+          "name": "Karşıyaka",
+          "slug": "karsiyaka"
+        },
+        {
+          "id": 1461,
+          "name": "Kemalpaşa",
+          "slug": "kemalpasa"
+        },
+        {
+          "id": 1467,
+          "name": "Kınık",
+          "slug": "kinik"
+        },
+        {
+          "id": 1477,
+          "name": "Kiraz",
+          "slug": "kiraz"
+        },
+        {
+          "id": 1819,
+          "name": "Konak",
+          "slug": "konak"
+        },
+        {
+          "id": 1826,
+          "name": "Menderes",
+          "slug": "menderes"
+        },
+        {
+          "id": 1521,
+          "name": "Menemen",
+          "slug": "menemen"
+        },
+        {
+          "id": 2013,
+          "name": "Narlıdere",
+          "slug": "narlidere"
+        },
+        {
+          "id": 1563,
+          "name": "Ödemiş",
+          "slug": "odemis"
+        },
+        {
+          "id": 1611,
+          "name": "Seferihisar",
+          "slug": "seferihisar"
+        },
+        {
+          "id": 1612,
+          "name": "Selçuk",
+          "slug": "selcuk"
+        },
+        {
+          "id": 1677,
+          "name": "Tire",
+          "slug": "tire"
+        },
+        {
+          "id": 1682,
+          "name": "Torbalı",
+          "slug": "torbali"
+        },
+        {
+          "id": 1703,
+          "name": "Urla",
+          "slug": "urla"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Kars",
+      "slug": "kars",
+      "districts": [
+        {
+          "id": 1756,
+          "name": "Akyaka",
+          "slug": "akyaka"
+        },
+        {
+          "id": 1149,
+          "name": "Arpaçay",
+          "slug": "arpacay"
+        },
+        {
+          "id": 1279,
+          "name": "Digor",
+          "slug": "digor"
+        },
+        {
+          "id": 1424,
+          "name": "Kağızman",
+          "slug": "kagizman"
+        },
+        {
+          "id": 1447,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1601,
+          "name": "Sarıkamış",
+          "slug": "sarikamis"
+        },
+        {
+          "id": 1614,
+          "name": "Selim",
+          "slug": "selim"
+        },
+        {
+          "id": 1645,
+          "name": "Susuz",
+          "slug": "susuz"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Kastamonu",
+      "slug": "kastamonu",
+      "districts": [
+        {
+          "id": 1101,
+          "name": "Abana",
+          "slug": "abana"
+        },
+        {
+          "id": 1867,
+          "name": "Ağlı",
+          "slug": "agli"
+        },
+        {
+          "id": 1140,
+          "name": "Araç",
+          "slug": "arac"
+        },
+        {
+          "id": 1162,
+          "name": "Azdavay",
+          "slug": "azdavay"
+        },
+        {
+          "id": 1208,
+          "name": "Bozkurt",
+          "slug": "bozkurt"
+        },
+        {
+          "id": 1221,
+          "name": "Cide",
+          "slug": "cide"
+        },
+        {
+          "id": 1238,
+          "name": "Çatalzeytin",
+          "slug": "catalzeytin"
+        },
+        {
+          "id": 1264,
+          "name": "Daday",
+          "slug": "daday"
+        },
+        {
+          "id": 1277,
+          "name": "Devrekani",
+          "slug": "devrekani"
+        },
+        {
+          "id": 1915,
+          "name": "Doğanyurt",
+          "slug": "doganyurt"
+        },
+        {
+          "id": 1940,
+          "name": "Hanönü",
+          "slug": "hanonu"
+        },
+        {
+          "id": 1805,
+          "name": "İhsangazi",
+          "slug": "ihsangazi"
+        },
+        {
+          "id": 1410,
+          "name": "İnebolu",
+          "slug": "inebolu"
+        },
+        {
+          "id": 1499,
+          "name": "Küre",
+          "slug": "kure"
+        },
+        {
+          "id": 1450,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1836,
+          "name": "Pınarbaşı",
+          "slug": "pinarbasi"
+        },
+        {
+          "id": 1984,
+          "name": "Seydiler",
+          "slug": "seydiler"
+        },
+        {
+          "id": 1845,
+          "name": "Şenpazar",
+          "slug": "senpazar"
+        },
+        {
+          "id": 1666,
+          "name": "Taşköprü",
+          "slug": "taskopru"
+        },
+        {
+          "id": 1685,
+          "name": "Tosya",
+          "slug": "tosya"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Kayseri",
+      "slug": "kayseri",
+      "districts": [
+        {
+          "id": 1752,
+          "name": "Akkışla",
+          "slug": "akkisla"
+        },
+        {
+          "id": 1218,
+          "name": "Bünyan",
+          "slug": "bunyan"
+        },
+        {
+          "id": 1275,
+          "name": "Develi",
+          "slug": "develi"
+        },
+        {
+          "id": 1330,
+          "name": "Felahiye",
+          "slug": "felahiye"
+        },
+        {
+          "id": 1936,
+          "name": "Hacılar",
+          "slug": "hacilar"
+        },
+        {
+          "id": 1409,
+          "name": "İncesu",
+          "slug": "incesu"
+        },
+        {
+          "id": 1863,
+          "name": "Kocasinan",
+          "slug": "kocasinan"
+        },
+        {
+          "id": 1864,
+          "name": "Melikgazi",
+          "slug": "melikgazi"
+        },
+        {
+          "id": 1978,
+          "name": "Özvatan",
+          "slug": "ozvatan"
+        },
+        {
+          "id": 1576,
+          "name": "Pınarbaşı",
+          "slug": "pinarbasi"
+        },
+        {
+          "id": 1603,
+          "name": "Sarıoğlan",
+          "slug": "sarioglan"
+        },
+        {
+          "id": 1605,
+          "name": "Sarız",
+          "slug": "sariz"
+        },
+        {
+          "id": 1846,
+          "name": "Talas",
+          "slug": "talas"
+        },
+        {
+          "id": 1680,
+          "name": "Tomarza",
+          "slug": "tomarza"
+        },
+        {
+          "id": 1715,
+          "name": "Yahyalı",
+          "slug": "yahyali"
+        },
+        {
+          "id": 1727,
+          "name": "Yeşilhisar",
+          "slug": "yesilhisar"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Kırklareli",
+      "slug": "kirklareli",
+      "districts": [
+        {
+          "id": 1163,
+          "name": "Babaeski",
+          "slug": "babaeski"
+        },
+        {
+          "id": 1270,
+          "name": "Demirköy",
+          "slug": "demirkoy"
+        },
+        {
+          "id": 1480,
+          "name": "Kofçaz",
+          "slug": "kofcaz"
+        },
+        {
+          "id": 1505,
+          "name": "Lüleburgaz",
+          "slug": "luleburgaz"
+        },
+        {
+          "id": 1471,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1572,
+          "name": "Pehlivanköy",
+          "slug": "pehlivankoy"
+        },
+        {
+          "id": 1577,
+          "name": "Pınarhisar",
+          "slug": "pinarhisar"
+        },
+        {
+          "id": 1714,
+          "name": "Vize",
+          "slug": "vize"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Kırşehir",
+      "slug": "kirsehir",
+      "districts": [
+        {
+          "id": 1869,
+          "name": "Akçakent",
+          "slug": "akcakent"
+        },
+        {
+          "id": 1754,
+          "name": "Akpınar",
+          "slug": "akpinar"
+        },
+        {
+          "id": 1890,
+          "name": "Boztepe",
+          "slug": "boztepe"
+        },
+        {
+          "id": 1254,
+          "name": "Çiçekdağı",
+          "slug": "cicekdagi"
+        },
+        {
+          "id": 1429,
+          "name": "Kaman",
+          "slug": "kaman"
+        },
+        {
+          "id": 1472,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1529,
+          "name": "Mucur",
+          "slug": "mucur"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Kocaeli",
+      "slug": "kocaeli",
+      "districts": [
+        {
+          "id": 2058,
+          "name": "Başiskele",
+          "slug": "basiskele"
+        },
+        {
+          "id": 2059,
+          "name": "Çayırova",
+          "slug": "cayirova"
+        },
+        {
+          "id": 2060,
+          "name": "Darıca",
+          "slug": "darica"
+        },
+        {
+          "id": 2030,
+          "name": "Derince",
+          "slug": "derince"
+        },
+        {
+          "id": 2061,
+          "name": "Dilovası",
+          "slug": "dilovasi"
+        },
+        {
+          "id": 1338,
+          "name": "Gebze",
+          "slug": "gebze"
+        },
+        {
+          "id": 1355,
+          "name": "Gölcük",
+          "slug": "golcuk"
+        },
+        {
+          "id": 2062,
+          "name": "İzmit",
+          "slug": "izmit"
+        },
+        {
+          "id": 1430,
+          "name": "Kandıra",
+          "slug": "kandira"
+        },
+        {
+          "id": 1440,
+          "name": "Karamürsel",
+          "slug": "karamursel"
+        },
+        {
+          "id": 2063,
+          "name": "Kartepe",
+          "slug": "kartepe"
+        },
+        {
+          "id": 1821,
+          "name": "Körfez",
+          "slug": "korfez"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Konya",
+      "slug": "konya",
+      "districts": [
+        {
+          "id": 1868,
+          "name": "Ahırlı",
+          "slug": "ahirli"
+        },
+        {
+          "id": 1753,
+          "name": "Akören",
+          "slug": "akoren"
+        },
+        {
+          "id": 1122,
+          "name": "Akşehir",
+          "slug": "aksehir"
+        },
+        {
+          "id": 1760,
+          "name": "Altınekin",
+          "slug": "altinekin"
+        },
+        {
+          "id": 1188,
+          "name": "Beyşehir",
+          "slug": "beysehir"
+        },
+        {
+          "id": 1207,
+          "name": "Bozkır",
+          "slug": "bozkir"
+        },
+        {
+          "id": 1222,
+          "name": "Cihanbeyli",
+          "slug": "cihanbeyli"
+        },
+        {
+          "id": 1902,
+          "name": "Çeltik",
+          "slug": "celtik"
+        },
+        {
+          "id": 1262,
+          "name": "Çumra",
+          "slug": "cumra"
+        },
+        {
+          "id": 1907,
+          "name": "Derbent",
+          "slug": "derbent"
+        },
+        {
+          "id": 1789,
+          "name": "Derebucak",
+          "slug": "derebucak"
+        },
+        {
+          "id": 1285,
+          "name": "Doğanhisar",
+          "slug": "doganhisar"
+        },
+        {
+          "id": 1920,
+          "name": "Emirgazi",
+          "slug": "emirgazi"
+        },
+        {
+          "id": 1312,
+          "name": "Ereğli",
+          "slug": "eregli"
+        },
+        {
+          "id": 1933,
+          "name": "Güneysınır",
+          "slug": "guneysinir"
+        },
+        {
+          "id": 1375,
+          "name": "Hadim",
+          "slug": "hadim"
+        },
+        {
+          "id": 1937,
+          "name": "Halkapınar",
+          "slug": "halkapinar"
+        },
+        {
+          "id": 1804,
+          "name": "Hüyük",
+          "slug": "huyuk"
+        },
+        {
+          "id": 1400,
+          "name": "Ilgın",
+          "slug": "ilgin"
+        },
+        {
+          "id": 1422,
+          "name": "Kadınhanı",
+          "slug": "kadinhani"
+        },
+        {
+          "id": 1441,
+          "name": "Karapınar",
+          "slug": "karapinar"
+        },
+        {
+          "id": 1814,
+          "name": "Karatay",
+          "slug": "karatay"
+        },
+        {
+          "id": 1491,
+          "name": "Kulu",
+          "slug": "kulu"
+        },
+        {
+          "id": 1827,
+          "name": "Meram",
+          "slug": "meram"
+        },
+        {
+          "id": 1598,
+          "name": "Sarayönü",
+          "slug": "sarayonu"
+        },
+        {
+          "id": 1839,
+          "name": "Selçuklu",
+          "slug": "selcuklu"
+        },
+        {
+          "id": 1617,
+          "name": "Seydişehir",
+          "slug": "seydisehir"
+        },
+        {
+          "id": 1848,
+          "name": "Taşkent",
+          "slug": "taskent"
+        },
+        {
+          "id": 1990,
+          "name": "Tuzlukçu",
+          "slug": "tuzlukcu"
+        },
+        {
+          "id": 1994,
+          "name": "Yalıhüyük",
+          "slug": "yalihuyuk"
+        },
+        {
+          "id": 1735,
+          "name": "Yunak",
+          "slug": "yunak"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Kütahya",
+      "slug": "kutahya",
+      "districts": [
+        {
+          "id": 1132,
+          "name": "Altıntaş",
+          "slug": "altintas"
+        },
+        {
+          "id": 1764,
+          "name": "Aslanapa",
+          "slug": "aslanapa"
+        },
+        {
+          "id": 1898,
+          "name": "Çavdarhisar",
+          "slug": "cavdarhisar"
+        },
+        {
+          "id": 1288,
+          "name": "Domaniç",
+          "slug": "domanic"
+        },
+        {
+          "id": 1790,
+          "name": "Dumlupınar",
+          "slug": "dumlupinar"
+        },
+        {
+          "id": 1304,
+          "name": "Emet",
+          "slug": "emet"
+        },
+        {
+          "id": 1339,
+          "name": "Gediz",
+          "slug": "gediz"
+        },
+        {
+          "id": 1802,
+          "name": "Hisarcık",
+          "slug": "hisarcik"
+        },
+        {
+          "id": 1500,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1979,
+          "name": "Pazarlar",
+          "slug": "pazarlar"
+        },
+        {
+          "id": 1625,
+          "name": "Simav",
+          "slug": "simav"
+        },
+        {
+          "id": 1843,
+          "name": "Şaphane",
+          "slug": "saphane"
+        },
+        {
+          "id": 1671,
+          "name": "Tavşanlı",
+          "slug": "tavsanli"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Malatya",
+      "slug": "malatya",
+      "districts": [
+        {
+          "id": 1114,
+          "name": "Akçadağ",
+          "slug": "akcadag"
+        },
+        {
+          "id": 1143,
+          "name": "Arapgir",
+          "slug": "arapgir"
+        },
+        {
+          "id": 1148,
+          "name": "Arguvan",
+          "slug": "arguvan"
+        },
+        {
+          "id": 1772,
+          "name": "Battalgazi",
+          "slug": "battalgazi"
+        },
+        {
+          "id": 1265,
+          "name": "Darende",
+          "slug": "darende"
+        },
+        {
+          "id": 1286,
+          "name": "Doğanşehir",
+          "slug": "dogansehir"
+        },
+        {
+          "id": 1914,
+          "name": "Doğanyol",
+          "slug": "doganyol"
+        },
+        {
+          "id": 1390,
+          "name": "Hekimhan",
+          "slug": "hekimhan"
+        },
+        {
+          "id": 1953,
+          "name": "Kale",
+          "slug": "kale"
+        },
+        {
+          "id": 1969,
+          "name": "Kuluncak",
+          "slug": "kuluncak"
+        },
+        {
+          "id": 1582,
+          "name": "Pütürge",
+          "slug": "puturge"
+        },
+        {
+          "id": 1995,
+          "name": "Yazıhan",
+          "slug": "yazihan"
+        },
+        {
+          "id": 1729,
+          "name": "Yeşilyurt",
+          "slug": "yesilyurt"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Manisa",
+      "slug": "manisa",
+      "districts": [
+        {
+          "id": 1751,
+          "name": "Ahmetli",
+          "slug": "ahmetli"
+        },
+        {
+          "id": 1118,
+          "name": "Akhisar",
+          "slug": "akhisar"
+        },
+        {
+          "id": 1127,
+          "name": "Alaşehir",
+          "slug": "alasehir"
+        },
+        {
+          "id": 1269,
+          "name": "Demirci",
+          "slug": "demirci"
+        },
+        {
+          "id": 1793,
+          "name": "Gölmarmara",
+          "slug": "golmarmara"
+        },
+        {
+          "id": 1362,
+          "name": "Gördes",
+          "slug": "gordes"
+        },
+        {
+          "id": 1470,
+          "name": "Kırkağaç",
+          "slug": "kirkagac"
+        },
+        {
+          "id": 1965,
+          "name": "Köprübaşı",
+          "slug": "koprubasi"
+        },
+        {
+          "id": 1489,
+          "name": "Kula",
+          "slug": "kula"
+        },
+        {
+          "id": 1590,
+          "name": "Salihli",
+          "slug": "salihli"
+        },
+        {
+          "id": 1600,
+          "name": "Sarıgöl",
+          "slug": "sarigol"
+        },
+        {
+          "id": 1606,
+          "name": "Saruhanlı",
+          "slug": "saruhanli"
+        },
+        {
+          "id": 1613,
+          "name": "Selendi",
+          "slug": "selendi"
+        },
+        {
+          "id": 1634,
+          "name": "Soma",
+          "slug": "soma"
+        },
+        {
+          "id": 2086,
+          "name": "Şehzadeler",
+          "slug": "sehzadeler"
+        },
+        {
+          "id": 1689,
+          "name": "Turgutlu",
+          "slug": "turgutlu"
+        },
+        {
+          "id": 2087,
+          "name": "Yunusemre",
+          "slug": "yunusemre"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Kahramanmaraş",
+      "slug": "kahramanmaras",
+      "districts": [
+        {
+          "id": 1107,
+          "name": "Afşin",
+          "slug": "afsin"
+        },
+        {
+          "id": 1136,
+          "name": "Andırın",
+          "slug": "andirin"
+        },
+        {
+          "id": 1785,
+          "name": "Çağlayancerit",
+          "slug": "caglayancerit"
+        },
+        {
+          "id": 2084,
+          "name": "Dulkadiroğlu",
+          "slug": "dulkadiroglu"
+        },
+        {
+          "id": 1919,
+          "name": "Ekinözü",
+          "slug": "ekinozu"
+        },
+        {
+          "id": 1299,
+          "name": "Elbistan",
+          "slug": "elbistan"
+        },
+        {
+          "id": 1353,
+          "name": "Göksun",
+          "slug": "goksun"
+        },
+        {
+          "id": 1975,
+          "name": "Nurhak",
+          "slug": "nurhak"
+        },
+        {
+          "id": 2085,
+          "name": "Onikişubat",
+          "slug": "onikisubat"
+        },
+        {
+          "id": 1570,
+          "name": "Pazarcık",
+          "slug": "pazarcik"
+        },
+        {
+          "id": 1694,
+          "name": "Türkoğlu",
+          "slug": "turkoglu"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Mardin",
+      "slug": "mardin",
+      "districts": [
+        {
+          "id": 2088,
+          "name": "Artuklu",
+          "slug": "artuklu"
+        },
+        {
+          "id": 1787,
+          "name": "Dargeçit",
+          "slug": "dargecit"
+        },
+        {
+          "id": 1273,
+          "name": "Derik",
+          "slug": "derik"
+        },
+        {
+          "id": 1474,
+          "name": "Kızıltepe",
+          "slug": "kiziltepe"
+        },
+        {
+          "id": 1519,
+          "name": "Mazıdağı",
+          "slug": "mazidagi"
+        },
+        {
+          "id": 1526,
+          "name": "Midyat",
+          "slug": "midyat"
+        },
+        {
+          "id": 1547,
+          "name": "Nusaybin",
+          "slug": "nusaybin"
+        },
+        {
+          "id": 1564,
+          "name": "Ömerli",
+          "slug": "omerli"
+        },
+        {
+          "id": 1609,
+          "name": "Savur",
+          "slug": "savur"
+        },
+        {
+          "id": 2002,
+          "name": "Yeşilli",
+          "slug": "yesilli"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Muğla",
+      "slug": "mugla",
+      "districts": [
+        {
+          "id": 1197,
+          "name": "Bodrum",
+          "slug": "bodrum"
+        },
+        {
+          "id": 1742,
+          "name": "Dalaman",
+          "slug": "dalaman"
+        },
+        {
+          "id": 1266,
+          "name": "Datça",
+          "slug": "datca"
+        },
+        {
+          "id": 1331,
+          "name": "Fethiye",
+          "slug": "fethiye"
+        },
+        {
+          "id": 1958,
+          "name": "Kavaklıdere",
+          "slug": "kavaklidere"
+        },
+        {
+          "id": 1488,
+          "name": "Köyceğiz",
+          "slug": "koycegiz"
+        },
+        {
+          "id": 1517,
+          "name": "Marmaris",
+          "slug": "marmaris"
+        },
+        {
+          "id": 2089,
+          "name": "Menteşe",
+          "slug": "mentese"
+        },
+        {
+          "id": 1528,
+          "name": "Milas",
+          "slug": "milas"
+        },
+        {
+          "id": 1831,
+          "name": "Ortaca",
+          "slug": "ortaca"
+        },
+        {
+          "id": 2090,
+          "name": "Seydikemer",
+          "slug": "seydikemer"
+        },
+        {
+          "id": 1695,
+          "name": "Ula",
+          "slug": "ula"
+        },
+        {
+          "id": 1719,
+          "name": "Yatağan",
+          "slug": "yatagan"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Muş",
+      "slug": "mus",
+      "districts": [
+        {
+          "id": 1213,
+          "name": "Bulanık",
+          "slug": "bulanik"
+        },
+        {
+          "id": 1801,
+          "name": "Hasköy",
+          "slug": "haskoy"
+        },
+        {
+          "id": 1964,
+          "name": "Korkut",
+          "slug": "korkut"
+        },
+        {
+          "id": 1510,
+          "name": "Malazgirt",
+          "slug": "malazgirt"
+        },
+        {
+          "id": 1534,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1711,
+          "name": "Varto",
+          "slug": "varto"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Nevşehir",
+      "slug": "nevsehir",
+      "districts": [
+        {
+          "id": 1749,
+          "name": "Acıgöl",
+          "slug": "acigol"
+        },
+        {
+          "id": 1155,
+          "name": "Avanos",
+          "slug": "avanos"
+        },
+        {
+          "id": 1274,
+          "name": "Derinkuyu",
+          "slug": "derinkuyu"
+        },
+        {
+          "id": 1367,
+          "name": "Gülşehir",
+          "slug": "gulsehir"
+        },
+        {
+          "id": 1374,
+          "name": "Hacıbektaş",
+          "slug": "hacibektas"
+        },
+        {
+          "id": 1485,
+          "name": "Kozaklı",
+          "slug": "kozakli"
+        },
+        {
+          "id": 1543,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1707,
+          "name": "Ürgüp",
+          "slug": "urgup"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Niğde",
+      "slug": "nigde",
+      "districts": [
+        {
+          "id": 1876,
+          "name": "Altunhisar",
+          "slug": "altunhisar"
+        },
+        {
+          "id": 1201,
+          "name": "Bor",
+          "slug": "bor"
+        },
+        {
+          "id": 1225,
+          "name": "Çamardı",
+          "slug": "camardi"
+        },
+        {
+          "id": 1904,
+          "name": "Çiftlik",
+          "slug": "ciftlik"
+        },
+        {
+          "id": 1544,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1700,
+          "name": "Ulukışla",
+          "slug": "ulukisla"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Ordu",
+      "slug": "ordu",
+      "districts": [
+        {
+          "id": 1119,
+          "name": "Akkuş",
+          "slug": "akkus"
+        },
+        {
+          "id": 2103,
+          "name": "Altınordu",
+          "slug": "altinordu"
+        },
+        {
+          "id": 1158,
+          "name": "Aybastı",
+          "slug": "aybasti"
+        },
+        {
+          "id": 1891,
+          "name": "Çamaş",
+          "slug": "camas"
+        },
+        {
+          "id": 1897,
+          "name": "Çatalpınar",
+          "slug": "catalpinar"
+        },
+        {
+          "id": 1900,
+          "name": "Çaybaşı",
+          "slug": "caybasi"
+        },
+        {
+          "id": 1328,
+          "name": "Fatsa",
+          "slug": "fatsa"
+        },
+        {
+          "id": 1358,
+          "name": "Gölköy",
+          "slug": "golkoy"
+        },
+        {
+          "id": 1795,
+          "name": "Gülyalı",
+          "slug": "gulyali"
+        },
+        {
+          "id": 1797,
+          "name": "Gürgentepe",
+          "slug": "gurgentepe"
+        },
+        {
+          "id": 1947,
+          "name": "İkizce",
+          "slug": "ikizce"
+        },
+        {
+          "id": 1950,
+          "name": "Kabadüz",
+          "slug": "kabaduz"
+        },
+        {
+          "id": 1951,
+          "name": "Kabataş",
+          "slug": "kabatas"
+        },
+        {
+          "id": 1482,
+          "name": "Korgan",
+          "slug": "korgan"
+        },
+        {
+          "id": 1493,
+          "name": "Kumru",
+          "slug": "kumru"
+        },
+        {
+          "id": 1525,
+          "name": "Mesudiye",
+          "slug": "mesudiye"
+        },
+        {
+          "id": 1573,
+          "name": "Perşembe",
+          "slug": "persembe"
+        },
+        {
+          "id": 1696,
+          "name": "Ulubey",
+          "slug": "ulubey"
+        },
+        {
+          "id": 1706,
+          "name": "Ünye",
+          "slug": "unye"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Rize",
+      "slug": "rize",
+      "districts": [
+        {
+          "id": 1146,
+          "name": "Ardeşen",
+          "slug": "ardesen"
+        },
+        {
+          "id": 1228,
+          "name": "Çamlıhemşin",
+          "slug": "camlihemsin"
+        },
+        {
+          "id": 1241,
+          "name": "Çayeli",
+          "slug": "cayeli"
+        },
+        {
+          "id": 1908,
+          "name": "Derepazarı",
+          "slug": "derepazari"
+        },
+        {
+          "id": 1332,
+          "name": "Fındıklı",
+          "slug": "findikli"
+        },
+        {
+          "id": 1796,
+          "name": "Güneysu",
+          "slug": "guneysu"
+        },
+        {
+          "id": 1943,
+          "name": "Hemşin",
+          "slug": "hemsin"
+        },
+        {
+          "id": 1405,
+          "name": "İkizdere",
+          "slug": "ikizdere"
+        },
+        {
+          "id": 1949,
+          "name": "İyidere",
+          "slug": "iyidere"
+        },
+        {
+          "id": 1428,
+          "name": "Kalkandere",
+          "slug": "kalkandere"
+        },
+        {
+          "id": 1586,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1569,
+          "name": "Pazar",
+          "slug": "pazar"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Sakarya",
+      "slug": "sakarya",
+      "districts": [
+        {
+          "id": 2068,
+          "name": "Adapazarı",
+          "slug": "adapazari"
+        },
+        {
+          "id": 1123,
+          "name": "Akyazı",
+          "slug": "akyazi"
+        },
+        {
+          "id": 2069,
+          "name": "Arifiye",
+          "slug": "arifiye"
+        },
+        {
+          "id": 2070,
+          "name": "Erenler",
+          "slug": "erenler"
+        },
+        {
+          "id": 1925,
+          "name": "Ferizli",
+          "slug": "ferizli"
+        },
+        {
+          "id": 1351,
+          "name": "Geyve",
+          "slug": "geyve"
+        },
+        {
+          "id": 1391,
+          "name": "Hendek",
+          "slug": "hendek"
+        },
+        {
+          "id": 1955,
+          "name": "Karapürçek",
+          "slug": "karapurcek"
+        },
+        {
+          "id": 1442,
+          "name": "Karasu",
+          "slug": "karasu"
+        },
+        {
+          "id": 1453,
+          "name": "Kaynarca",
+          "slug": "kaynarca"
+        },
+        {
+          "id": 1818,
+          "name": "Kocaali",
+          "slug": "kocaali"
+        },
+        {
+          "id": 1833,
+          "name": "Pamukova",
+          "slug": "pamukova"
+        },
+        {
+          "id": 1595,
+          "name": "Sapanca",
+          "slug": "sapanca"
+        },
+        {
+          "id": 2071,
+          "name": "Serdivan",
+          "slug": "serdivan"
+        },
+        {
+          "id": 1986,
+          "name": "Söğütlü",
+          "slug": "sogutlu"
+        },
+        {
+          "id": 1847,
+          "name": "Taraklı",
+          "slug": "tarakli"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Samsun",
+      "slug": "samsun",
+      "districts": [
+        {
+          "id": 1830,
+          "name": "19 Mayıs",
+          "slug": "19-mayis"
+        },
+        {
+          "id": 1125,
+          "name": "Alaçam",
+          "slug": "alacam"
+        },
+        {
+          "id": 1763,
+          "name": "Asarcık",
+          "slug": "asarcik"
+        },
+        {
+          "id": 2072,
+          "name": "Atakum",
+          "slug": "atakum"
+        },
+        {
+          "id": 1879,
+          "name": "Ayvacık",
+          "slug": "ayvacik"
+        },
+        {
+          "id": 1164,
+          "name": "Bafra",
+          "slug": "bafra"
+        },
+        {
+          "id": 2073,
+          "name": "Canik",
+          "slug": "canik"
+        },
+        {
+          "id": 1234,
+          "name": "Çarşamba",
+          "slug": "carsamba"
+        },
+        {
+          "id": 1386,
+          "name": "Havza",
+          "slug": "havza"
+        },
+        {
+          "id": 2074,
+          "name": "İlkadım",
+          "slug": "ilkadim"
+        },
+        {
+          "id": 1452,
+          "name": "Kavak",
+          "slug": "kavak"
+        },
+        {
+          "id": 1501,
+          "name": "Ladik",
+          "slug": "ladik"
+        },
+        {
+          "id": 1838,
+          "name": "Salıpazarı",
+          "slug": "salipazari"
+        },
+        {
+          "id": 1849,
+          "name": "Tekkeköy",
+          "slug": "tekkekoy"
+        },
+        {
+          "id": 1676,
+          "name": "Terme",
+          "slug": "terme"
+        },
+        {
+          "id": 1712,
+          "name": "Vezirköprü",
+          "slug": "vezirkopru"
+        },
+        {
+          "id": 1993,
+          "name": "Yakakent",
+          "slug": "yakakent"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Siirt",
+      "slug": "siirt",
+      "districts": [
+        {
+          "id": 1179,
+          "name": "Baykan",
+          "slug": "baykan"
+        },
+        {
+          "id": 1317,
+          "name": "Eruh",
+          "slug": "eruh"
+        },
+        {
+          "id": 1495,
+          "name": "Kurtalan",
+          "slug": "kurtalan"
+        },
+        {
+          "id": 1620,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1575,
+          "name": "Pervari",
+          "slug": "pervari"
+        },
+        {
+          "id": 1662,
+          "name": "Şirvan",
+          "slug": "sirvan"
+        },
+        {
+          "id": 1878,
+          "name": "Tillo",
+          "slug": "tillo"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Sinop",
+      "slug": "sinop",
+      "districts": [
+        {
+          "id": 1156,
+          "name": "Ayancık",
+          "slug": "ayancik"
+        },
+        {
+          "id": 1204,
+          "name": "Boyabat",
+          "slug": "boyabat"
+        },
+        {
+          "id": 1910,
+          "name": "Dikmen",
+          "slug": "dikmen"
+        },
+        {
+          "id": 1290,
+          "name": "Durağan",
+          "slug": "duragan"
+        },
+        {
+          "id": 1314,
+          "name": "Erfelek",
+          "slug": "erfelek"
+        },
+        {
+          "id": 1349,
+          "name": "Gerze",
+          "slug": "gerze"
+        },
+        {
+          "id": 1627,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1981,
+          "name": "Saraydüzü",
+          "slug": "sarayduzu"
+        },
+        {
+          "id": 1693,
+          "name": "Türkeli",
+          "slug": "turkeli"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Sivas",
+      "slug": "sivas",
+      "districts": [
+        {
+          "id": 1870,
+          "name": "Akıncılar",
+          "slug": "akincilar"
+        },
+        {
+          "id": 1875,
+          "name": "Altınyayla",
+          "slug": "altinyayla"
+        },
+        {
+          "id": 1282,
+          "name": "Divriği",
+          "slug": "divrigi"
+        },
+        {
+          "id": 1913,
+          "name": "Doğanşar",
+          "slug": "dogansar"
+        },
+        {
+          "id": 1342,
+          "name": "Gemerek",
+          "slug": "gemerek"
+        },
+        {
+          "id": 1927,
+          "name": "Gölova",
+          "slug": "golova"
+        },
+        {
+          "id": 1373,
+          "name": "Gürün",
+          "slug": "gurun"
+        },
+        {
+          "id": 1376,
+          "name": "Hafik",
+          "slug": "hafik"
+        },
+        {
+          "id": 1407,
+          "name": "İmranlı",
+          "slug": "imranli"
+        },
+        {
+          "id": 1431,
+          "name": "Kangal",
+          "slug": "kangal"
+        },
+        {
+          "id": 1484,
+          "name": "Koyulhisar",
+          "slug": "koyulhisar"
+        },
+        {
+          "id": 1628,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1646,
+          "name": "Suşehri",
+          "slug": "susehri"
+        },
+        {
+          "id": 1650,
+          "name": "Şarkışla",
+          "slug": "sarkisla"
+        },
+        {
+          "id": 1991,
+          "name": "Ulaş",
+          "slug": "ulas"
+        },
+        {
+          "id": 1731,
+          "name": "Yıldızeli",
+          "slug": "yildizeli"
+        },
+        {
+          "id": 1738,
+          "name": "Zara",
+          "slug": "zara"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Tekirdağ",
+      "slug": "tekirdag",
+      "districts": [
+        {
+          "id": 1250,
+          "name": "Çerkezköy",
+          "slug": "cerkezkoy"
+        },
+        {
+          "id": 1258,
+          "name": "Çorlu",
+          "slug": "corlu"
+        },
+        {
+          "id": 2094,
+          "name": "Ergene",
+          "slug": "ergene"
+        },
+        {
+          "id": 1388,
+          "name": "Hayrabolu",
+          "slug": "hayrabolu"
+        },
+        {
+          "id": 2095,
+          "name": "Kapaklı",
+          "slug": "kapakli"
+        },
+        {
+          "id": 1511,
+          "name": "Malkara",
+          "slug": "malkara"
+        },
+        {
+          "id": 1825,
+          "name": "Marmaraereğlisi",
+          "slug": "marmaraereglisi"
+        },
+        {
+          "id": 1538,
+          "name": "Muratlı",
+          "slug": "muratli"
+        },
+        {
+          "id": 1596,
+          "name": "Saray",
+          "slug": "saray"
+        },
+        {
+          "id": 2096,
+          "name": "Süleymanpaşa",
+          "slug": "suleymanpasa"
+        },
+        {
+          "id": 1652,
+          "name": "Şarköy",
+          "slug": "sarkoy"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Tokat",
+      "slug": "tokat",
+      "districts": [
+        {
+          "id": 1129,
+          "name": "Almus",
+          "slug": "almus"
+        },
+        {
+          "id": 1151,
+          "name": "Artova",
+          "slug": "artova"
+        },
+        {
+          "id": 1883,
+          "name": "Başçiftlik",
+          "slug": "basciftlik"
+        },
+        {
+          "id": 1308,
+          "name": "Erbaa",
+          "slug": "erbaa"
+        },
+        {
+          "id": 1679,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1545,
+          "name": "Niksar",
+          "slug": "niksar"
+        },
+        {
+          "id": 1834,
+          "name": "Pazar",
+          "slug": "pazar"
+        },
+        {
+          "id": 1584,
+          "name": "Reşadiye",
+          "slug": "resadiye"
+        },
+        {
+          "id": 1987,
+          "name": "Sulusaray",
+          "slug": "sulusaray"
+        },
+        {
+          "id": 1690,
+          "name": "Turhal",
+          "slug": "turhal"
+        },
+        {
+          "id": 1858,
+          "name": "Yeşilyurt",
+          "slug": "yesilyurt"
+        },
+        {
+          "id": 1740,
+          "name": "Zile",
+          "slug": "zile"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Trabzon",
+      "slug": "trabzon",
+      "districts": [
+        {
+          "id": 1113,
+          "name": "Akçaabat",
+          "slug": "akcaabat"
+        },
+        {
+          "id": 1141,
+          "name": "Araklı",
+          "slug": "arakli"
+        },
+        {
+          "id": 1150,
+          "name": "Arsin",
+          "slug": "arsin"
+        },
+        {
+          "id": 1775,
+          "name": "Beşikdüzü",
+          "slug": "besikduzu"
+        },
+        {
+          "id": 1896,
+          "name": "Çarşıbaşı",
+          "slug": "carsibasi"
+        },
+        {
+          "id": 1244,
+          "name": "Çaykara",
+          "slug": "caykara"
+        },
+        {
+          "id": 1909,
+          "name": "Dernekpazarı",
+          "slug": "dernekpazari"
+        },
+        {
+          "id": 1917,
+          "name": "Düzköy",
+          "slug": "duzkoy"
+        },
+        {
+          "id": 1942,
+          "name": "Hayrat",
+          "slug": "hayrat"
+        },
+        {
+          "id": 1966,
+          "name": "Köprübaşı",
+          "slug": "koprubasi"
+        },
+        {
+          "id": 1507,
+          "name": "Maçka",
+          "slug": "macka"
+        },
+        {
+          "id": 1548,
+          "name": "Of",
+          "slug": "of"
+        },
+        {
+          "id": 2097,
+          "name": "Ortahisar",
+          "slug": "ortahisar"
+        },
+        {
+          "id": 1647,
+          "name": "Sürmene",
+          "slug": "surmene"
+        },
+        {
+          "id": 1842,
+          "name": "Şalpazarı",
+          "slug": "salpazari"
+        },
+        {
+          "id": 1681,
+          "name": "Tonya",
+          "slug": "tonya"
+        },
+        {
+          "id": 1709,
+          "name": "Vakfıkebir",
+          "slug": "vakfikebir"
+        },
+        {
+          "id": 1732,
+          "name": "Yomra",
+          "slug": "yomra"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "Tunceli",
+      "slug": "tunceli",
+      "districts": [
+        {
+          "id": 1247,
+          "name": "Çemişgezek",
+          "slug": "cemisgezek"
+        },
+        {
+          "id": 1397,
+          "name": "Hozat",
+          "slug": "hozat"
+        },
+        {
+          "id": 1518,
+          "name": "Mazgirt",
+          "slug": "mazgirt"
+        },
+        {
+          "id": 1688,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1541,
+          "name": "Nazımiye",
+          "slug": "nazimiye"
+        },
+        {
+          "id": 1562,
+          "name": "Ovacık",
+          "slug": "ovacik"
+        },
+        {
+          "id": 1574,
+          "name": "Pertek",
+          "slug": "pertek"
+        },
+        {
+          "id": 1581,
+          "name": "Pülümür",
+          "slug": "pulumur"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Şanlıurfa",
+      "slug": "sanliurfa",
+      "districts": [
+        {
+          "id": 1115,
+          "name": "Akçakale",
+          "slug": "akcakale"
+        },
+        {
+          "id": 1194,
+          "name": "Birecik",
+          "slug": "birecik"
+        },
+        {
+          "id": 1209,
+          "name": "Bozova",
+          "slug": "bozova"
+        },
+        {
+          "id": 1220,
+          "name": "Ceylanpınar",
+          "slug": "ceylanpinar"
+        },
+        {
+          "id": 2091,
+          "name": "Eyyübiye",
+          "slug": "eyyubiye"
+        },
+        {
+          "id": 1378,
+          "name": "Halfeti",
+          "slug": "halfeti"
+        },
+        {
+          "id": 2092,
+          "name": "Haliliye",
+          "slug": "haliliye"
+        },
+        {
+          "id": 1800,
+          "name": "Harran",
+          "slug": "harran"
+        },
+        {
+          "id": 1393,
+          "name": "Hilvan",
+          "slug": "hilvan"
+        },
+        {
+          "id": 2093,
+          "name": "Karaköprü",
+          "slug": "karakopru"
+        },
+        {
+          "id": 1630,
+          "name": "Siverek",
+          "slug": "siverek"
+        },
+        {
+          "id": 1643,
+          "name": "Suruç",
+          "slug": "suruc"
+        },
+        {
+          "id": 1713,
+          "name": "Viranşehir",
+          "slug": "viransehir"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "name": "Uşak",
+      "slug": "usak",
+      "districts": [
+        {
+          "id": 1170,
+          "name": "Banaz",
+          "slug": "banaz"
+        },
+        {
+          "id": 1323,
+          "name": "Eşme",
+          "slug": "esme"
+        },
+        {
+          "id": 1436,
+          "name": "Karahallı",
+          "slug": "karahalli"
+        },
+        {
+          "id": 1704,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1629,
+          "name": "Sivaslı",
+          "slug": "sivasli"
+        },
+        {
+          "id": 1697,
+          "name": "Ulubey",
+          "slug": "ulubey"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Van",
+      "slug": "van",
+      "districts": [
+        {
+          "id": 1770,
+          "name": "Bahçesaray",
+          "slug": "bahcesaray"
+        },
+        {
+          "id": 1175,
+          "name": "Başkale",
+          "slug": "baskale"
+        },
+        {
+          "id": 1786,
+          "name": "Çaldıran",
+          "slug": "caldiran"
+        },
+        {
+          "id": 1236,
+          "name": "Çatak",
+          "slug": "catak"
+        },
+        {
+          "id": 1918,
+          "name": "Edremit",
+          "slug": "edremit"
+        },
+        {
+          "id": 1309,
+          "name": "Erciş",
+          "slug": "ercis"
+        },
+        {
+          "id": 1350,
+          "name": "Gevaş",
+          "slug": "gevas"
+        },
+        {
+          "id": 1372,
+          "name": "Gürpınar",
+          "slug": "gurpinar"
+        },
+        {
+          "id": 2098,
+          "name": "İpekyolu",
+          "slug": "ipekyolu"
+        },
+        {
+          "id": 1533,
+          "name": "Muradiye",
+          "slug": "muradiye"
+        },
+        {
+          "id": 1565,
+          "name": "Özalp",
+          "slug": "ozalp"
+        },
+        {
+          "id": 1980,
+          "name": "Saray",
+          "slug": "saray"
+        },
+        {
+          "id": 2099,
+          "name": "Tuşba",
+          "slug": "tusba"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Yozgat",
+      "slug": "yozgat",
+      "districts": [
+        {
+          "id": 1117,
+          "name": "Akdağmadeni",
+          "slug": "akdagmadeni"
+        },
+        {
+          "id": 1877,
+          "name": "Aydıncık",
+          "slug": "aydincik"
+        },
+        {
+          "id": 1198,
+          "name": "Boğazlıyan",
+          "slug": "bogazliyan"
+        },
+        {
+          "id": 1895,
+          "name": "Çandır",
+          "slug": "candir"
+        },
+        {
+          "id": 1242,
+          "name": "Çayıralan",
+          "slug": "cayiralan"
+        },
+        {
+          "id": 1245,
+          "name": "Çekerek",
+          "slug": "cekerek"
+        },
+        {
+          "id": 1952,
+          "name": "Kadışehri",
+          "slug": "kadisehri"
+        },
+        {
+          "id": 1733,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1982,
+          "name": "Saraykent",
+          "slug": "saraykent"
+        },
+        {
+          "id": 1602,
+          "name": "Sarıkaya",
+          "slug": "sarikaya"
+        },
+        {
+          "id": 1635,
+          "name": "Sorgun",
+          "slug": "sorgun"
+        },
+        {
+          "id": 1655,
+          "name": "Şefaatli",
+          "slug": "sefaatli"
+        },
+        {
+          "id": 1998,
+          "name": "Yenifakılı",
+          "slug": "yenifakili"
+        },
+        {
+          "id": 1726,
+          "name": "Yerköy",
+          "slug": "yerkoy"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Zonguldak",
+      "slug": "zonguldak",
+      "districts": [
+        {
+          "id": 1758,
+          "name": "Alaplı",
+          "slug": "alapli"
+        },
+        {
+          "id": 1240,
+          "name": "Çaycuma",
+          "slug": "caycuma"
+        },
+        {
+          "id": 1276,
+          "name": "Devrek",
+          "slug": "devrek"
+        },
+        {
+          "id": 1313,
+          "name": "Ereğli",
+          "slug": "eregli"
+        },
+        {
+          "id": 1926,
+          "name": "Gökçebey",
+          "slug": "gokcebey"
+        },
+        {
+          "id": 2100,
+          "name": "Kilimli",
+          "slug": "kilimli"
+        },
+        {
+          "id": 2101,
+          "name": "Kozlu",
+          "slug": "kozlu"
+        },
+        {
+          "id": 1741,
+          "name": "Merkez",
+          "slug": "merkez"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Aksaray",
+      "slug": "aksaray",
+      "districts": [
+        {
+          "id": 1860,
+          "name": "Ağaçören",
+          "slug": "agacoren"
+        },
+        {
+          "id": 1921,
+          "name": "Eskil",
+          "slug": "eskil"
+        },
+        {
+          "id": 1932,
+          "name": "Gülağaç",
+          "slug": "gulagac"
+        },
+        {
+          "id": 1861,
+          "name": "Güzelyurt",
+          "slug": "guzelyurt"
+        },
+        {
+          "id": 1120,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1557,
+          "name": "Ortaköy",
+          "slug": "ortakoy"
+        },
+        {
+          "id": 1866,
+          "name": "Sarıyahşi",
+          "slug": "sariyahsi"
+        },
+        {
+          "id": 2106,
+          "name": "Sultanhanı",
+          "slug": "sultanhani"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "name": "Bayburt",
+      "slug": "bayburt",
+      "districts": [
+        {
+          "id": 1767,
+          "name": "Aydıntepe",
+          "slug": "aydintepe"
+        },
+        {
+          "id": 1788,
+          "name": "Demirözü",
+          "slug": "demirozu"
+        },
+        {
+          "id": 1176,
+          "name": "Merkez",
+          "slug": "merkez"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Karaman",
+      "slug": "karaman",
+      "districts": [
+        {
+          "id": 1768,
+          "name": "Ayrancı",
+          "slug": "ayranci"
+        },
+        {
+          "id": 1884,
+          "name": "Başyayla",
+          "slug": "basyayla"
+        },
+        {
+          "id": 1316,
+          "name": "Ermenek",
+          "slug": "ermenek"
+        },
+        {
+          "id": 1862,
+          "name": "Kazımkarabekir",
+          "slug": "kazimkarabekir"
+        },
+        {
+          "id": 1439,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1983,
+          "name": "Sarıveliler",
+          "slug": "sariveliler"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Kırıkkale",
+      "slug": "kirikkale",
+      "districts": [
+        {
+          "id": 1880,
+          "name": "Bahşılı",
+          "slug": "bahsili"
+        },
+        {
+          "id": 1882,
+          "name": "Balışeyh",
+          "slug": "baliseyh"
+        },
+        {
+          "id": 1901,
+          "name": "Çelebi",
+          "slug": "celebi"
+        },
+        {
+          "id": 1268,
+          "name": "Delice",
+          "slug": "delice"
+        },
+        {
+          "id": 1954,
+          "name": "Karakeçili",
+          "slug": "karakecili"
+        },
+        {
+          "id": 1463,
+          "name": "Keskin",
+          "slug": "keskin"
+        },
+        {
+          "id": 1469,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1638,
+          "name": "Sulakyurt",
+          "slug": "sulakyurt"
+        },
+        {
+          "id": 1992,
+          "name": "Yahşihan",
+          "slug": "yahsihan"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "name": "Batman",
+      "slug": "batman",
+      "districts": [
+        {
+          "id": 1184,
+          "name": "Beşiri",
+          "slug": "besiri"
+        },
+        {
+          "id": 1345,
+          "name": "Gercüş",
+          "slug": "gercus"
+        },
+        {
+          "id": 1941,
+          "name": "Hasankeyf",
+          "slug": "hasankeyf"
+        },
+        {
+          "id": 1487,
+          "name": "Kozluk",
+          "slug": "kozluk"
+        },
+        {
+          "id": 1174,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1607,
+          "name": "Sason",
+          "slug": "sason"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "name": "Şırnak",
+      "slug": "sirnak",
+      "districts": [
+        {
+          "id": 1189,
+          "name": "Beytüşşebap",
+          "slug": "beytussebap"
+        },
+        {
+          "id": 1223,
+          "name": "Cizre",
+          "slug": "cizre"
+        },
+        {
+          "id": 1931,
+          "name": "Güçlükonak",
+          "slug": "guclukonak"
+        },
+        {
+          "id": 1403,
+          "name": "İdil",
+          "slug": "idil"
+        },
+        {
+          "id": 1661,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1623,
+          "name": "Silopi",
+          "slug": "silopi"
+        },
+        {
+          "id": 1698,
+          "name": "Uludere",
+          "slug": "uludere"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "name": "Bartın",
+      "slug": "bartin",
+      "districts": [
+        {
+          "id": 1761,
+          "name": "Amasra",
+          "slug": "amasra"
+        },
+        {
+          "id": 1496,
+          "name": "Kurucaşile",
+          "slug": "kurucasile"
+        },
+        {
+          "id": 1172,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1701,
+          "name": "Ulus",
+          "slug": "ulus"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "name": "Ardahan",
+      "slug": "ardahan",
+      "districts": [
+        {
+          "id": 1252,
+          "name": "Çıldır",
+          "slug": "cildir"
+        },
+        {
+          "id": 2008,
+          "name": "Damal",
+          "slug": "damal"
+        },
+        {
+          "id": 1356,
+          "name": "Göle",
+          "slug": "gole"
+        },
+        {
+          "id": 1380,
+          "name": "Hanak",
+          "slug": "hanak"
+        },
+        {
+          "id": 1144,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1579,
+          "name": "Posof",
+          "slug": "posof"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "name": "Iğdır",
+      "slug": "igdir",
+      "districts": [
+        {
+          "id": 1142,
+          "name": "Aralık",
+          "slug": "aralik"
+        },
+        {
+          "id": 2011,
+          "name": "Karakoyunlu",
+          "slug": "karakoyunlu"
+        },
+        {
+          "id": 1398,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1692,
+          "name": "Tuzluca",
+          "slug": "tuzluca"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "name": "Yalova",
+      "slug": "yalova",
+      "districts": [
+        {
+          "id": 2019,
+          "name": "Altınova",
+          "slug": "altinova"
+        },
+        {
+          "id": 2020,
+          "name": "Armutlu",
+          "slug": "armutlu"
+        },
+        {
+          "id": 2021,
+          "name": "Çınarcık",
+          "slug": "cinarcik"
+        },
+        {
+          "id": 2022,
+          "name": "Çiftlikköy",
+          "slug": "ciftlikkoy"
+        },
+        {
+          "id": 1716,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 2026,
+          "name": "Termal",
+          "slug": "termal"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "name": "Karabük",
+      "slug": "karabuk",
+      "districts": [
+        {
+          "id": 1296,
+          "name": "Eflani",
+          "slug": "eflani"
+        },
+        {
+          "id": 1321,
+          "name": "Eskipazar",
+          "slug": "eskipazar"
+        },
+        {
+          "id": 1433,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1561,
+          "name": "Ovacık",
+          "slug": "ovacik"
+        },
+        {
+          "id": 1587,
+          "name": "Safranbolu",
+          "slug": "safranbolu"
+        },
+        {
+          "id": 1856,
+          "name": "Yenice",
+          "slug": "yenice"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "name": "Kilis",
+      "slug": "kilis",
+      "districts": [
+        {
+          "id": 2023,
+          "name": "Elbeyli",
+          "slug": "elbeyli"
+        },
+        {
+          "id": 1476,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 2024,
+          "name": "Musabeyli",
+          "slug": "musabeyli"
+        },
+        {
+          "id": 2025,
+          "name": "Polateli",
+          "slug": "polateli"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "name": "Osmaniye",
+      "slug": "osmaniye",
+      "districts": [
+        {
+          "id": 1165,
+          "name": "Bahçe",
+          "slug": "bahce"
+        },
+        {
+          "id": 1743,
+          "name": "Düziçi",
+          "slug": "duzici"
+        },
+        {
+          "id": 2027,
+          "name": "Hasanbeyli",
+          "slug": "hasanbeyli"
+        },
+        {
+          "id": 1423,
+          "name": "Kadirli",
+          "slug": "kadirli"
+        },
+        {
+          "id": 1560,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 2028,
+          "name": "Sumbas",
+          "slug": "sumbas"
+        },
+        {
+          "id": 2029,
+          "name": "Toprakkale",
+          "slug": "toprakkale"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "name": "Düzce",
+      "slug": "duzce",
+      "districts": [
+        {
+          "id": 1116,
+          "name": "Akçakoca",
+          "slug": "akcakoca"
+        },
+        {
+          "id": 1784,
+          "name": "Cumayeri",
+          "slug": "cumayeri"
+        },
+        {
+          "id": 1905,
+          "name": "Çilimli",
+          "slug": "cilimli"
+        },
+        {
+          "id": 1794,
+          "name": "Gölyaka",
+          "slug": "golyaka"
+        },
+        {
+          "id": 2017,
+          "name": "Gümüşova",
+          "slug": "gumusova"
+        },
+        {
+          "id": 2031,
+          "name": "Kaynaşlı",
+          "slug": "kaynasli"
+        },
+        {
+          "id": 1292,
+          "name": "Merkez",
+          "slug": "merkez"
+        },
+        {
+          "id": 1730,
+          "name": "Yığılca",
+          "slug": "yigilca"
+        }
+      ]
+    }
+  ]
+}

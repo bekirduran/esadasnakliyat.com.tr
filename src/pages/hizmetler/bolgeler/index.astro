@@ -1,0 +1,49 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { provinces, regionPath } from '../../../data/geo';
+---
+
+<Layout
+  title="İl ve İlçelere Göre Nakliyat Planlama"
+  description="81 il ve ilçeleri üzerinden Ankara çıkışlı veya varışlı taşınma talebinizi planlayın. Güzergâh ve tarih uygunluğu için Esadaş'a ulaşın."
+>
+  <section class="section">
+    <span class="eyebrow">HİZMETLER / BÖLGELER</span>
+    <h1>
+      Yeni adresiniz
+      <br />
+      nerede?
+    </h1>
+    <p class="intro">
+      Ankara merkezli taşıma planınız için ilinizi seçin. Hizmet, tarih ve güzergâh uygunluğu teklif
+      sırasında teyit edilir.
+    </p>
+    <label class="search-label" for="region-search">
+      İl ara
+    </label>
+    <input id="region-search" type="search" placeholder="Örneğin Ankara, İstanbul, İzmir" />
+    <div class="region-grid">
+      {provinces.map((p) => (
+        <a data-region={p.name.toLocaleLowerCase('tr')} href={regionPath(p.slug)}>
+          <small>{String(p.id).padStart(2, '0')}</small>
+          <strong>{p.name}</strong>
+          <span>{p.districts.length} ilçe ↗</span>
+        </a>
+      ))}
+    </div>
+    <p id="no-results" hidden>
+      Aramanıza uygun il bulunamadı.
+    </p>
+  </section>
+  <script>
+    const search = document.querySelector<HTMLInputElement>('#region-search');
+    search?.addEventListener('input', () => {
+      let count = 0;
+      document.querySelectorAll<HTMLAnchorElement>('[data-region]').forEach((a) => {
+        a.hidden = !a.dataset.region?.includes(search.value.toLocaleLowerCase('tr'));
+        if (!a.hidden) count++;
+      });
+      document.querySelector<HTMLElement>('#no-results')!.hidden = count > 0;
+    });
+  </script>
+</Layout>

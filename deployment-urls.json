@@ -1,0 +1,4 @@
+{
+  "staging": "https://esadas-staging.nurborek.workers.dev",
+  "production": "https://esadas-production.nurborek.workers.dev"
+}
