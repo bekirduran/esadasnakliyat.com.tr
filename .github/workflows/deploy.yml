@@ -32,7 +32,7 @@ jobs:
     env:
       DEPLOY_ENV: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: f43c3868d602be8f12dc0f0a8c0e2636
+      CLOUDFLARE_ACCOUNT_ID: 7b3ba6e92f9637e04a00500d703f1b91
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

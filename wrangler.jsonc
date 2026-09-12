@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "esadas-nakliyat",
+  "account_id": "7b3ba6e92f9637e04a00500d703f1b91",
   "main": "worker/index.ts",
   "compatibility_date": "2026-09-12",
   "compatibility_flags": ["nodejs_compat"],
@@ -31,7 +32,7 @@
         {
           "binding": "DB",
           "database_name": "esadas-staging",
-          "database_id": "6c33234c-9337-455b-9266-6534db97334c",
+          "database_id": "fc4146d3-0c84-4af9-b12b-260c13c09dd8",
           "migrations_dir": "migrations",
         },
       ],
@@ -46,7 +47,7 @@
         {
           "binding": "DB",
           "database_name": "esadas-production",
-          "database_id": "f4b97a76-57ca-438f-b647-537e7ec00726",
+          "database_id": "780f0713-2a53-45e9-a560-517f723ed4f8",
           "migrations_dir": "migrations",
         },
       ],

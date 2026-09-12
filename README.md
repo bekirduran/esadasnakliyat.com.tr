@@ -11,7 +11,7 @@ Ankara merkezli nakliyat ve depolama sitesi. Astro + Cloudflare Workers, D1 ve R
 
 Geliştirmeler `dev` üzerinde yapılır. Push → typecheck, test, build, dry-run → ilgili ortam migrasyonu → deploy → smoke test. PR'larda doğrulama yapılır, deploy yapılmaz. Production'a geçiş: `dev` değişikliklerini `main` ile birleştirip push edin. Aynı branch dağıtımları sıraya alınır.
 
-**CI/CD aktivasyonu:** GitHub repo Settings → Secrets and variables → Actions altında `CLOUDFLARE_API_TOKEN` ekleyin. Mevcut hesabın Workers Scripts:Edit, D1:Edit ve Workers R2 Storage:Edit yetkileri gerekir. Özel alan adı/route yönetimi eklendiğinde ilgili zone yetkileri de gerekir. Token yokken workflow doğrulamaları çalışır, deploy adımı uyarıyla atlanır; otomatik dağıtım yapılmış sayılmaz. Token ekledikten sonra son workflow'u yeniden çalıştırın veya ilgili branch'e push edin.
+**CI/CD aktivasyonu:** GitHub repo Settings → Secrets and variables → Actions altında `CLOUDFLARE_API_TOKEN` ekleyin. `7b3ba6e92f9637e04a00500d703f1b91` hesabının Workers Scripts:Edit, D1:Edit ve Workers R2 Storage:Edit yetkileri gerekir. Özel alan adı/route yönetimi eklendiğinde ilgili zone yetkileri de gerekir. Token yokken workflow doğrulamaları çalışır, deploy adımı uyarıyla atlanır; otomatik dağıtım yapılmış sayılmaz. Token ekledikten sonra son workflow'u yeniden çalıştırın veya ilgili branch'e push edin.
 
 Cloudflare account ID ve kaynak ID'leri secret değildir; `wrangler.jsonc` içinde sürümlenir. `ADMIN_PASSWORD_HASH` ve `SESSION_SECRET` Cloudflare secret olarak ayrı ayrı yüklenmiştir. Bunlar GitHub'a gönderilmez.
 
@@ -53,8 +53,8 @@ Entegrasyon testi yalnızca localhost:8787 üzerinde test kayıtları oluşturur
 
 ## Alan adı geçişi
 
-İlk dağıtım workers.dev ortamlarına yapılır. Staging ve workers.dev adresleri indekslemeye kapalıdır. Production özel alan adı `esadasnakliyat.com.tr` olarak tasarlanmıştır, ancak alan adı başka bir Cloudflare hesabında olduğundan özel domain bağlanmamıştır. Doğru hesap erişimi sağlandığında kaynakların aynı hesaba taşınması veya deployment hesabının yeniden yapılandırılması değerlendirilmelidir.
+İlk dağıtım workers.dev ortamlarına yapılır. Staging ve workers.dev adresleri indekslemeye kapalıdır. Worker, D1 ve R2 kaynakları barisadas86@gmail.com hesabında (`7b3ba6e92f9637e04a00500d703f1b91`) yapılandırılmıştır. `esadasnakliyat.com.tr` DNS bölgesi de bu hesapta bulunmaktadır. Mevcut siteyi korumak için özel alan adı henüz yeni Worker’a bağlanmamıştır.
 
-Alan adı doğru Cloudflare hesabına eklendikten, eski URL envanteri/301 eşlemesi, gerçek şirket bilgileri, görseller ve gizlilik metni tamamlandıktan sonra `production.routes` içinde `{"pattern":"esadasnakliyat.com.tr","custom_domain":true}` tanımlanır. www yönlendirmesi, mevcut DNS/MX kayıtları ve geri dönüş planı ayrıca doğrulanır. Staging için `staging.esadasnakliyat.com.tr` ayrı custom domain olarak bağlanabilir. Domain kesintisinde önceki DNS/hosting geri dönüşü ile Worker rollback ayrı operasyonlardır.
+Eski URL envanteri/301 eşlemesi, gerçek şirket bilgileri, görseller ve gizlilik metni tamamlandıktan sonra `production.routes` içinde `{"pattern":"esadasnakliyat.com.tr","custom_domain":true}` tanımlanır. www yönlendirmesi, mevcut DNS/MX kayıtları ve geri dönüş planı ayrıca doğrulanır. Staging için `staging.esadasnakliyat.com.tr` ayrı custom domain olarak bağlanabilir. Domain kesintisinde önceki DNS/hosting geri dönüşü ile Worker rollback ayrı operasyonlardır.
 
 Mimari: [docs/architecture.md](docs/architecture.md). Coğrafi veri: [docs/data-source.md](docs/data-source.md). Ortam adresleri: [deployment-urls.json](deployment-urls.json).
