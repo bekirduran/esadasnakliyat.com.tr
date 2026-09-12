@@ -51,10 +51,14 @@ node scripts/integration-local.mjs /path/to/private/staging-admin.txt
 
 Entegrasyon testi yalnızca localhost:8787 üzerinde test kayıtları oluşturur. Canlı veritabanına çalışmaz. Birim testleri coğrafi bütünlük, yayın kontrolü, form doğrulama, oturum ve dosya güvenliğini kapsar.
 
-## Alan adı geçişi
+## Alan adı bağlantısı
 
-İlk dağıtım workers.dev ortamlarına yapılır. Staging ve workers.dev adresleri indekslemeye kapalıdır. Worker, D1 ve R2 kaynakları barisadas86@gmail.com hesabında (`7b3ba6e92f9637e04a00500d703f1b91`) yapılandırılmıştır. `esadasnakliyat.com.tr` DNS bölgesi de bu hesapta bulunmaktadır. Mevcut siteyi korumak için özel alan adı henüz yeni Worker’a bağlanmamıştır.
+Production, `esadasnakliyat.com.tr/*` ve `www.esadasnakliyat.com.tr/*` Worker route’ları üzerinden çalışır. DNS ve e-posta kayıtları değiştirilmez; mevcut hosting kaynakları korunur. www ve HTTP istekleri HTTPS ana adrese 308 ile yönlendirilir. Worker, D1 ve R2 hesabı `7b3ba6e92f9637e04a00500d703f1b91` olarak sabittir.
 
-Eski URL envanteri/301 eşlemesi, gerçek şirket bilgileri, görseller ve gizlilik metni tamamlandıktan sonra `production.routes` içinde `{"pattern":"esadasnakliyat.com.tr","custom_domain":true}` tanımlanır. www yönlendirmesi, mevcut DNS/MX kayıtları ve geri dönüş planı ayrıca doğrulanır. Staging için `staging.esadasnakliyat.com.tr` ayrı custom domain olarak bağlanabilir. Domain kesintisinde önceki DNS/hosting geri dönüşü ile Worker rollback ayrı operasyonlardır.
+Production API token’ına ayrıca Zone → Zone → Read ve Zone → Workers Routes → Edit yetkileri, yalnızca `esadasnakliyat.com.tr` bölgesi için verilmelidir. Staging token’ında zone yetkisi gerekmez.
+
+Ana alan adında ana sayfa ve hizmetler indekslemeye açıktır; taslak bölgesel sayfalar ve admin kapalıdır. Staging ve workers.dev adresleri indekslemeye kapalı kalır. Gerçek şirket görselleri ve doğrulanmış bölgesel içerikler admin panelinden güncellenir.
+
+Geri dönüş: Cloudflare’de bu iki Worker route’unu kaldırmak mevcut DNS hedefindeki eski hosting’i yeniden devreye alır. Sonraki dağıtımın route’ları tekrar oluşturmaması için `production.routes` ayarı da geri alınmalıdır. Önce eski hosting’in çalıştığını doğrulayın.
 
 Mimari: [docs/architecture.md](docs/architecture.md). Coğrafi veri: [docs/data-source.md](docs/data-source.md). Ortam adresleri: [deployment-urls.json](deployment-urls.json).

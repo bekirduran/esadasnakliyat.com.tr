@@ -231,6 +231,16 @@ const redirects: Record<string, string> = {
 async function route(request: Request, env: AppEnv) {
   const url = new URL(request.url);
   const path = url.pathname;
+  const canonicalHost = new URL(env.SITE_URL).hostname;
+  if (
+    env.ENVIRONMENT === 'production' &&
+    (url.hostname === `www.${canonicalHost}` ||
+      (url.hostname === canonicalHost && url.protocol !== 'https:'))
+  ) {
+    url.hostname = canonicalHost;
+    url.protocol = 'https:';
+    return Response.redirect(url.href, 308);
+  }
   const production =
     env.ENVIRONMENT === 'production' && url.hostname === new URL(env.SITE_URL).hostname;
   if (path === '/hizmetler.json' && ['GET', 'HEAD'].includes(request.method))

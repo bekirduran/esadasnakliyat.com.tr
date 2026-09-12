@@ -18,3 +18,24 @@ if (!media.ok || !media.headers.get('content-type')?.startsWith('image/'))
 const admin = await fetch(base + '/api/admin/leads');
 if (admin.status !== 401) throw Error('Admin API must require authentication');
 console.log(`${env}: homepage, media, noindex, health and admin protection verified`);
+
+if (env === 'production') {
+  const canonical = 'https://esadasnakliyat.com.tr';
+  const live = await fetch(canonical);
+  const html = await live.text();
+  if (
+    !live.ok ||
+    live.headers.get('x-robots-tag')?.includes('noindex') ||
+    /<meta[^>]+content="noindex/i.test(html)
+  )
+    throw Error('Production domain must be indexable');
+  const liveHealth = await fetch(canonical + '/api/health');
+  if (!liveHealth.ok || (await liveHealth.json()).environment !== 'production')
+    throw Error('Production domain must reach the production Worker');
+  const www = await fetch('https://www.esadasnakliyat.com.tr/hakkimizda/?source=smoke', {
+    redirect: 'manual',
+  });
+  if (www.status !== 308 || www.headers.get('location') !== canonical + '/hakkimizda/?source=smoke')
+    throw Error('WWW must redirect to canonical HTTPS preserving path and query');
+  console.log('Production domain: health, indexing and canonical redirect verified');
+}

@@ -41,6 +41,10 @@
     },
     "production": {
       "name": "esadas-production",
+      "routes": [
+        { "pattern": "esadasnakliyat.com.tr/*", "zone_id": "7bfccf3aea915c8c57d8c907575fecfa" },
+        { "pattern": "www.esadasnakliyat.com.tr/*", "zone_id": "7bfccf3aea915c8c57d8c907575fecfa" },
+      ],
       "workers_dev": true,
       "vars": { "ENVIRONMENT": "production", "SITE_URL": "https://esadasnakliyat.com.tr" },
       "d1_databases": [
