@@ -216,7 +216,7 @@ async function sitemap(env: AppEnv, production: boolean) {
   );
 }
 const redirects: Record<string, string> = {
-  '/iletisim/': '/iletisim-2/',
+  '/iletisim-2/': '/iletisim/',
   '/esya-depolama/': '/esya-depolama-2/',
   '/ankara-esya-depolama/': '/esya-depolama-2/',
   '/sehirici-nakliyat/': '/evden-eve-nakliyat/',
@@ -226,7 +226,7 @@ const redirects: Record<string, string> = {
   '/ankara-sehirici-tasima/': '/hizmetler/bolgeler/ankara/',
   '/category/blog/': '/rehber/',
   '/ankara-istanbul-nakliye/': '/hizmetler/bolgeler/istanbul/',
-  '/5346707469/': '/iletisim-2/',
+  '/5346707469/': '/iletisim/',
 };
 async function route(request: Request, env: AppEnv) {
   const url = new URL(request.url);
@@ -307,6 +307,7 @@ async function route(request: Request, env: AppEnv) {
   }
   const response = await env.ASSETS.fetch(new Request(request, { headers: assetHeaders }));
   if (!response.headers.get('Content-Type')?.includes('text/html')) return response;
+  const pageStatus = ['/404/', '/404', '/404.html'].includes(path) ? 404 : response.status;
   const records = (
     await env.DB.prepare('SELECT slot,alt FROM media').all<{ slot: string; alt: string }>()
   ).results;
@@ -325,7 +326,7 @@ async function route(request: Request, env: AppEnv) {
   const region = findRegion(path);
   let indexable =
     production &&
-    response.status === 200 &&
+    pageStatus === 200 &&
     !path.startsWith('/admin') &&
     !['/teklif/', '/gizlilik/'].includes(path);
   if (region) {
@@ -378,7 +379,7 @@ async function route(request: Request, env: AppEnv) {
   headers.delete('Last-Modified');
   if (!indexable) headers.set('X-Robots-Tag', 'noindex, follow');
   if (path.startsWith('/admin')) headers.set('Cache-Control', 'no-store');
-  return new Response(result.body, { status: result.status, headers });
+  return new Response(result.body, { status: pageStatus, headers });
 }
 export default {
   async fetch(request: Request, env: AppEnv): Promise<Response> {

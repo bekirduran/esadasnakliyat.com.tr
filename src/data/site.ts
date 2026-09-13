@@ -6,6 +6,8 @@ export const site = {
   whatsapp: '905346707469',
   email: 'info@esadasnakliyat.com.tr',
   address: 'İlk Adım Mah. Dikmen Cad. Atayolu Sok. 34/B, Ankara',
+  mapsUrl:
+    'https://www.google.com/maps/dir//Esada%C5%9F+Evden+Eve+Nakliyat,+%C4%B0lk+ad%C4%B1m+mahallesi+atayolu+sokak,+Dikmen+Cd+34%2Fb,+06450+%C3%87ankaya%2FAnkara/@39.7979626,32.883107,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x14d3457848b1aaf7:0x887ae35f2d34f032!2m2!1d32.839685!2d39.880547?hl=tr-TR&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D',
   storageUrl: 'https://esadasankaraesyadepolama.com/',
 };
 export const services = [
@@ -146,7 +148,7 @@ export const basePaths = [
   ...services.map((s) => `/${s.slug}/`),
   '/hizmetler/bolgeler/',
   '/hakkimizda/',
-  '/iletisim-2/',
+  '/iletisim/',
   '/teklif/',
   '/rehber/',
   '/gizlilik/',

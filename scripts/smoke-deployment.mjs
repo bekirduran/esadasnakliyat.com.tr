@@ -39,3 +39,21 @@ if (env === 'production') {
     throw Error('WWW must redirect to canonical HTTPS preserving path and query');
   console.log('Production domain: health, indexing and canonical redirect verified');
 }
+
+const contact = await fetch(base + '/iletisim/');
+if (!contact.ok) throw Error('Contact page unavailable');
+const legacy = await fetch(base + '/iletisim-2/?source=smoke', { redirect: 'manual' });
+if (legacy.status !== 301 || legacy.headers.get('location') !== base + '/iletisim/?source=smoke')
+  throw Error('Legacy contact URL must permanently redirect');
+const missing = await fetch(base + '/404/');
+if (missing.status !== 404 || !missing.headers.get('x-robots-tag')?.includes('noindex'))
+  throw Error('Error page must return 404 and noindex');
+if (env === 'production') {
+  const sitemap = await (await fetch('https://esadasnakliyat.com.tr/sitemap.xml')).text();
+  if (
+    !sitemap.includes('<loc>https://esadasnakliyat.com.tr/iletisim/</loc>') ||
+    sitemap.includes('/iletisim-2/')
+  )
+    throw Error('Sitemap must use the canonical contact URL');
+}
+console.log('Contact migration, sitemap and error page indexing verified');

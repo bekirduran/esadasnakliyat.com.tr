@@ -16,6 +16,7 @@ const business = {
   name: site.name,
   url: site.url,
   logo: site.url + '/esadas-icon.png',
+  hasMap: site.mapsUrl,
   areaServed: { '@type': 'City', name: 'Ankara' },
   telephone: site.tel,
   email: site.email,
@@ -46,7 +47,9 @@ const business = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="tr_TR" />
-    <meta property="og:image" content={site.url + '/media/hero'} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image:alt" content="Esadaş Nakliyat resmî logosu" />
+    <meta property="og:image" content={site.url + '/esadas-icon.png'} />
     <script
       is:inline
       type="application/ld+json"
@@ -75,7 +78,7 @@ const business = {
         <a href="/esya-depolama-2/">Depolama</a>
         <a href="/hizmetler/bolgeler/">Bölgeler</a>
         <a href="/hakkimizda/">Hakkımızda</a>
-        <a href="/iletisim-2/">İletişim</a>
+        <a href="/iletisim/">İletişim</a>
       </nav>
       <a class="button small" href="/teklif/">
         Teklif alın <span>↗</span>
