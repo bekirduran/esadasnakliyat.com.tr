@@ -80,7 +80,7 @@ assert.equal(media.headers.get('content-type'), 'image/png');
 assert.equal((await media.arrayBuffer()).byteLength, png.length);
 assert.match(await (await req('/parca-esya-tasima/')).text(), /alt="Yerel test alternatif metni"/);
 const location = {
-  path: '/hizmetler/bolgeler/ankara/cankaya/',
+  path: '/hizmetler/evden-eve-nakliyat/ankara/cankaya/',
   title: 'Çankaya test taşıma planlaması',
   description: 'Eksik içerik',
   local_details: 'Yerel',
@@ -126,7 +126,7 @@ assert.equal(
 );
 const sitemap = await (await req('/sitemap.xml')).text();
 assert.doesNotMatch(sitemap, /<url>/);
-assert.equal((await req('/iletisim/')).status, 301);
+assert.equal((await req('/iletisim-2/')).status, 301);
 assert.equal((await req('/this-page-does-not-exist/')).status, 404);
 assert.equal(
   (await req('/api/admin/locations', 'PUT', { ...published, status: 'draft' }, auth)).status,

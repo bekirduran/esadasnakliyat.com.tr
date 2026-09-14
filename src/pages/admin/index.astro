@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { services } from '../../data/site';
 ---
 
 <Layout
@@ -96,6 +97,15 @@ import Layout from '../../layouts/Layout.astro';
           içerik sitemap ve indeksleme işaretlerini otomatik günceller.
         </div>
         <div class="form-grid">
+          <label>
+            Hizmet
+            <select id="service-select">
+              <option value="bolgeler">Genel bölge sayfası</option>
+              {services.map((s) => (
+                <option value={s.slug}>{s.name}</option>
+              ))}
+            </select>
+          </label>
           <label>
             İl<select id="city-select"></select>
           </label>

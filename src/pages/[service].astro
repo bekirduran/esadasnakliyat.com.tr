@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Media from '../components/Media.astro';
+import { provinces, serviceRegionPath } from '../data/geo';
 import { services, site } from '../data/site';
 export function getStaticPaths() {
   return services.map((service) => ({ params: { service: service.slug }, props: { service } }));
@@ -53,6 +54,13 @@ const schema = {
       </p>
     )}
     <h2>Hizmet bölgenizi seçin</h2>
+    <div class="region-grid">
+      {provinces.map((city) => (
+        <a href={serviceRegionPath(s.slug, city.slug)}>
+          {city.name} {s.name}
+        </a>
+      ))}
+    </div>
     <p>
       Adres ve tarih uygunluğu üzerinden size özel plan hazırlanır. Bölge sayfaları o bölgede bir
       şube veya depo bulunduğu anlamına gelmez.

@@ -102,7 +102,9 @@ function addOption(select, value, label) {
 function selectedPath() {
   const city = geography.find((p) => p.slug === $('#city-select').value);
   return (
-    '/hizmetler/bolgeler/' +
+    '/hizmetler/' +
+    $('#service-select').value +
+    '/' +
     city.slug +
     '/' +
     ($('#district-select').value ? $('#district-select').value + '/' : '')
@@ -134,7 +136,11 @@ async function loadLocation() {
   const city = geography.find((p) => p.slug === $('#city-select').value);
   const district = city.districts.find((d) => d.slug === $('#district-select').value);
   form.elements.title.value =
-    (district ? city.name + ' ' + district.name : city.name) + ' Nakliyat ve Taşınma Planlama';
+    (district ? city.name + ' ' + district.name : city.name) +
+    ' ' +
+    ($('#service-select').value === 'bolgeler'
+      ? 'Nakliyat ve Taşınma Planlama'
+      : $('#service-select').selectedOptions[0].textContent);
   if (data.location) {
     for (const key of ['title', 'description', 'local_details', 'evidence_url', 'status'])
       form.elements[key].value = data.location[key];
@@ -311,3 +317,7 @@ $('#location-form').addEventListener('submit', async (event) => {
 });
 $('#refresh-leads').addEventListener('click', () => loadLeads().catch((e) => notice(e.message)));
 initialize().catch((error) => notice(error.message));
+
+$('#service-select').addEventListener('change', () =>
+  loadLocation().catch((error) => notice(error.message)),
+);

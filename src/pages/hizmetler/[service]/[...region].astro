@@ -1,0 +1,113 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { provinces, regionPath, serviceRegionPath } from '../../../data/geo';
+import { services, site } from '../../../data/site';
+export function getStaticPaths() {
+  return services.flatMap((service) =>
+    provinces.flatMap((city) => [
+      {
+        params: { service: service.slug, region: city.slug },
+        props: { service, city, district: undefined },
+      },
+      ...city.districts.map((district) => ({
+        params: { service: service.slug, region: city.slug + '/' + district.slug },
+        props: { service, city, district },
+      })),
+    ]),
+  );
+}
+const { service, city, district } = Astro.props;
+const label = district ? `${city.name} ${district.name}` : city.name;
+const title = `${label} ${service.name}`;
+const schema = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: service.name, item: `${site.url}/${service.slug}/` },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: city.name,
+      item: site.url + serviceRegionPath(service.slug, city.slug),
+    },
+    ...(district
+      ? [
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: district.name,
+            item: site.url + serviceRegionPath(service.slug, city.slug, district.slug),
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<Layout
+  title={title}
+  description={`${label} için ${service.name.toLocaleLowerCase('tr')} talebinizi planlayın. ${service.summary}`}
+  noindex
+  schema={schema}
+>
+  <section class="section prose">
+    <div class="breadcrumb">
+      <a href={`/${service.slug}/`}>{service.name}</a> /
+      <a href={serviceRegionPath(service.slug, city.slug)}>{city.name}</a>
+      {district && ` / ${district.name}`}
+    </div>
+    <h1>{title}</h1>
+    <section id="local-content">
+      <p>
+        {label} için {service.name.toLocaleLowerCase('tr')} ihtiyacınızı adres, tarih ve eşya
+        bilgileriyle birlikte değerlendirelim.
+      </p>
+      <p>{service.details}</p>
+      <p>
+        {service.image === 'storage'
+          ? 'Depolama hizmetimiz Ankara bağlantılıdır. Bu sayfa seçilen bölgede depo bulunduğu anlamına gelmez; Ankara’ya taşıma ve saklama uygunluğu ayrıca değerlendirilir.'
+          : 'Bu sayfa Ankara bağlantılı hizmet taleplerini planlamak içindir. Bölgede şube bulunduğu veya her tarihte hizmet verildiği anlamına gelmez; adres ve operasyon uygunluğu teklif sırasında doğrulanır.'}
+      </p>
+    </section>
+    <a class="button" href={`/teklif/?hizmet=${service.slug}&bolge=${encodeURIComponent(label)}`}>
+      Bu hizmet için teklif alın ↗
+    </a>
+    <h2>Teklif için hazırlayın</h2>
+    <p>
+      {service.image === 'storage'
+        ? 'Eşya listesi, saklama süresi, erişim ihtiyacı ve eşyaların alınacağı adresi paylaşın.'
+        : 'Eşya listesi, çıkış ve varış adresleri, katlar, bina erişimi ve tercih ettiğiniz tarihi paylaşın.'}{' '}
+      Kesin kapsam ve ücret yazılı teklif sırasında belirlenir.
+    </p>
+    <h2>{service.name} hakkında sorular</h2>
+    {service.questions.map(([q, a]) => (
+      <details>
+        <summary>{q}</summary>
+        <p>{a}</p>
+      </details>
+    ))}
+    {!district && (
+      <>
+        <h2>
+          {city.name} ilçelerinde {service.name.toLocaleLowerCase('tr')}
+        </h2>
+        <div class="region-grid">
+          {city.districts.map((d) => (
+            <a href={serviceRegionPath(service.slug, city.slug, d.slug)}>{d.name}</a>
+          ))}
+        </div>
+      </>
+    )}
+    <h2>{label} için diğer hizmetler</h2>
+    <div class="topic-links">
+      {services
+        .filter((s) => s.slug !== service.slug)
+        .map((s) => (
+          <a href={serviceRegionPath(s.slug, city.slug, district?.slug)}>{s.name}</a>
+        ))}
+    </div>
+    <p>
+      <a href={regionPath(city.slug, district?.slug)}>{label} bölge rehberi</a> ·{' '}
+      <a href={`/${service.slug}/`}>{service.name} kapsamı</a>
+    </p>
+  </section>
+</Layout>

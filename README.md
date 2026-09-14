@@ -62,3 +62,13 @@ Ana alan adında ana sayfa ve hizmetler indekslemeye açıktır; taslak bölgese
 Geri dönüş: Cloudflare’de bu iki Worker route’unu kaldırmak mevcut DNS hedefindeki eski hosting’i yeniden devreye alır. Sonraki dağıtımın route’ları tekrar oluşturmaması için `production.routes` ayarı da geri alınmalıdır. Önce eski hosting’in çalıştığını doğrulayın.
 
 Mimari: [docs/architecture.md](docs/architecture.md). Coğrafi veri: [docs/data-source.md](docs/data-source.md). Ortam adresleri: [deployment-urls.json](deployment-urls.json).
+
+## Hizmet × bölge ağı
+
+Altı hizmet × (81 il + 973 ilçe) = 6.324 hizmet-bölge sayfası otomatik üretilir. Genel bölge sayfaları korunur; toplam 7.394 HTML sayfası oluşur. Örnek: `/hizmetler/evden-eve-nakliyat/ankara/cankaya/`. Hizmet slug’ları `src/data/site.ts` kaynağından gelir; depolama için mevcut `esya-depolama-2` slug’ı korunur.
+
+Admin → İl/ilçe bölümünde hizmeti, ili ve ilçeyi seçin. Her URL için bağımsız içerik ve yayın durumu kaydedilir. Genel bölge içeriğinin yayınlanması altı hizmet sayfasını otomatik yayınlamaz. Doğrulanmış hizmet ve yerel açıklama, kanıt bağlantısı ve yayın durumu koşulları karşılandığında production sitemap’ine otomatik eklenir; taslağa dönüşte çıkar. Google’ın indekslemesi ve sıralaması garanti değildir.
+
+Hizmet sayfaları il sayfalarına, il sayfaları ilçelerine, bölge sayfaları da ilgili altı hizmete bağlanır. Teklif bağlantısı seçilen hizmet ve bölgeyi forma taşır. Ankara dışındaki depolama sayfaları yerel depo iddiasında bulunmaz; Ankara bağlantılı taşıma ve saklama uygunluğu ayrıca doğrulanır.
+
+Büyük varlık ağacında macOS yerel dosya izleyicisi sınırına ulaşılabilir. Entegrasyon doğrulaması için gerekli sayfaların geçici bir alt kümesi `wrangler dev --assets <geçici-klasör>` ile kullanılabilir; CI ve üretim derlemesi tüm sayfaları içerir.

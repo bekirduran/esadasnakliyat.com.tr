@@ -57,3 +57,19 @@ if (env === 'production') {
     throw Error('Sitemap must use the canonical contact URL');
 }
 console.log('Contact migration, sitemap and error page indexing verified');
+
+for (const path of [
+  '/hizmetler/evden-eve-nakliyat/ankara/cankaya/',
+  '/hizmetler/esya-depolama-2/izmir/',
+]) {
+  const response = await fetch(base + path);
+  const html = await response.text();
+  if (
+    !response.ok ||
+    !html.includes('rel="canonical" href="https://esadasnakliyat.com.tr' + path + '"')
+  )
+    throw Error('Service-region page or canonical unavailable');
+  if (!html.includes('hizmet=') || !html.includes('bolge='))
+    throw Error('Service-region quote context missing');
+}
+console.log('Service-region pages, canonical URLs and contextual quote links verified');
