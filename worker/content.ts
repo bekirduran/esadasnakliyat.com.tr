@@ -67,6 +67,7 @@ export function validateLead(input: Record<string, unknown>) {
     throw new InputError('Adınızı kontrol edin.');
   if (!/^\+?[\d\s()-]{10,25}$/.test(result.phone) || result.phone.replace(/\D/g, '').length < 10)
     throw new InputError('Geçerli bir telefon numarası girin.');
+  if (result.service === 'esya-depolama-2') result.service = 'esya-depolama';
   if (!services.some((s) => s.slug === result.service))
     throw new InputError('Geçerli hizmet seçin.');
   if (

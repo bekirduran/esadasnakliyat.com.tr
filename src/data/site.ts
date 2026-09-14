@@ -72,7 +72,7 @@ export const services = [
     ],
   },
   {
-    slug: 'esya-depolama-2',
+    slug: 'esya-depolama',
     name: 'Eşya depolama',
     label: 'Eşyalarınıza yer açın',
     image: 'storage',

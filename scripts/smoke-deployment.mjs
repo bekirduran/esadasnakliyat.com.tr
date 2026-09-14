@@ -60,7 +60,7 @@ console.log('Contact migration, sitemap and error page indexing verified');
 
 for (const path of [
   '/hizmetler/evden-eve-nakliyat/ankara/cankaya/',
-  '/hizmetler/esya-depolama-2/izmir/',
+  '/hizmetler/esya-depolama/izmir/',
 ]) {
   const response = await fetch(base + path);
   const html = await response.text();
@@ -73,3 +73,13 @@ for (const path of [
     throw Error('Service-region quote context missing');
 }
 console.log('Service-region pages, canonical URLs and contextual quote links verified');
+
+for (const [oldPath, newPath] of [
+  ['/esya-depolama-2/', '/esya-depolama/'],
+  ['/hizmetler/esya-depolama-2/ankara/cankaya/', '/hizmetler/esya-depolama/ankara/cankaya/'],
+]) {
+  const r = await fetch(base + oldPath + '?source=smoke', { redirect: 'manual' });
+  if (r.status !== 301 || r.headers.get('location') !== base + newPath + '?source=smoke')
+    throw Error('Storage legacy redirect failed');
+}
+console.log('Storage URL migration redirects verified');

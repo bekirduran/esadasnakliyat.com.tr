@@ -217,8 +217,8 @@ async function sitemap(env: AppEnv, production: boolean) {
 }
 const redirects: Record<string, string> = {
   '/iletisim-2/': '/iletisim/',
-  '/esya-depolama/': '/esya-depolama-2/',
-  '/ankara-esya-depolama/': '/esya-depolama-2/',
+  '/esya-depolama-2/': '/esya-depolama/',
+  '/ankara-esya-depolama/': '/esya-depolama/',
   '/sehirici-nakliyat/': '/evden-eve-nakliyat/',
   '/kurumsal-nakliye/': '/hakkimizda/',
   '/vizyon-ve-hedeflerimiz/': '/hakkimizda/',
@@ -293,6 +293,10 @@ async function route(request: Request, env: AppEnv) {
   }
   const normalized = path.endsWith('/') ? path : path + '/';
   let redirect = redirects[normalized];
+  if (normalized.startsWith('/hizmetler/esya-depolama-2/')) {
+    const target = normalized.replace('/hizmetler/esya-depolama-2/', '/hizmetler/esya-depolama/');
+    if (findRegion(target)) redirect = target;
+  }
   const oldDistrict = normalized.match(/^\/([a-z-]+)-evden-eve-nakliyat\/$/);
   if (oldDistrict) {
     const city = provinces.find((p) => p.id === 6)!;

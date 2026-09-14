@@ -65,7 +65,7 @@ Mimari: [docs/architecture.md](docs/architecture.md). Coğrafi veri: [docs/data-
 
 ## Hizmet × bölge ağı
 
-Altı hizmet × (81 il + 973 ilçe) = 6.324 hizmet-bölge sayfası otomatik üretilir. Genel bölge sayfaları korunur; toplam 7.394 HTML sayfası oluşur. Örnek: `/hizmetler/evden-eve-nakliyat/ankara/cankaya/`. Hizmet slug’ları `src/data/site.ts` kaynağından gelir; depolama için mevcut `esya-depolama-2` slug’ı korunur.
+Altı hizmet × (81 il + 973 ilçe) = 6.324 hizmet-bölge sayfası otomatik üretilir. Genel bölge sayfaları korunur; toplam 7.394 HTML sayfası oluşur. Örnek: `/hizmetler/evden-eve-nakliyat/ankara/cankaya/`. Hizmet slug’ları `src/data/site.ts` kaynağından gelir; depolama slug’ı `esya-depolama` olarak kullanılır; eski `esya-depolama-2` adresleri 301 ile yönlendirilir.
 
 Admin → İl/ilçe bölümünde hizmeti, ili ve ilçeyi seçin. Her URL için bağımsız içerik ve yayın durumu kaydedilir. Genel bölge içeriğinin yayınlanması altı hizmet sayfasını otomatik yayınlamaz. Doğrulanmış hizmet ve yerel açıklama, kanıt bağlantısı ve yayın durumu koşulları karşılandığında production sitemap’ine otomatik eklenir; taslağa dönüşte çıkar. Google’ın indekslemesi ve sıralaması garanti değildir.
 
