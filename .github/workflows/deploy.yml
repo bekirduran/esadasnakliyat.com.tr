@@ -65,4 +65,13 @@ jobs:
         if: steps.credentials.outputs.configured == 'true'
         shell: bash
         run: |
-          node scripts/smoke-deployment.mjs "$DEPLOY_ENV"
+          for attempt in 1 2 3 4; do
+            if node scripts/smoke-deployment.mjs "$DEPLOY_ENV"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 4 ]; then
+              echo "Deployment verification attempt $attempt failed; retrying after edge propagation."
+              sleep 20
+            fi
+          done
+          exit 1
