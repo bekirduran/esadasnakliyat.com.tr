@@ -28,6 +28,26 @@ const jsonOptions = (method, body) => ({
 });
 let geography = [];
 let requestSequence = 0;
+
+async function optimizeImage(file) {
+  if (file.type === 'image/webp' && file.size <= 1.5 * 1024 * 1024) return file;
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+  let result;
+  for (const quality of [0.82, 0.72, 0.62]) {
+    result = await new Promise((resolve) => canvas.toBlob(resolve, 'image/webp', quality));
+    if (result && result.size <= 1.5 * 1024 * 1024) break;
+  }
+  if (!result || result.size > 2 * 1024 * 1024)
+    throw Error('Görsel optimize edilemedi. Daha küçük bir fotoğraf seçin.');
+  return result;
+}
+
 async function loadMedia() {
   const data = await api('/api/admin/media');
   const list = $('#media-list');
@@ -76,14 +96,18 @@ async function loadMedia() {
       }
       button.disabled = true;
       try {
+        notice('Görsel WebP biçimine dönüştürülüyor…');
+        const optimized = await optimizeImage(selected);
         await api('/api/admin/media/' + slot + '?alt=' + encodeURIComponent(alt.value), {
           method: 'PUT',
-          headers: { 'Content-Type': selected.type },
-          body: selected,
+          headers: { 'Content-Type': optimized.type },
+          body: optimized,
         });
         img.src = '/media/' + slot + '?v=' + Date.now();
         img.alt = alt.value;
-        notice('Görsel ve alternatif metin güncellendi.');
+        notice(
+          `Görsel ve alternatif metin güncellendi. ${Math.round(selected.size / 1024)} KB → ${Math.round(optimized.size / 1024)} KB.`,
+        );
         file.value = '';
       } catch (error) {
         notice(error.message);

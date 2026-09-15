@@ -15,6 +15,12 @@ if (!page.headers.get('x-robots-tag')?.includes('noindex'))
 const media = await fetch(base + '/media/hero');
 if (!media.ok || !media.headers.get('content-type')?.startsWith('image/'))
   throw Error('Media unavailable');
+if (!media.headers.get('cache-control')?.includes('max-age=3600'))
+  throw Error('Media cache policy missing');
+const llms = await fetch(base + '/llms.txt');
+const llmsText = await llms.text();
+if (!llms.ok || !llmsText.startsWith('# Esadaş Nakliyat'))
+  throw Error('llms.txt must be valid Markdown with an H1');
 const admin = await fetch(base + '/api/admin/leads');
 if (admin.status !== 401) throw Error('Admin API must require authentication');
 console.log(`${env}: homepage, media, noindex, health and admin protection verified`);

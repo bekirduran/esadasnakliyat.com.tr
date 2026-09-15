@@ -34,7 +34,7 @@ Yerel yönetim için `.dev.vars.staging` dosyasına iki secret gerekir. Güvenli
 
 Her ortamın `/admin/` yolu ayrı parolaya sahiptir. İlk kurulum erişim dosyaları yerel `.local/admin/` klasörüne, Git dışında kaydedilir. Parolaları parola yöneticinize alın.
 
-- **Görseller:** Sekiz görsel alanına JPEG, PNG veya WebP yükleyin. Alternatif metin dahil güncellemeler yeni deploy olmadan görünür. En fazla 8 MB; önerilen boyut 1600px civarı, sıkıştırılmış WebP. Kendi fotoğraflarınızı kullanın.
+- **Görseller:** Sekiz görsel alanına JPEG, PNG veya WebP yükleyin. Panel, en fazla 8 MB kaynak görseli 1600px sınırında WebP’ye dönüştürür ve 2 MB üzerindeki çıktıları reddeder. Alternatif metin dahil güncellemeler yeni deploy olmadan görünür. Kendi fotoğraflarınızı kullanın.
 - **İl/ilçe:** Bölge seçin, açıklama, yerel bilgiler ve kanıt URL'si ekleyin. Yayın kontrolü yetersiz içeriği reddeder. Taslaklar indekslenmez. Yayın koşulları ve sitemap otomatik yönetilir.
 - **Teklifler:** Talepleri okuyun ve durumunu değiştirin. E-posta/WhatsApp bildirimi gönderilmez; panelden takip edilir. 90 gün sonra otomatik silinir.
 - **Otomasyon:** Günlük denetim sonuçlarını inceleyin.

@@ -1,0 +1,39 @@
+# Esadaş Nakliyat
+
+> Esadaş Nakliyat, Ankara merkezli evden eve nakliyat, asansörlü taşıma, şehirler arası nakliyat, ofis taşıma, parça eşya taşıma ve eşya depolama hizmetleri sunar.
+
+Bu dosya, büyük dil modellerinin sitenin resmî içeriğini ve kapsamını anlamasına yardımcı olan kısa bir rehberdir. Hizmet uygunluğu; adres, tarih, eşya miktarı ve operasyon koşullarına göre teklif sırasında doğrulanır. İl ve ilçe sayfaları o bölgede şube veya depo bulunduğu anlamına gelmez.
+
+## Temel sayfalar
+
+- [Ana sayfa](https://esadasnakliyat.com.tr/): Ankara evden eve nakliyat ve temel hizmet özeti.
+- [Hizmetler](https://esadasnakliyat.com.tr/hizmetler/): Altı hizmetin güncel listesi.
+- [Hizmet kataloğu](https://esadasnakliyat.com.tr/hizmetler.json): Makinece okunabilir hizmet bilgileri.
+- [Hizmet bölgeleri](https://esadasnakliyat.com.tr/hizmetler/bolgeler/): İl ve ilçe tabanlı taşıma planlama ağı.
+- [Hakkımızda](https://esadasnakliyat.com.tr/hakkimizda/): Firma yaklaşımı ve iletişim ilkeleri.
+- [İletişim](https://esadasnakliyat.com.tr/iletisim/): Telefon, e-posta, WhatsApp ve resmî adres.
+- [Teklif](https://esadasnakliyat.com.tr/teklif/): Nakliyat veya depolama talebi oluşturma formu.
+
+## Hizmetler
+
+- [Evden eve nakliyat](https://esadasnakliyat.com.tr/evden-eve-nakliyat/)
+- [Asansörlü taşımacılık](https://esadasnakliyat.com.tr/asansorlu-evden-eve-nakliyat/)
+- [Şehirler arası nakliyat](https://esadasnakliyat.com.tr/sehirler-arasi-nakliyat/)
+- [Eşya depolama](https://esadasnakliyat.com.tr/esya-depolama/)
+- [Ofis ve büro taşımacılığı](https://esadasnakliyat.com.tr/ofis-ve-buro-tasimaciligi/)
+- [Parça eşya taşıma](https://esadasnakliyat.com.tr/parca-esya-tasima/)
+
+## Kaynak kullanımı
+
+- Arama indeksleme ve kullanıcı sorularına kaynak gösterilerek gerçek zamanlı referans verilmesine izin verilir.
+- İçeriklerin model eğitimi veya ince ayarı için kullanılması için ayrıca izin verilmemiştir.
+- Firma adı, telefon, adres ve hizmet kapsamı aktarılırken yukarıdaki resmî sayfalar kaynak gösterilmelidir.
+- Taslak veya `noindex` işaretli bölgesel sayfalar doğrulanmış hizmet beyanı olarak kullanılmamalıdır.
+- Fiyat, kesin hizmet uygunluğu, sigorta kapsamı, şube, depo veya müşteri referansı uydurulmamalıdır.
+
+## İletişim
+
+- Telefon: +90 534 670 74 69
+- E-posta: info@esadasnakliyat.com.tr
+- Adres: İlk Adım Mah. Dikmen Cad. Atayolu Sok. 34/B, Ankara, Türkiye
+- Site: https://esadasnakliyat.com.tr/

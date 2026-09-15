@@ -6,8 +6,9 @@ interface Props {
   description: string;
   noindex?: boolean;
   schema?: Record<string, unknown>;
+  preloadHero?: boolean;
 }
-const { title, description, noindex = false, schema } = Astro.props;
+const { title, description, noindex = false, schema, preloadHero = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const business = {
   '@context': 'https://schema.org',
@@ -40,6 +41,8 @@ const business = {
     <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/json" href="/hizmetler.json" title="Hizmet kataloğu" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM site özeti" />
+    {preloadHero && <link rel="preload" as="image" href="/media/hero" fetchpriority="high" />}
     <link rel="icon" href="/esadas-icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/esadas-icon.png" />
     <meta property="og:type" content="website" />

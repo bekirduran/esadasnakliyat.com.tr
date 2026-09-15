@@ -112,7 +112,7 @@ async function handleApi(request: Request, env: AppEnv, path: string) {
     const alt = new URL(request.url).searchParams.get('alt')?.trim() ?? '';
     if (alt.length < 8 || alt.length > 240)
       return json({ error: 'Görsel açıklaması 8–240 karakter olmalı.' }, 400);
-    const bytes = await readBytes(request, 8 * 1024 * 1024);
+    const bytes = await readBytes(request, 2 * 1024 * 1024);
     const mime = imageMime(bytes);
     if (!mime) return json({ error: 'Yalnızca JPEG, PNG veya WebP yükleyin.' }, 400);
     const key = `${slot}/${crypto.randomUUID()}.${mime === 'image/jpeg' ? 'jpg' : mime === 'image/png' ? 'png' : 'webp'}`;
@@ -278,7 +278,7 @@ async function route(request: Request, env: AppEnv) {
       if (object) {
         const headers = new Headers({
           'Content-Type': media.mime,
-          'Cache-Control': 'no-cache',
+          'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
           ETag: object.httpEtag,
           'X-Content-Type-Options': 'nosniff',
         });
