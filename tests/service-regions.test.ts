@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { provinces, findRegion, serviceRegionPath } from '../src/data/geo';
 import { services } from '../src/data/site';
 import { keywordBrief } from '../src/data/keywords';
@@ -57,10 +58,16 @@ test('Production sitemap includes validated service pages and excludes drafts, i
     DB: {
       prepare(sql: string) {
         assert.ok(sql.includes("status='published'"));
+        assert.ok(sql.includes('ORDER BY path'));
         return {
           all: async () => ({
             results: [
               record,
+              {
+                ...record,
+                path: '/hizmetler/bolgeler/ankara/',
+                title: 'Ankara nakliyat',
+              },
               {
                 ...record,
                 path: serviceRegionPath('parca-esya-tasima', 'ankara'),
@@ -76,10 +83,55 @@ test('Production sitemap includes validated service pages and excludes drafts, i
   const xml = await response.text();
   assert.equal(response.status, 200);
   assert.ok(xml.includes(env.SITE_URL + path));
+  assert.equal(
+    xml.match(/https:\/\/esadasnakliyat\.com\.tr\/hizmetler\/bolgeler\/ankara\//g)?.length,
+    1,
+  );
+  assert.match(
+    xml,
+    /<loc>https:\/\/esadasnakliyat\.com\.tr\/hizmetler\/bolgeler\/ankara\/<\/loc><lastmod>2026-09-14<\/lastmod>/,
+  );
   assert.ok(!xml.includes('/hizmetler/parca-esya-tasima/ankara/'));
   const preview = await worker.fetch(
     new Request('https://preview.workers.dev/sitemap.xml'),
     env as any,
   );
   assert.ok(!(await preview.text()).includes('<url>'));
+});
+
+test('Robots policy permits search crawling, protects private routes and rejects training crawlers', async () => {
+  const { default: worker } = await import('../worker/index');
+  const env = {
+    ENVIRONMENT: 'production',
+    SITE_URL: 'https://esadasnakliyat.com.tr',
+  };
+  const response = await worker.fetch(new Request(env.SITE_URL + '/robots.txt'), env as any);
+  const body = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('content-type') ?? '', /^text\/plain/);
+  assert.match(body, /User-agent: \*\nAllow: \/\nDisallow: \/admin\/\nDisallow: \/api\//);
+  assert.match(body, /User-agent: GPTBot\nDisallow: \//);
+  assert.match(body, /User-agent: Google-Extended\nDisallow: \//);
+  assert.match(body, /Sitemap: https:\/\/esadasnakliyat\.com\.tr\/sitemap\.xml/);
+});
+
+test('Legacy sitemap index redirects to the canonical sitemap', async () => {
+  const { default: worker } = await import('../worker/index');
+  const env = {
+    ENVIRONMENT: 'production',
+    SITE_URL: 'https://esadasnakliyat.com.tr',
+  };
+  const response = await worker.fetch(
+    new Request(env.SITE_URL + '/sitemap_index.xml', { redirect: 'manual' }),
+    env as any,
+  );
+  assert.equal(response.status, 301);
+  assert.equal(response.headers.get('location'), env.SITE_URL + '/sitemap.xml');
+});
+
+test('LLM guide links use the canonical origin', async () => {
+  const text = await readFile(new URL('../public/llms.txt', import.meta.url), 'utf8');
+  const links = [...text.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map((match) => match[1]);
+  assert.ok(links.length > 0);
+  assert.ok(links.every((link) => link.startsWith('https://esadasnakliyat.com.tr/')));
 });

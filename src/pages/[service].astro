@@ -54,6 +54,10 @@ const schema = {
       </p>
     )}
     <h2>Hizmet bölgenizi seçin</h2>
+    <p>
+      <a href="/hizmetler/bolgeler/ankara/">Ankara nakliyat rehberini inceleyin</a>. İlçe
+      bağlantıları ve diğer güzergâhlar aşağıdaki bölge listesindedir.
+    </p>
     <div class="region-grid">
       {provinces.map((city) => (
         <a href={serviceRegionPath(s.slug, city.slug)}>

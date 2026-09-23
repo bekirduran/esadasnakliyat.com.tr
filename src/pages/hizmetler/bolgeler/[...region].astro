@@ -13,7 +13,10 @@ export function getStaticPaths() {
 }
 const { city, district } = Astro.props;
 const label = district ? `${city.name} ${district.name}` : city.name;
-const title = `${label} Nakliyat ve Taşınma Planlama`;
+const isAnkaraHub = city.slug === 'ankara' && !district;
+const title = isAnkaraHub
+  ? 'Ankara Nakliyat ve Evden Eve Taşımacılık'
+  : `${label} Nakliyat ve Taşınma Planlama`;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -41,8 +44,12 @@ const schema = {
 
 <Layout
   title={title}
-  description={`${label} için Ankara bağlantılı taşınma talebi oluşturun. Eşya miktarı, tarih ve bina koşullarına göre hizmet uygunluğunu öğrenin.`}
-  noindex
+  description={
+    isAnkaraHub
+      ? 'Ankara nakliyat, evden eve taşıma, asansörlü taşımacılık, ofis taşıma ve eşya depolama seçeneklerini inceleyin; taşınmanızı adres ve bina koşullarına göre planlayın.'
+      : `${label} için Ankara bağlantılı taşınma talebi oluşturun. Eşya miktarı, tarih ve bina koşullarına göre hizmet uygunluğunu öğrenin.`
+  }
+  noindex={!isAnkaraHub}
   schema={schema}
 >
   <section class="section">
@@ -51,20 +58,51 @@ const schema = {
       {district && ` / ${district.name}`}
     </div>
     <h1>
-      {label}
+      {isAnkaraHub ? 'Ankara nakliyat' : label}
       <br />
       <em>taşınma planınız.</em>
     </h1>
     <section id="local-content">
-      <p class="intro">
-        {label} çıkışlı veya varışlı, Ankara bağlantılı bir taşınma mı planlıyorsunuz? Eşya
-        miktarınızı, tarihinizi ve bina koşullarını paylaşarak güzergâhınıza uygun hizmeti
-        öğrenebilirsiniz.
-      </p>
-      <p>
-        Bu bölge için ayrıntılı hizmet bilgisi henüz yayınlanmamıştır. Yerel şube veya depo beyanı
-        değildir; operasyon uygunluğu teklif sırasında doğrulanır.
-      </p>
+      {isAnkaraHub ? (
+        <>
+          <p class="intro">
+            Ankara içinde veya Ankara çıkışlı taşınma planınızı; eşya miktarı, iki adresin bina
+            koşulları, paketleme ihtiyacı ve tarih bilgisiyle birlikte oluşturun. Esadaş Nakliyat’ın
+            merkezi Ankara’dadır; hizmet ve ekip uygunluğu her talep için ayrıca doğrulanır.
+          </p>
+          <h2>Ankara nakliyat planında hangi bilgiler gerekir?</h2>
+          <p>
+            Çıkış ve varış adresleri, kat bilgileri, bina asansörü ve dış cephe erişimi, büyük eşya
+            listesi, paketleme beklentisi ve tercih edilen tarih teklifin temelini oluşturur. Bu
+            bilgiler araç, ekip ve çalışma süresinin ihtiyaca göre değerlendirilmesini sağlar.
+          </p>
+          <h2>İlçe ve bina koşullarına göre hazırlık</h2>
+          <p>
+            Çankaya, Keçiören, Yenimahalle, Etimesgut, Mamak ve Ankara’nın diğer ilçelerinde sokak
+            erişimi, araç konumu ve bina kuralları adrese göre değişebilir. Taşıma gününden önce iki
+            adresin erişim koşullarını paylaşın; dış cephe asansörü gerekiyorsa cephe ve çevre
+            uygunluğu ayrıca kontrol edilsin.
+          </p>
+          <h2>Ankara’da sunulan taşıma seçenekleri</h2>
+          <p>
+            Evden eve nakliyat, asansörlü taşıma, ofis taşıma, parça eşya, şehirler arası nakliyat
+            ve eşya depolama ihtiyaçları aynı teklif sürecinde değerlendirilebilir. Kesin kapsam,
+            ücret, tarih ve varsa ek işlemler yazılı teklifte netleştirilir.
+          </p>
+        </>
+      ) : (
+        <>
+          <p class="intro">
+            {label} çıkışlı veya varışlı, Ankara bağlantılı bir taşınma mı planlıyorsunuz? Eşya
+            miktarınızı, tarihinizi ve bina koşullarını paylaşarak güzergâhınıza uygun hizmeti
+            öğrenebilirsiniz.
+          </p>
+          <p>
+            Bu bölge için ayrıntılı hizmet bilgisi henüz yayınlanmamıştır. Yerel şube veya depo
+            beyanı değildir; operasyon uygunluğu teklif sırasında doğrulanır.
+          </p>
+        </>
+      )}
     </section>
     <a class="button" href={`/teklif/?bolge=${encodeURIComponent(label)}`}>
       Bu bölge için talep oluşturun ↗

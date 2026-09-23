@@ -1,5 +1,11 @@
 import { keywordBrief } from '../src/data/keywords';
-import { mediaSlots, basePaths, site, services } from '../src/data/site';
+import {
+  mediaSlots,
+  basePaths,
+  site,
+  services,
+  staticIndexableRegionPaths,
+} from '../src/data/site';
 import { findRegion, provinces, regionPath } from '../src/data/geo';
 import {
   InputError,
@@ -202,16 +208,27 @@ async function handleApi(request: Request, env: AppEnv, path: string) {
   return json({ error: 'Bulunamadı.' }, 404);
 }
 async function sitemap(env: AppEnv, production: boolean) {
+  const paths = production ? basePaths.filter((p) => !['/teklif/', '/gizlilik/'].includes(p)) : [];
   const records = production
     ? (
         await env.DB.prepare(
-          "SELECT * FROM locations WHERE status='published'",
+          "SELECT * FROM locations WHERE status='published' ORDER BY path",
         ).all<LocationRecord>()
       ).results.filter((r) => findRegion(r.path) && publicationErrors(r).length === 0)
     : [];
-  const paths = production ? basePaths.filter((p) => !['/teklif/', '/gizlilik/'].includes(p)) : [];
+  const recordsByPath = new Map(records.map((record) => [record.path, record]));
+  const baseUrls = paths.map((path) => {
+    const record = recordsByPath.get(path);
+    return `<url><loc>${esc(env.SITE_URL + path)}</loc>${record ? `<lastmod>${record.updated_at.slice(0, 10)}</lastmod>` : ''}</url>`;
+  });
+  const regionalUrls = records
+    .filter((record) => !paths.includes(record.path))
+    .map(
+      (record) =>
+        `<url><loc>${esc(env.SITE_URL + record.path)}</loc><lastmod>${record.updated_at.slice(0, 10)}</lastmod></url>`,
+    );
   return new Response(
-    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>${esc(env.SITE_URL + path)}</loc></url>`).join('')}${records.map((r) => `<url><loc>${esc(env.SITE_URL + r.path)}</loc><lastmod>${r.updated_at.slice(0, 10)}</lastmod></url>`).join('')}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...baseUrls, ...regionalUrls].join('')}</urlset>`,
     { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'no-cache' } },
   );
 }
@@ -262,10 +279,19 @@ async function route(request: Request, env: AppEnv) {
     return new Response('Method not allowed', { status: 405 });
   if (path === '/robots.txt')
     return new Response(
-      `User-agent: *\n${production ? 'Allow: /\nDisallow: /admin/\nDisallow: /api/' : 'Disallow: /'}\nSitemap: ${url.origin}/sitemap.xml\n`,
-      { headers: { 'Content-Type': 'text/plain' } },
+      production
+        ? `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: Google-Extended\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nSitemap: ${url.origin}/sitemap.xml\n`
+        : `User-agent: *\nDisallow: /\n`,
+      {
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      },
     );
-  if (path === '/sitemap.xml' || path === '/sitemap_index.xml') return sitemap(env, production);
+  if (path === '/sitemap_index.xml')
+    return Response.redirect(new URL('/sitemap.xml', url).href, 301);
+  if (path === '/sitemap.xml') return sitemap(env, production);
   if (path.startsWith('/media/')) {
     const slot = path.split('/')[2];
     if (!slot || !isSlot(slot) || path.split('/').filter(Boolean).length !== 2)
@@ -312,9 +338,14 @@ async function route(request: Request, env: AppEnv) {
   const response = await env.ASSETS.fetch(new Request(request, { headers: assetHeaders }));
   if (!response.headers.get('Content-Type')?.includes('text/html')) return response;
   const pageStatus = ['/404/', '/404', '/404.html'].includes(path) ? 404 : response.status;
-  const records = (
-    await env.DB.prepare('SELECT slot,alt FROM media').all<{ slot: string; alt: string }>()
-  ).results;
+  let records: { slot: string; alt: string }[] = [];
+  try {
+    records = (
+      await env.DB.prepare('SELECT slot,alt FROM media').all<{ slot: string; alt: string }>()
+    ).results;
+  } catch {
+    console.error(JSON.stringify({ event: 'media_metadata_unavailable', path }));
+  }
   const rewriter = new HTMLRewriter().on('img[data-media-slot]', {
     element(element) {
       const media = records.find((m) => m.slot === element.getAttribute('data-media-slot'));
@@ -334,11 +365,17 @@ async function route(request: Request, env: AppEnv) {
     !path.startsWith('/admin') &&
     !['/teklif/', '/gizlilik/'].includes(path);
   if (region) {
-    const record = await env.DB.prepare('SELECT * FROM locations WHERE path=?')
-      .bind(path)
-      .first<LocationRecord>();
+    let record: LocationRecord | null = null;
+    try {
+      record = await env.DB.prepare('SELECT * FROM locations WHERE path=?')
+        .bind(path)
+        .first<LocationRecord>();
+    } catch {
+      console.error(JSON.stringify({ event: 'location_content_unavailable', path }));
+    }
     const ready = record?.status === 'published' && publicationErrors(record).length === 0;
-    indexable = Boolean(production && ready);
+    const maintainedStaticPage = staticIndexableRegionPaths.some((item) => item === path);
+    indexable = Boolean(production && (ready || maintainedStaticPage));
     if (record && ready) {
       const paragraphs = (text: string) =>
         text
@@ -378,9 +415,12 @@ async function route(request: Request, env: AppEnv) {
   });
   const result = rewriter.transform(response);
   const headers = new Headers(result.headers);
-  headers.set('Cache-Control', 'no-cache');
-  headers.delete('ETag');
-  headers.delete('Last-Modified');
+  headers.set(
+    'Cache-Control',
+    indexable
+      ? 'public, max-age=0, s-maxage=300, stale-while-revalidate=3600, stale-if-error=86400'
+      : 'no-cache',
+  );
   if (!indexable) headers.set('X-Robots-Tag', 'noindex, follow');
   if (path.startsWith('/admin')) headers.set('Cache-Control', 'no-store');
   return new Response(result.body, { status: pageStatus, headers });

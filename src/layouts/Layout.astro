@@ -11,12 +11,12 @@ interface Props {
 const { title, description, noindex = false, schema, preloadHero = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const business = {
-  '@context': 'https://schema.org',
   '@type': 'MovingCompany',
   '@id': site.url + '/#business',
   name: site.name,
   url: site.url,
   logo: site.url + '/esadas-icon.png',
+  image: site.url + '/esadas-icon.png',
   hasMap: site.mapsUrl,
   areaServed: { '@type': 'City', name: 'Ankara' },
   telephone: site.tel,
@@ -25,8 +25,23 @@ const business = {
     '@type': 'PostalAddress',
     streetAddress: site.address,
     addressLocality: 'Ankara',
-    addressCountry: 'TR',
+    addressRegion: 'Ankara',
+    postalCode: '06450',
+    addressCountry: { '@type': 'Country', name: 'TR' },
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 39.880547,
+    longitude: 32.839685,
+  },
+};
+const website = {
+  '@type': 'WebSite',
+  '@id': site.url + '/#website',
+  url: site.url,
+  name: site.name,
+  inLanguage: 'tr-TR',
+  publisher: { '@id': site.url + '/#business' },
 };
 ---
 
@@ -56,9 +71,10 @@ const business = {
     <script
       is:inline
       type="application/ld+json"
-      set:html={JSON.stringify(
-        schema ? { '@context': 'https://schema.org', '@graph': [business, schema] } : business,
-      ).replaceAll('<', '\\u003c')}
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': schema ? [business, website, schema] : [business, website],
+      }).replaceAll('<', '\\u003c')}
     ></script>
   </head>
   <body>
@@ -124,6 +140,7 @@ const business = {
         <h3>Keşfedin</h3>
         <a href="/hizmetler/">Hizmetlerimiz</a>
         <a href="/hizmetler/bolgeler/">Hizmet bölgeleri</a>
+        <a href="/hizmetler/bolgeler/ankara/">Ankara nakliyat</a>
         <a href="/rehber/">Taşınma rehberi</a>
         <a href={site.storageUrl} rel="noopener">
           Esadaş Ankara Eşya Depolama ↗

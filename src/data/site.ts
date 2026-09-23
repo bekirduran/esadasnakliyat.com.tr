@@ -147,9 +147,14 @@ export const basePaths = [
   '/hizmetler/',
   ...services.map((s) => `/${s.slug}/`),
   '/hizmetler/bolgeler/',
+  '/hizmetler/bolgeler/ankara/',
   '/hakkimizda/',
   '/iletisim/',
   '/teklif/',
   '/rehber/',
   '/gizlilik/',
 ];
+
+// These regional pages contain maintained, useful static content and do not depend on a CMS
+// publication record to be indexable. Other regional routes stay behind the publication gate.
+export const staticIndexableRegionPaths = ['/hizmetler/bolgeler/ankara/'] as const;
