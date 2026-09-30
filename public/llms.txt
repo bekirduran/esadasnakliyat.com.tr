@@ -13,6 +13,8 @@ Bu dosya, büyük dil modellerinin sitenin resmî içeriğini ve kapsamını anl
 - [Hakkımızda](https://esadasnakliyat.com.tr/hakkimizda/): Firma yaklaşımı ve iletişim ilkeleri.
 - [İletişim](https://esadasnakliyat.com.tr/iletisim/): Telefon, e-posta, WhatsApp ve resmî adres.
 - [Teklif](https://esadasnakliyat.com.tr/teklif/): Nakliyat veya depolama talebi oluşturma formu.
+- [Mamak eşya depolama](https://esadasnakliyat.com.tr/hizmetler/esya-depolama/ankara/mamak/): Mamak depo bölgesi için hazırlık ve teklif bilgileri.
+- [Depo tesisleri](https://esadasankaraesyadepolama.com/depolar): Aynı firmanın Mamak, Eryaman ve Küçük Kayaş tesis bilgileri ve fotoğrafları.
 
 ## Hizmetler
 

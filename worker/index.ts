@@ -6,7 +6,7 @@ import {
   services,
   staticIndexableRegionPaths,
 } from '../src/data/site';
-import { findRegion, provinces, regionPath } from '../src/data/geo';
+import { findRegion, provinces, regionPath, serviceRegionPath } from '../src/data/geo';
 import {
   InputError,
   authenticated,
@@ -236,13 +236,26 @@ const redirects: Record<string, string> = {
   '/iletisim-2/': '/iletisim/',
   '/esya-depolama-2/': '/esya-depolama/',
   '/ankara-esya-depolama/': '/esya-depolama/',
+  '/cankaya-esya-depolama/': '/esya-depolama/',
+  '/cankaya-depolama/': '/esya-depolama/',
+  '/mamak-esya-depolama/': '/hizmetler/esya-depolama/ankara/mamak/',
+  '/yasamkent-esya-depolama/': '/esya-depolama/',
+  '/umitkoy-esya-depolama/': '/esya-depolama/',
+  '/altindag-esya-depolama/': '/esya-depolama/',
   '/sehirici-nakliyat/': '/evden-eve-nakliyat/',
-  '/kurumsal-nakliye/': '/hakkimizda/',
+  '/parca-esya-tasima-nakliye/': '/parca-esya-tasima/',
+  '/kurumsal-nakliye/': '/ofis-ve-buro-tasimaciligi/',
+  '/hizmetlerimiz/': '/hizmetler/',
   '/vizyon-ve-hedeflerimiz/': '/hakkimizda/',
   '/kadromuz/': '/hakkimizda/',
   '/ankara-sehirici-tasima/': '/hizmetler/bolgeler/ankara/',
   '/category/blog/': '/rehber/',
-  '/ankara-istanbul-nakliye/': '/hizmetler/bolgeler/istanbul/',
+  '/ankara-istanbul-nakliye/': '/sehirler-arasi-nakliyat/',
+  '/cayyolu-nakliyat-asansorlu-esya-tasima/': '/asansorlu-evden-eve-nakliyat/',
+  '/batikent-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+  '/cayyolu-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+  '/dikmen-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+  '/umitkoy-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
   '/5346707469/': '/iletisim/',
 };
 async function route(request: Request, env: AppEnv) {
@@ -327,7 +340,25 @@ async function route(request: Request, env: AppEnv) {
   if (oldDistrict) {
     const city = provinces.find((p) => p.id === 6)!;
     const district = city.districts.find((d) => d.slug === oldDistrict[1]);
-    if (district) redirect = regionPath(city.slug, district.slug);
+    if (district) {
+      const target = serviceRegionPath('evden-eve-nakliyat', city.slug, district.slug);
+      if (staticIndexableRegionPaths.some((item) => item === target)) {
+        redirect = target;
+      } else {
+        let published: LocationRecord | null = null;
+        try {
+          published = await env.DB.prepare(
+            "SELECT * FROM locations WHERE path=? AND status='published'",
+          )
+            .bind(target)
+            .first<LocationRecord>();
+        } catch {
+          console.error(JSON.stringify({ event: 'legacy_redirect_location_unavailable', path }));
+        }
+        redirect =
+          published && publicationErrors(published).length === 0 ? target : '/evden-eve-nakliyat/';
+      }
+    }
   }
   if (redirect) return Response.redirect(new URL(redirect + url.search, url).href, 301);
   const assetHeaders = new Headers(request.headers);

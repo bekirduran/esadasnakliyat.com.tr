@@ -129,9 +129,75 @@ test('Legacy sitemap index redirects to the canonical sitemap', async () => {
   assert.equal(response.headers.get('location'), env.SITE_URL + '/sitemap.xml');
 });
 
-test('LLM guide links use the canonical origin', async () => {
+test('Legacy search URLs redirect to relevant indexable service pages', async () => {
+  const { default: worker } = await import('../worker/index');
+  const origin = 'https://esadasnakliyat.com.tr';
+  const env = {
+    ENVIRONMENT: 'production',
+    SITE_URL: origin,
+    DB: {
+      prepare() {
+        return { bind: () => ({ first: async () => null }) };
+      },
+    },
+  };
+  const mappings = {
+    '/cankaya-esya-depolama/': '/esya-depolama/',
+    '/mamak-esya-depolama/': serviceRegionPath('esya-depolama', 'ankara', 'mamak'),
+    '/parca-esya-tasima-nakliye/': '/parca-esya-tasima/',
+    '/hizmetlerimiz/': '/hizmetler/',
+    '/ankara-istanbul-nakliye/': '/sehirler-arasi-nakliyat/',
+    '/cankaya-evden-eve-nakliyat/': serviceRegionPath('evden-eve-nakliyat', 'ankara', 'cankaya'),
+    '/mamak-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+    '/dikmen-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+    '/cayyolu-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+  };
+  for (const [oldPath, newPath] of Object.entries(mappings)) {
+    const response = await worker.fetch(
+      new Request(origin + oldPath + '?source=search', { redirect: 'manual' }),
+      env as any,
+    );
+    assert.equal(response.status, 301, oldPath);
+    assert.equal(response.headers.get('location'), origin + newPath + '?source=search');
+  }
+});
+
+test('Legacy district URL uses a verified published local page when available', async () => {
+  const { default: worker } = await import('../worker/index');
+  const origin = 'https://esadasnakliyat.com.tr';
+  const target = serviceRegionPath('evden-eve-nakliyat', 'ankara', 'mamak');
+  const record = {
+    path: target,
+    title: 'Mamak evden eve nakliyat',
+    description: 'yerel '.repeat(110),
+    local_details: 'erişim '.repeat(60),
+    evidence_url: 'https://example.com/reference',
+    service_confirmed: 1,
+    status: 'published',
+  };
+  const env = {
+    ENVIRONMENT: 'production',
+    SITE_URL: origin,
+    DB: { prepare: () => ({ bind: () => ({ first: async () => record }) }) },
+  };
+  const response = await worker.fetch(
+    new Request(origin + '/mamak-evden-eve-nakliyat/', { redirect: 'manual' }),
+    env as any,
+  );
+  assert.equal(response.status, 301);
+  assert.equal(response.headers.get('location'), origin + target);
+});
+
+test('LLM guide links use the official site origins', async () => {
   const text = await readFile(new URL('../public/llms.txt', import.meta.url), 'utf8');
   const links = [...text.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map((match) => match[1]);
   assert.ok(links.length > 0);
-  assert.ok(links.every((link) => link.startsWith('https://esadasnakliyat.com.tr/')));
+  assert.ok(
+    links.every((link) => {
+      const { origin } = new URL(link);
+      return ['https://esadasnakliyat.com.tr', 'https://esadasankaraesyadepolama.com'].includes(
+        origin,
+      );
+    }),
+  );
 });
