@@ -1,12 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Media from '../components/Media.astro';
-import { provinces, serviceRegionPath } from '../data/geo';
-import { services, site } from '../data/site';
+import { services, site, storageAreas } from '../data/site';
 export function getStaticPaths() {
   return services.map((service) => ({ params: { service: service.slug }, props: { service } }));
 }
 const { service: s } = Astro.props;
+const seoTitle =
+  s.slug === 'esya-depolama'
+    ? 'Ankara Eşya Depolama'
+    : s.slug === 'evden-eve-nakliyat'
+      ? 'Ankara Evden Eve Nakliyat Hizmeti'
+      : `${s.name} — Ankara`;
+const seoDescription =
+  s.slug === 'esya-depolama'
+    ? 'Ankara eşya depolama için eşya hacmi, saklama süresi, paketleme ve erişim koşullarını birlikte planlayın. Kapsamı açık depolama teklifi alın.'
+    : s.slug === 'evden-eve-nakliyat'
+      ? 'Ankara evden eve nakliyat için eşya listesi, katlar, paketleme, söküm ve montaj ihtiyacını paylaşın. Taşınma kapsamınızı birlikte planlayalım.'
+      : s.summary;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -17,7 +28,7 @@ const schema = {
 };
 ---
 
-<Layout title={`${s.name} — Ankara`} description={s.summary} schema={schema}>
+<Layout title={seoTitle} description={seoDescription} schema={schema}>
   <section class="page-hero">
     <div>
       <a class="eyebrow" href="/hizmetler/">
@@ -40,6 +51,45 @@ const schema = {
       planlamanın başlangıç noktasıdır. Depolamada saklama süresini de belirtin. Hizmete dahil
       işlemler, ek ücretler ve varsa sigorta koşulları yazılı teklif sırasında netleştirilir.
     </p>
+    {s.slug === 'esya-depolama' && (
+      <>
+        <h2>Ankara eşya depolama süreci nasıl planlanır?</h2>
+        <p>
+          Depo bölgelerimiz {storageAreas.join(', ')}. Depolanacak eşyaların listesini, yaklaşık
+          hacmini ve saklama süresini belirleyin. Eşyaların hangi adresten alınacağı, paketlemeyi
+          kimin yapacağı ve teslim sırasında tutulacak eşya kaydı teklifin kapsamına yazılmalıdır.
+          Oda seçeneği ve erişim koşulları ihtiyacınıza göre ayrıca görüşülür.
+        </p>
+        <h3>Depolama teklifinde neleri karşılaştırmalısınız?</h3>
+        <p>
+          Toplam ücretin yanında taşıma, paketleme, saklama, ziyaret, geri teslim ve olası ek
+          ücretleri ayrı ayrı sorun. Varsa sigortanın kapsamını ve sınırlarını sözleşmede kontrol
+          edin. Depo güvenliği veya sigorta için genel bir varsayım yerine güncel yazılı koşulları
+          esas alın.
+        </p>
+        <p>
+          <a href="/hizmetler/esya-depolama/ankara/mamak/">Mamak eşya depolama</a> için hazırlık ve
+          teklif bilgilerini ayrıca inceleyebilirsiniz. Tesis fotoğrafları ve ziyaret bilgileri için{' '}
+          <a href={`${site.storageUrl}depolar`}>depo tesisleri sayfamıza</a> bakın.
+        </p>
+      </>
+    )}
+    {s.slug === 'evden-eve-nakliyat' && (
+      <>
+        <h2>Ankara içinde ev taşıma planı</h2>
+        <p>
+          Çıkış ve varış adresindeki katları, bina asansörünü, sokak ve araç erişimini önceden
+          paylaşın. Büyük mobilyaların sökülmesi, kırılacak eşyaların paketlenmesi ve yeni adreste
+          montaj taleplerini listeleyin. Bu bilgiler taşıma yöntemiyle teklif kapsamının birlikte
+          değerlendirilmesini sağlar.
+        </p>
+        <p>
+          Çankaya için daha ayrıntılı hazırlık adımlarını{' '}
+          <a href="/hizmetler/evden-eve-nakliyat/ankara/cankaya/">Çankaya evden eve nakliyat</a>{' '}
+          sayfamızda bulabilirsiniz.
+        </p>
+      </>
+    )}
     <h2>Sık sorulan sorular</h2>
     {s.questions.map(([q, a]) => (
       <details>
@@ -55,16 +105,10 @@ const schema = {
     )}
     <h2>Hizmet bölgenizi seçin</h2>
     <p>
-      <a href="/hizmetler/bolgeler/ankara/">Ankara nakliyat rehberini inceleyin</a>. İlçe
-      bağlantıları ve diğer güzergâhlar aşağıdaki bölge listesindedir.
+      <a href="/hizmetler/bolgeler/ankara/">Ankara nakliyat rehberini inceleyin</a>. Diğer il ve
+      ilçeler için hizmet uygunluğunu bölge listesinden kontrol edebilir, seçtiğiniz bölgeyle teklif
+      talebi oluşturabilirsiniz.
     </p>
-    <div class="region-grid">
-      {provinces.map((city) => (
-        <a href={serviceRegionPath(s.slug, city.slug)}>
-          {city.name} {s.name}
-        </a>
-      ))}
-    </div>
     <p>
       Adres ve tarih uygunluğu üzerinden size özel plan hazırlanır. Bölge sayfaları o bölgede bir
       şube veya depo bulunduğu anlamına gelmez.

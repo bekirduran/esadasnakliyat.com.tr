@@ -10,6 +10,7 @@ export const site = {
     'https://www.google.com/maps/dir//Esada%C5%9F+Evden+Eve+Nakliyat,+%C4%B0lk+ad%C4%B1m+mahallesi+atayolu+sokak,+Dikmen+Cd+34%2Fb,+06450+%C3%87ankaya%2FAnkara/@39.7979626,32.883107,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x14d3457848b1aaf7:0x887ae35f2d34f032!2m2!1d32.839685!2d39.880547?hl=tr-TR&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D',
   storageUrl: 'https://esadasankaraesyadepolama.com/',
 };
+export const storageAreas = ['Mamak', 'Eryaman', 'Küçük Kayaş'] as const;
 export const services = [
   {
     slug: 'evden-eve-nakliyat',
@@ -142,19 +143,22 @@ export const mediaSlots = [
   'partial',
   'team',
 ] as const;
+// Only locally maintained regional content belongs in the static sitemap.
+export const staticIndexableRegionPaths = [
+  '/hizmetler/bolgeler/ankara/',
+  '/hizmetler/evden-eve-nakliyat/ankara/cankaya/',
+  '/hizmetler/esya-depolama/ankara/mamak/',
+] as const;
+
 export const basePaths = [
   '/',
   '/hizmetler/',
   ...services.map((s) => `/${s.slug}/`),
   '/hizmetler/bolgeler/',
-  '/hizmetler/bolgeler/ankara/',
+  ...staticIndexableRegionPaths,
   '/hakkimizda/',
   '/iletisim/',
   '/teklif/',
   '/rehber/',
   '/gizlilik/',
 ];
-
-// These regional pages contain maintained, useful static content and do not depend on a CMS
-// publication record to be indexable. Other regional routes stay behind the publication gate.
-export const staticIndexableRegionPaths = ['/hizmetler/bolgeler/ankara/'] as const;
