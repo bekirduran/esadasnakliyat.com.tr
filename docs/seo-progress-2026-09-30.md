@@ -2,7 +2,7 @@
 
 Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esadasnakliyat.com.tr-Performance-on-Search-2026-09-30.zip` ve `esadasnakliyat.com.tr-Coverage-2026-09-30.zip` Search Console dışa aktarımları (kullanıcının Downloads klasöründe). Performans dönemi 11–27 Eylül 2026; 3.178 gösterim, 26 tıklama. Coverage özeti 35 dizine eklenen, 34 eklenmeyen sayfa gösteriyor. Coverage ZIP içinde örnek URL listesi yok.
 
-Çalışma dalı: `codex/seo-geo-improvements`. İlk beş adım `46405a5` commit'inde yerel olarak kayıtlıdır. İlk uzak push denemesi otomatik onay incelemesi tarafından reddedildi; kullanıcı daha sonra `https://github.com/bekirduran/esadasnakliyat.com.tr.git` deposundaki bu dalın push edilmesini açıkça onayladı. Staging dağıtımı `CLOUDFLARE_API_TOKEN` bulunmadığı için yapılmadı. Kuru çalıştırma başarılıdır; canlı ortam henüz değişmedi.
+Çalışma dalı: `codex/seo-geo-improvements`. İlk beş adım `46405a5` commit'inde kayıtlıdır. Kullanıcının açık onayından sonra dal `https://github.com/bekirduran/esadasnakliyat.com.tr.git` deposuna push edildi. Staging dağıtımı `CLOUDFLARE_API_TOKEN` bulunmadığı için yapılmadı. Kuru çalıştırma başarılıdır; canlı ortam henüz değişmedi.
 
 ## Tamamlanan adım 1: Eski URL yönlendirmeleri
 
@@ -44,10 +44,9 @@ Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esa
 
 ## Sıradaki işler
 
-1. `codex/seo-geo-improvements` dalını kullanıcının açıkça onayladığı GitHub remote'una gönder ve sonucu kaydet.
-2. Staging/üretim dağıtımı için Cloudflare API token'ı veya yetkili CI akışı sağlanmalı. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
-3. Depolama sitesindeki yer tutucu telefon numarasını düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
-4. Yetki belgeleri ve Google Business Profile bilgileri doğrulanmadan bunlara ilişkin yeni iddialar ekleme.
+1. Staging/üretim dağıtımı için Cloudflare API token'ı veya yetkili CI akışı sağlanmalı. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
+2. Depolama sitesindeki yer tutucu telefon numarasını düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
+3. Yetki belgeleri ve Google Business Profile bilgileri doğrulanmadan bunlara ilişkin yeni iddialar ekleme.
 
 ## Bilinçli olarak açık kalan eski URL'ler
 
