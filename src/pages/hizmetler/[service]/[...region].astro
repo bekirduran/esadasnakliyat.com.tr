@@ -1,7 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { provinces, regionPath, serviceRegionPath } from '../../../data/geo';
-import { services, site } from '../../../data/site';
+import { services, site, storageAreas } from '../../../data/site';
 export function getStaticPaths() {
   return services.flatMap((service) =>
     provinces.flatMap((city) => [
@@ -18,7 +18,15 @@ export function getStaticPaths() {
 }
 const { service, city, district } = Astro.props;
 const label = district ? `${city.name} ${district.name}` : city.name;
-const title = `${label} ${service.name}`;
+const isCankayaMoving =
+  service.slug === 'evden-eve-nakliyat' && city.slug === 'ankara' && district?.slug === 'cankaya';
+const isMamakStorage =
+  service.slug === 'esya-depolama' && city.slug === 'ankara' && district?.slug === 'mamak';
+const title = isCankayaMoving
+  ? 'Çankaya Evden Eve Nakliyat'
+  : isMamakStorage
+    ? 'Mamak Eşya Depolama'
+    : `${label} ${service.name}`;
 const schema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
@@ -45,8 +53,14 @@ const schema = {
 
 <Layout
   title={title}
-  description={`${label} için ${service.name.toLocaleLowerCase('tr')} talebinizi planlayın. ${service.summary}`}
-  noindex
+  description={
+    isCankayaMoving
+      ? 'Çankaya evden eve nakliyat için eşya listesi, bina erişimi, paketleme ve asansör ihtiyacını birlikte planlayın. Kapsamı açık taşıma teklifi alın.'
+      : isMamakStorage
+        ? 'Mamak eşya depolama için eşya hacmini, süreyi, paketleme ve teslim koşullarını planlayın. Esadaş Nakliyat depo bölgelerini ve teklif bilgilerini inceleyin.'
+        : `${label} için ${service.name.toLocaleLowerCase('tr')} talebinizi planlayın. ${service.summary}`
+  }
+  noindex={!isCankayaMoving && !isMamakStorage}
   schema={schema}
 >
   <section class="section prose">
@@ -57,16 +71,78 @@ const schema = {
     </div>
     <h1>{title}</h1>
     <section id="local-content">
-      <p>
-        {label} için {service.name.toLocaleLowerCase('tr')} ihtiyacınızı adres, tarih ve eşya
-        bilgileriyle birlikte değerlendirelim.
-      </p>
-      <p>{service.details}</p>
-      <p>
-        {service.image === 'storage'
-          ? 'Depolama hizmetimiz Ankara bağlantılıdır. Bu sayfa seçilen bölgede depo bulunduğu anlamına gelmez; Ankara’ya taşıma ve saklama uygunluğu ayrıca değerlendirilir.'
-          : 'Bu sayfa Ankara bağlantılı hizmet taleplerini planlamak içindir. Bölgede şube bulunduğu veya her tarihte hizmet verildiği anlamına gelmez; adres ve operasyon uygunluğu teklif sırasında doğrulanır.'}
-      </p>
+      {isCankayaMoving ? (
+        <>
+          <p>
+            Çankaya içinde veya Çankaya’dan başka bir ilçeye taşınırken iki adresin koşulları taşıma
+            planını değiştirir. Eşya miktarının yanında çıkış ve varış katını, bina asansörünü,
+            merdiven genişliğini ve aracın durabileceği alanı teklif talebinize ekleyin.
+          </p>
+          <h2>Çankaya taşınması için hangi bilgileri hazırlamalısınız?</h2>
+          <p>
+            Büyük mobilya ve beyaz eşyaların listesini, sökülmesi gereken parçaları, kırılacak
+            eşyaları ve tercih ettiğiniz tarihi paylaşın. İki adreste de bina yönetiminin taşıma
+            saati veya yük asansörü kullanımıyla ilgili kuralı varsa önceden bildirin. Bu bilgiler
+            paketleme, ekip ve araç planının ihtiyaçlarınıza göre değerlendirilmesine yardımcı olur.
+          </p>
+          <h2>Paketleme ve dış cephe asansörü</h2>
+          <p>
+            Paketleme, mobilya sökümü ve yeni adreste montaj isteklerinizi ayrı ayrı belirtin. Dış
+            cephe asansörü gerekiyorsa kat, cephe ve sokak erişimi kontrol edilmelidir; her binada
+            aynı yöntem uygulanamaz. Hangi işlemlerin teklife dahil olduğunu ve varsa ek ücretleri
+            yazılı kapsamda karşılaştırın.
+          </p>
+          <h2>Teklif ve teslimat planı</h2>
+          <p>
+            Çıkış ve varış adresleri, eşya listesi ve tarih üzerinden hizmet uygunluğu
+            değerlendirilir. Taşıma günü, paketleme kapsamı, varsa depolama ihtiyacı ve teslimde
+            yapılacak kontrolü teklif aşamasında netleştirin. Çankaya’da depo veya ayrı bir şube
+            bulunduğu bu sayfada beyan edilmez.
+          </p>
+        </>
+      ) : isMamakStorage ? (
+        <>
+          <p>
+            Mamak, Esadaş Nakliyat'ın {storageAreas.join(', ')} depo bölgelerinden biridir. Depolama
+            talebinizde eşyanın alınacağı adresi, yaklaşık hacmi ve saklama süresini paylaşın. Mamak
+            tesisinde kişiye özel kilitli oda ve randevulu tesis ziyareti seçenekleri bulunur. Uygun
+            alan ve güncel koşullar teklif sırasında netleştirilir.
+          </p>
+          <h2>Mamak'ta eşya depolama için nasıl hazırlanmalısınız?</h2>
+          <p>
+            Büyük mobilya, beyaz eşya ve kırılacak parçaları ayrı listeleyin. Paketleme ve taşımanın
+            teklife dahil olmasını istiyorsanız bunu önceden belirtin. Teslim sırasında eşya
+            kaydının nasıl tutulacağını ve geri teslim sürecini yazılı olarak sorun.
+          </p>
+          <h2>Depolama koşullarını tekliften önce karşılaştırın</h2>
+          <p>
+            Oda veya alan seçeneği, saklama süresi, erişim yöntemi, ziyaret ve geri teslim koşulları
+            ihtiyaca göre değişebilir. Tesisi görmek için randevu oluşturabilirsiniz; depolama
+            sitesinde ziyaret saatleri pazartesi–cumartesi 08.30–18.30 olarak belirtilir. Ek
+            ücretleri ve sigorta kapsamını güncel sözleşmede kontrol edin.
+          </p>
+          <p>
+            <a href={`${site.storageUrl}depolar/mamak-depolama-tesisi`}>
+              Mamak tesisinin fotoğraflarını ve ziyaret bilgilerini
+            </a>{' '}
+            depolama sitemizde inceleyin. Diğer depo bölgeleri ve genel hazırlık adımları için{' '}
+            <a href="/esya-depolama/">Ankara eşya depolama</a> sayfasına dönün.
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            {label} için {service.name.toLocaleLowerCase('tr')} ihtiyacınızı adres, tarih ve eşya
+            bilgileriyle birlikte değerlendirelim.
+          </p>
+          <p>{service.details}</p>
+          <p>
+            {service.image === 'storage'
+              ? 'Depolama hizmetimiz Ankara bağlantılıdır. Bu sayfa seçilen bölgede depo bulunduğu anlamına gelmez; Ankara’ya taşıma ve saklama uygunluğu ayrıca değerlendirilir.'
+              : 'Bu sayfa Ankara bağlantılı hizmet taleplerini planlamak içindir. Bölgede şube bulunduğu veya her tarihte hizmet verildiği anlamına gelmez; adres ve operasyon uygunluğu teklif sırasında doğrulanır.'}
+          </p>
+        </>
+      )}
     </section>
     <a class="button" href={`/teklif/?hizmet=${service.slug}&bolge=${encodeURIComponent(label)}`}>
       Bu hizmet için teklif alın ↗

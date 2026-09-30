@@ -69,6 +69,6 @@ Altı hizmet × (81 il + 973 ilçe) = 6.324 hizmet-bölge sayfası otomatik üre
 
 Admin → İl/ilçe bölümünde hizmeti, ili ve ilçeyi seçin. Her URL için bağımsız içerik ve yayın durumu kaydedilir. Genel bölge içeriğinin yayınlanması altı hizmet sayfasını otomatik yayınlamaz. Doğrulanmış hizmet ve yerel açıklama, kanıt bağlantısı ve yayın durumu koşulları karşılandığında production sitemap’ine otomatik eklenir; taslağa dönüşte çıkar. Google’ın indekslemesi ve sıralaması garanti değildir.
 
-Hizmet sayfaları il sayfalarına, il sayfaları ilçelerine, bölge sayfaları da ilgili altı hizmete bağlanır. Teklif bağlantısı seçilen hizmet ve bölgeyi forma taşır. Ankara dışındaki depolama sayfaları yerel depo iddiasında bulunmaz; Ankara bağlantılı taşıma ve saklama uygunluğu ayrıca doğrulanır.
+Ana hizmet sayfaları indekslenebilir Ankara rehberine ve il/ilçe dizinine bağlanır; taslak hizmet-il sayfalarına toplu bağlantı üretmez. İl sayfaları ilçelerine, bölge sayfaları da ilgili hizmetlere bağlanır. Teklif bağlantısı seçilen hizmet ve bölgeyi forma taşır. Ankara dışındaki depolama sayfaları yerel depo iddiasında bulunmaz; Ankara bağlantılı taşıma ve saklama uygunluğu ayrıca doğrulanır.
 
 Büyük varlık ağacında macOS yerel dosya izleyicisi sınırına ulaşılabilir. Entegrasyon doğrulaması için gerekli sayfaların geçici bir alt kümesi `wrangler dev --assets <geçici-klasör>` ile kullanılabilir; CI ve üretim derlemesi tüm sayfaları içerir.

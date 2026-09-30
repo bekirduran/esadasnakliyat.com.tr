@@ -58,9 +58,15 @@ if (env === 'production') {
   const sitemap = await (await fetch('https://esadasnakliyat.com.tr/sitemap.xml')).text();
   if (
     !sitemap.includes('<loc>https://esadasnakliyat.com.tr/iletisim/</loc>') ||
+    !sitemap.includes(
+      '<loc>https://esadasnakliyat.com.tr/hizmetler/evden-eve-nakliyat/ankara/cankaya/</loc>',
+    ) ||
+    !sitemap.includes(
+      '<loc>https://esadasnakliyat.com.tr/hizmetler/esya-depolama/ankara/mamak/</loc>',
+    ) ||
     sitemap.includes('/iletisim-2/')
   )
-    throw Error('Sitemap must use the canonical contact URL');
+    throw Error('Sitemap must include canonical contact and Çankaya moving URLs');
 }
 console.log('Contact migration, sitemap and error page indexing verified');
 
@@ -80,12 +86,33 @@ for (const path of [
 }
 console.log('Service-region pages, canonical URLs and contextual quote links verified');
 
+if (env === 'production') {
+  for (const path of [
+    '/hizmetler/evden-eve-nakliyat/ankara/cankaya/',
+    '/hizmetler/esya-depolama/ankara/mamak/',
+  ]) {
+    const response = await fetch('https://esadasnakliyat.com.tr' + path);
+    const html = await response.text();
+    if (
+      !response.ok ||
+      response.headers.get('x-robots-tag')?.includes('noindex') ||
+      /<meta[^>]+content="noindex/i.test(html)
+    )
+      throw Error(`Local service page must be indexable on production: ${path}`);
+  }
+}
+
 for (const [oldPath, newPath] of [
   ['/esya-depolama-2/', '/esya-depolama/'],
   ['/hizmetler/esya-depolama-2/ankara/cankaya/', '/hizmetler/esya-depolama/ankara/cankaya/'],
+  ['/cankaya-esya-depolama/', '/esya-depolama/'],
+  ['/mamak-esya-depolama/', '/hizmetler/esya-depolama/ankara/mamak/'],
+  ['/parca-esya-tasima-nakliye/', '/parca-esya-tasima/'],
+  ['/hizmetlerimiz/', '/hizmetler/'],
+  ['/cankaya-evden-eve-nakliyat/', '/hizmetler/evden-eve-nakliyat/ankara/cankaya/'],
 ]) {
   const r = await fetch(base + oldPath + '?source=smoke', { redirect: 'manual' });
   if (r.status !== 301 || r.headers.get('location') !== base + newPath + '?source=smoke')
-    throw Error('Storage legacy redirect failed');
+    throw Error(`Legacy redirect failed: ${oldPath}`);
 }
-console.log('Storage URL migration redirects verified');
+console.log('Legacy URL migration redirects verified');
