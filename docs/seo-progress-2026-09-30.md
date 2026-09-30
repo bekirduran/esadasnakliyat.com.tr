@@ -4,6 +4,10 @@ Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esa
 
 Çalışma dalı: `codex/seo-geo-improvements`. İlk beş adım `46405a5` commit'inde kayıtlıdır. Kullanıcının açık onayından sonra dal `https://github.com/bekirduran/esadasnakliyat.com.tr.git` deposuna push edildi. Staging dağıtımı `CLOUDFLARE_API_TOKEN` bulunmadığı için yapılmadı. Kuru çalıştırma başarılıdır; canlı ortam henüz değişmedi.
 
+Taslak PR: https://github.com/bekirduran/esadasnakliyat.com.tr/pull/1 (`dev` hedefine). GitHub Actions `verify` kontrolü geçti; `deploy` PR için atlandı. PR birleştirilmedi.
+
+Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenle staging/production dağıtımı ve PR birleştirmesi bu aşamada yapılmayacak.
+
 ## Tamamlanan adım 1: Eski URL yönlendirmeleri
 
 - Search Console'da performansı görülen ve canlıda 404 dönen eski depolama, parça eşya ve hizmet listesi URL'lerine içerik niyetine uygun 301 eşlemeleri eklendi.
@@ -44,7 +48,7 @@ Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esa
 
 ## Sıradaki işler
 
-1. Staging/üretim dağıtımı için Cloudflare API token'ı veya yetkili CI akışı sağlanmalı. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
+1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
 2. Depolama sitesindeki yer tutucu telefon numarasını düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
 3. Yetki belgeleri ve Google Business Profile bilgileri doğrulanmadan bunlara ilişkin yeni iddialar ekleme.
 
