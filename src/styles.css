@@ -913,6 +913,11 @@ footer a:not(.brand) {
   color: var(--muted);
   font-size: 10px;
 }
+.footer-bottom .footer-attribution a {
+  display: inline;
+  margin: 0 0 0 1em;
+  text-decoration: underline;
+}
 .contact-float {
   position: fixed;
   right: 20px;

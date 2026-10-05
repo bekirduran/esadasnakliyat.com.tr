@@ -70,6 +70,11 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - İletişim sayfası, site alt bilgisi, `MovingCompany` telefon listesi, hizmet JSON kataloğu ve `llms.txt` bu üç rolü yansıtıyor. Eski üçüncü taraf dizinlerinde görülen `0535` numarası artık doğrulanmış ikincil hat; tek başına yanlış kayıt sayılmıyor.
 - `npm test`: 18/18, `npm run check`: 0 hata/uyarı, `npm run build`: 7.394 sayfa, `python3 scripts/audit-seo.py`: 0 bulgu. Üretilen iletişim HTML'indeki üç `tel:` bağlantısı ve JSON-LD telefonları ile Worker hizmet kataloğundaki üç telefon alanı ayrıca kontrol edildi. Canlıya dağıtılmadı.
 
+## Tamamlanan adım 10: Alt bilgi tasarım bağlantısı
+
+- Kullanıcının isteğiyle telif satırına `Tasarım: BT Masasi` bağlantısı eklendi; hedef `https://btmasasi.com/`. Bağlantı yeni sekmede güvenli dış bağlantı olarak açılıyor. Alt bilgi bağlantısının telif metniyle aynı satırda kalması için küçük bir stil kuralı eklendi.
+- `npm run check` 0 hata/uyarı ve `npm run build` 7.394 sayfa başarılı. Üretilen ana sayfa HTML'inde bağlantı hedefi ve yeni sekme nitelikleri doğrulandı. Dış hedefin ağ erişimi bu ortamda doğrulanamadı.
+
 ## Sıradaki işler
 
 1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
