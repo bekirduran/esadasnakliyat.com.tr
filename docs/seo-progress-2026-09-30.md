@@ -78,4 +78,4 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 
 ## Bilinçli olarak açık kalan eski URL'ler
 
-`/galeri/` için yeni gerçek galeri içeriği, `/yetki-belgelerimiz/` için doğrulanmış belgeler yok. Bunlar alakasız bir sayfaya yönlendirilmedi. Bu adreslerin içerikleri temin edilirse uygun sayfalar oluşturulmalı. Eski URL envanterinin tamamı için backlink ve Search Console URL örnekleri ayrıca incelenmeli.
+Kullanıcı 5 Ekim'de `/galeri/` ve `/yetki-belgelerimiz/` sayfalarının şimdilik eklenmemesini istedi. Bu adresler 404 olarak kalacak; ilgisiz bir sayfaya yönlendirilmeyecek ve sitemap'e alınmayacak. Yeniden ele alınmaları için kullanıcıdan açık istek ve doğrulanmış içerik beklenmeli. Eski URL envanterinin tamamı için backlink ve Search Console URL örnekleri ayrıca incelenmeli.
