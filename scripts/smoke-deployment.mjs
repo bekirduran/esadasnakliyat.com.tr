@@ -104,7 +104,7 @@ if (env === 'production') {
 
 for (const [oldPath, newPath] of [
   ['/esya-depolama-2/', '/esya-depolama/'],
-  ['/hizmetler/esya-depolama-2/ankara/cankaya/', '/hizmetler/esya-depolama/ankara/cankaya/'],
+  ['/hizmetler/esya-depolama-2/ankara/mamak/', '/hizmetler/esya-depolama/ankara/mamak/'],
   ['/cankaya-esya-depolama/', '/esya-depolama/'],
   ['/mamak-esya-depolama/', '/hizmetler/esya-depolama/ankara/mamak/'],
   ['/parca-esya-tasima-nakliye/', '/parca-esya-tasima/'],
@@ -114,5 +114,26 @@ for (const [oldPath, newPath] of [
   const r = await fetch(base + oldPath + '?source=smoke', { redirect: 'manual' });
   if (r.status !== 301 || r.headers.get('location') !== base + newPath + '?source=smoke')
     throw Error(`Legacy redirect failed: ${oldPath}`);
+}
+const legacyCankayaStorage = await fetch(base + '/hizmetler/esya-depolama-2/ankara/cankaya/', {
+  redirect: 'manual',
+});
+const legacyCankayaTarget = legacyCankayaStorage.headers.get('location');
+if (
+  legacyCankayaStorage.status !== 301 ||
+  ![base + '/esya-depolama/', base + '/hizmetler/esya-depolama/ankara/cankaya/'].includes(
+    legacyCankayaTarget,
+  )
+)
+  throw Error('Legacy Çankaya storage redirect failed');
+if (env === 'production') {
+  const destination = await fetch(legacyCankayaTarget);
+  const html = await destination.text();
+  if (
+    !destination.ok ||
+    destination.headers.get('x-robots-tag')?.includes('noindex') ||
+    /<meta[^>]+content="noindex/i.test(html)
+  )
+    throw Error('Legacy Çankaya storage destination must be indexable');
 }
 console.log('Legacy URL migration redirects verified');

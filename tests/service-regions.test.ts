@@ -151,6 +151,12 @@ test('Legacy search URLs redirect to relevant indexable service pages', async ()
     '/mamak-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
     '/dikmen-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
     '/cayyolu-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
+    '/hizmetler/esya-depolama-2/ankara/cankaya/': '/esya-depolama/',
+    '/hizmetler/esya-depolama-2/ankara/mamak/': serviceRegionPath(
+      'esya-depolama',
+      'ankara',
+      'mamak',
+    ),
   };
   for (const [oldPath, newPath] of Object.entries(mappings)) {
     const response = await worker.fetch(
@@ -182,6 +188,34 @@ test('Legacy district URL uses a verified published local page when available', 
   };
   const response = await worker.fetch(
     new Request(origin + '/mamak-evden-eve-nakliyat/', { redirect: 'manual' }),
+    env as any,
+  );
+  assert.equal(response.status, 301);
+  assert.equal(response.headers.get('location'), origin + target);
+});
+
+test('Legacy storage region uses a verified published page when available', async () => {
+  const { default: worker } = await import('../worker/index');
+  const origin = 'https://esadasnakliyat.com.tr';
+  const target = serviceRegionPath('esya-depolama', 'ankara', 'cankaya');
+  const record = {
+    path: target,
+    title: 'Çankaya eşya depolama',
+    description: 'depolama '.repeat(110),
+    local_details: 'erişim '.repeat(60),
+    evidence_url: 'https://example.com/reference',
+    service_confirmed: 1,
+    status: 'published',
+  };
+  const env = {
+    ENVIRONMENT: 'production',
+    SITE_URL: origin,
+    DB: { prepare: () => ({ bind: () => ({ first: async () => record }) }) },
+  };
+  const response = await worker.fetch(
+    new Request(origin + '/hizmetler/esya-depolama-2/ankara/cankaya/', {
+      redirect: 'manual',
+    }),
     env as any,
   );
   assert.equal(response.status, 301);

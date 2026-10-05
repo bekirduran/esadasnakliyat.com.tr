@@ -1,4 +1,4 @@
-# SEO/GEO iyileştirme ilerlemesi — 30 Eylül 2026
+# SEO/GEO iyileştirme ilerlemesi — 30 Eylül–5 Ekim 2026
 
 Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esadasnakliyat.com.tr-Performance-on-Search-2026-09-30.zip` ve `esadasnakliyat.com.tr-Coverage-2026-09-30.zip` Search Console dışa aktarımları (kullanıcının Downloads klasöründe). Performans dönemi 11–27 Eylül 2026; 3.178 gösterim, 26 tıklama. Coverage özeti 35 dizine eklenen, 34 eklenmeyen sayfa gösteriyor. Coverage ZIP içinde örnek URL listesi yok.
 
@@ -46,12 +46,41 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - Yeni depo içerikleri için test ve canlı smoke kontrolü eklendi. Yerel dosyalara kaydedildi; üretime dağıtılmadı.
 - Son doğrulama: `npm test` 17/17; `npm run check` 0 hata/uyarı; `npm run build` 7.394 sayfa; `python3 scripts/audit-seo.py` 0 bulgu; `npx wrangler deploy --dry-run --env staging` başarılı. Üretilmiş Çankaya evden eve ve Mamak depolama HTML'lerinde `index,follow` ve kendine canonical doğrulandı; taslak Çankaya depolama `noindex,follow` kaldı.
 
+## Tamamlanan adım 6: Eski hizmet-bölge depolama URL'leri
+
+- `/hizmetler/esya-depolama-2/.../` ailesindeki geçerli eski URL'ler artık otomatik olarak `noindex` taslağa yönlenmiyor. Statik olarak indekslenebilir veya doğrulanmış yayın kaydı olan yerel hedef kullanılıyor; diğerleri `/esya-depolama/` sayfasına gidiyor.
+- Eski ilçe evden eve URL'leriyle aynı iş kuralı tek yardımcı fonksiyonda toplandı. Sorgu parametreleri korunuyor. Çankaya taslak, Mamak statik ve yayınlanmış Çankaya kayıtları test edildi.
+- Dağıtım smoke kontrolü hedefin canlıda indekslenebilir olduğunu sınayacak şekilde güncellendi. `npm test`: 18/18, `npm run check`: 0 hata/uyarı, Wrangler staging kuru çalıştırması başarılı. Canlıya dağıtılmadı.
+
+## Tamamlanan adım 7: Search Console eski URL envanteri kontrolü
+
+- Performans dışa aktarımındaki 36 sayfa URL'si mevcut Worker yönlendirme mantığı ve üretilmiş HTML ile yerel olarak eşleştirildi. Altı URL güncel ana/hizmet sayfası; 30 URL eski adres. Eski adreslerden 28'i indekslenebilir hedefe 301 gidiyor. Yalnızca `/galeri/` (24 gösterim, 1 tıklama) ve `/yetki-belgelerimiz/` (9 gösterim) için doğrulanmış yeni içerik bulunmadığından eşleme yapılmadı.
+- Kontrol üretim veritabanında yayınlanmış ek bölgesel içerik yokmuş gibi yapıldı. Üretimde yayınlı yerel içerik varsa bazı eski adreslerin hedefi daha özel indekslenebilir sayfa olabilir. Canlı HTTP davranışı dağıtım yapılmadan doğrulanamaz.
+
+## Tamamlanan adım 8: Yerel işletme adresi ve görsel yükü
+
+- Google Maps bağlantısındaki Çankaya/Ankara adresine göre görünür adres ilçe adıyla tamamlandı. `MovingCompany` yapısal verisinde sokak, ilçe ve il ayrı alanlara yazıldı; sokak metni tek kaynakta tutuluyor.
+- 13 Eylül denetiminde belirtilen 766 KiB logo yükü artık geçerli değil: mevcut PNG yaklaşık 30 KiB, başlık WebP görseli yaklaşık 1,8 KiB. Yeni bir görsel dönüşümü yapılmadı.
+- İki üçüncü taraf işletme dizini ([Eveusta](https://eveusta.com/nakliyat-firmalari/cankaya/esadas-evden-eve-nakliyat/), [Servis Merkez Listesi](https://servismerkezilisteleri.com.tr/ankara/cankaya/nakliyat/esadas-evden-eve-nakliyat.html)) `0535 679 74 69` numarasını gösteriyor. Kullanıcı 5 Ekim'de kullanılacak doğru numarayı `+90 534 670 74 69` olarak doğruladı. Sitenin telefon, arama bağlantısı, WhatsApp ve `llms.txt` alanları zaten bu numarayı kullanıyor; kod değişikliği gerekmedi. Üçüncü taraf kayıtları ve Google İşletme Profili bu numarayla karşılaştırılmalı.
+- Doğrulama: `npm run check` 0 hata/uyarı; `npm run build` 7.394 sayfa; `python3 scripts/audit-seo.py` 0 bulgu. Üretilen ana sayfa JSON-LD adres alanları ayrıca ayrıştırılarak kontrol edildi. Üretime dağıtılmadı.
+
+## Tamamlanan adım 9: İletişim hatlarının doğrulanması
+
+- Kullanıcı `+90 535 679 74 69` numarasının ikincil hat, `0312 481 98 39` numarasının aktif sabit hat olarak ayrıca gösterilmesini doğruladı. Ana hat ve WhatsApp `+90 534 670 74 69` olarak kaldı.
+- İletişim sayfası, site alt bilgisi, `MovingCompany` telefon listesi, hizmet JSON kataloğu ve `llms.txt` bu üç rolü yansıtıyor. Eski üçüncü taraf dizinlerinde görülen `0535` numarası artık doğrulanmış ikincil hat; tek başına yanlış kayıt sayılmıyor.
+- `npm test`: 18/18, `npm run check`: 0 hata/uyarı, `npm run build`: 7.394 sayfa, `python3 scripts/audit-seo.py`: 0 bulgu. Üretilen iletişim HTML'indeki üç `tel:` bağlantısı ve JSON-LD telefonları ile Worker hizmet kataloğundaki üç telefon alanı ayrıca kontrol edildi. Canlıya dağıtılmadı.
+
+## Tamamlanan adım 10: Alt bilgi tasarım bağlantısı
+
+- Kullanıcının isteğiyle telif satırına `Tasarım: BT Masasi` bağlantısı eklendi; hedef `https://btmasasi.com/`. Bağlantı yeni sekmede güvenli dış bağlantı olarak açılıyor. Alt bilgi bağlantısının telif metniyle aynı satırda kalması için küçük bir stil kuralı eklendi.
+- `npm run check` 0 hata/uyarı ve `npm run build` 7.394 sayfa başarılı. Üretilen ana sayfa HTML'inde bağlantı hedefi ve yeni sekme nitelikleri doğrulandı. Dış hedefin ağ erişimi bu ortamda doğrulanamadı.
+
 ## Sıradaki işler
 
 1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
-2. Depolama sitesindeki yer tutucu telefon numarasını düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
-3. Yetki belgeleri ve Google Business Profile bilgileri doğrulanmadan bunlara ilişkin yeni iddialar ekleme.
+2. Depolama sitesindeki yer tutucu telefon numarasını doğrulanan `+90 534 670 74 69` ile düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
+3. Google İşletme Profili ve üçüncü taraf dizinlerdeki numaraların doğrulanmış üç hattan biri olduğunu kontrol et; yanlış kayıtları düzelt. Yetki belgeleri doğrulanmadan belge iddiası ekleme.
 
 ## Bilinçli olarak açık kalan eski URL'ler
 
-`/galeri/` için yeni gerçek galeri içeriği, `/yetki-belgelerimiz/` için doğrulanmış belgeler yok. Bunlar alakasız bir sayfaya yönlendirilmedi. Bu adreslerin içerikleri temin edilirse uygun sayfalar oluşturulmalı. Eski URL envanterinin tamamı için backlink ve Search Console URL örnekleri ayrıca incelenmeli.
+Kullanıcı 5 Ekim'de `/galeri/` ve `/yetki-belgelerimiz/` sayfalarının şimdilik eklenmemesini istedi. Bu adresler 404 olarak kalacak; ilgisiz bir sayfaya yönlendirilmeyecek ve sitemap'e alınmayacak. Yeniden ele alınmaları için kullanıcıdan açık istek ve doğrulanmış içerik beklenmeli. Eski URL envanterinin tamamı için backlink ve Search Console URL örnekleri ayrıca incelenmeli.

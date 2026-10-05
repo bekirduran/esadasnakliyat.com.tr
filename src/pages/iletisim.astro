@@ -19,7 +19,10 @@ import { site } from '../data/site';
         <h2>Arayın</h2>
         <a href={`tel:${site.tel}`}>{site.phone}</a>
         <p>
-          Alternatif hat: <a href="tel:+903124819839">0312 481 98 39</a>
+          İkincil hat: <a href={`tel:${site.secondaryTel}`}>{site.secondaryPhone}</a>
+        </p>
+        <p>
+          Sabit hat: <a href={`tel:${site.landlineTel}`}>{site.landlinePhone}</a>
         </p>
         <a class="button" href={`https://wa.me/${site.whatsapp}`}>
           WhatsApp ↗

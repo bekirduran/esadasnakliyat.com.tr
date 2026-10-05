@@ -19,12 +19,12 @@ const business = {
   image: site.url + '/esadas-icon.png',
   hasMap: site.mapsUrl,
   areaServed: { '@type': 'City', name: 'Ankara' },
-  telephone: site.tel,
+  telephone: [site.tel, site.secondaryTel, site.landlineTel],
   email: site.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: site.address,
-    addressLocality: 'Ankara',
+    streetAddress: site.streetAddress,
+    addressLocality: 'Çankaya',
     addressRegion: 'Ankara',
     postalCode: '06450',
     addressCountry: { '@type': 'Country', name: 'TR' },
@@ -149,11 +149,18 @@ const website = {
       <div>
         <h3>Birlikte planlayalım</h3>
         <a href={`tel:${site.tel}`}>{site.phone}</a>
+        <a href={`tel:${site.secondaryTel}`}>İkincil hat: {site.secondaryPhone}</a>
+        <a href={`tel:${site.landlineTel}`}>Sabit hat: {site.landlinePhone}</a>
         <a href={`mailto:${site.email}`}>{site.email}</a>
         <p>{site.address}</p>
       </div>
       <div class="footer-bottom">
-        <span>© {new Date().getFullYear()} Esadaş Nakliyat</span>
+        <span class="footer-attribution">
+          © {new Date().getFullYear()} Esadaş Nakliyat
+          <a href="https://btmasasi.com/" target="_blank" rel="noopener noreferrer">
+            Tasarım: BT Masasi
+          </a>
+        </span>
         <a href="/gizlilik/">Gizlilik ve kişisel veriler</a>
         <a href="/admin/">Yönetim</a>
       </div>
