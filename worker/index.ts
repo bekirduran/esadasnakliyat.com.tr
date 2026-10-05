@@ -258,6 +258,27 @@ const redirects: Record<string, string> = {
   '/umitkoy-evden-eve-nakliyat/': '/evden-eve-nakliyat/',
   '/5346707469/': '/iletisim/',
 };
+async function indexableRegionTarget(
+  target: string,
+  fallback: string,
+  env: AppEnv,
+  requestedPath: string,
+) {
+  if (staticIndexableRegionPaths.some((path) => path === target)) return target;
+  try {
+    const record = await env.DB.prepare(
+      "SELECT * FROM locations WHERE path=? AND status='published'",
+    )
+      .bind(target)
+      .first<LocationRecord>();
+    if (record && publicationErrors(record).length === 0) return target;
+  } catch {
+    console.error(
+      JSON.stringify({ event: 'legacy_redirect_location_unavailable', path: requestedPath }),
+    );
+  }
+  return fallback;
+}
 async function route(request: Request, env: AppEnv) {
   const url = new URL(request.url);
   const path = url.pathname;
@@ -334,7 +355,8 @@ async function route(request: Request, env: AppEnv) {
   let redirect = redirects[normalized];
   if (normalized.startsWith('/hizmetler/esya-depolama-2/')) {
     const target = normalized.replace('/hizmetler/esya-depolama-2/', '/hizmetler/esya-depolama/');
-    if (findRegion(target)) redirect = target;
+    if (findRegion(target))
+      redirect = await indexableRegionTarget(target, '/esya-depolama/', env, path);
   }
   const oldDistrict = normalized.match(/^\/([a-z-]+)-evden-eve-nakliyat\/$/);
   if (oldDistrict) {
@@ -342,22 +364,7 @@ async function route(request: Request, env: AppEnv) {
     const district = city.districts.find((d) => d.slug === oldDistrict[1]);
     if (district) {
       const target = serviceRegionPath('evden-eve-nakliyat', city.slug, district.slug);
-      if (staticIndexableRegionPaths.some((item) => item === target)) {
-        redirect = target;
-      } else {
-        let published: LocationRecord | null = null;
-        try {
-          published = await env.DB.prepare(
-            "SELECT * FROM locations WHERE path=? AND status='published'",
-          )
-            .bind(target)
-            .first<LocationRecord>();
-        } catch {
-          console.error(JSON.stringify({ event: 'legacy_redirect_location_unavailable', path }));
-        }
-        redirect =
-          published && publicationErrors(published).length === 0 ? target : '/evden-eve-nakliyat/';
-      }
+      redirect = await indexableRegionTarget(target, '/evden-eve-nakliyat/', env, path);
     }
   }
   if (redirect) return Response.redirect(new URL(redirect + url.search, url).href, 301);

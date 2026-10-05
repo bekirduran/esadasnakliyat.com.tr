@@ -1,4 +1,4 @@
-# SEO/GEO iyileştirme ilerlemesi — 30 Eylül 2026
+# SEO/GEO iyileştirme ilerlemesi — 30 Eylül–5 Ekim 2026
 
 Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esadasnakliyat.com.tr-Performance-on-Search-2026-09-30.zip` ve `esadasnakliyat.com.tr-Coverage-2026-09-30.zip` Search Console dışa aktarımları (kullanıcının Downloads klasöründe). Performans dönemi 11–27 Eylül 2026; 3.178 gösterim, 26 tıklama. Coverage özeti 35 dizine eklenen, 34 eklenmeyen sayfa gösteriyor. Coverage ZIP içinde örnek URL listesi yok.
 
@@ -45,6 +45,12 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - İddialar kaynak sayfayla sınırlı tutuldu. Mamak tesis ayrıntı sayfasında görünen `+90 532 000 00 00` telefon numarası yer tutucu göründüğünden buraya aktarılmadı; depo sitesinde ayrıca düzeltilmesi gerekiyor. Mamak adresi kaynak sayfanın görünür metninde ayrıntılı verilmediği için bu sitede de açık adres yazılmadı.
 - Yeni depo içerikleri için test ve canlı smoke kontrolü eklendi. Yerel dosyalara kaydedildi; üretime dağıtılmadı.
 - Son doğrulama: `npm test` 17/17; `npm run check` 0 hata/uyarı; `npm run build` 7.394 sayfa; `python3 scripts/audit-seo.py` 0 bulgu; `npx wrangler deploy --dry-run --env staging` başarılı. Üretilmiş Çankaya evden eve ve Mamak depolama HTML'lerinde `index,follow` ve kendine canonical doğrulandı; taslak Çankaya depolama `noindex,follow` kaldı.
+
+## Tamamlanan adım 6: Eski hizmet-bölge depolama URL'leri
+
+- `/hizmetler/esya-depolama-2/.../` ailesindeki geçerli eski URL'ler artık otomatik olarak `noindex` taslağa yönlenmiyor. Statik olarak indekslenebilir veya doğrulanmış yayın kaydı olan yerel hedef kullanılıyor; diğerleri `/esya-depolama/` sayfasına gidiyor.
+- Eski ilçe evden eve URL'leriyle aynı iş kuralı tek yardımcı fonksiyonda toplandı. Sorgu parametreleri korunuyor. Çankaya taslak, Mamak statik ve yayınlanmış Çankaya kayıtları test edildi.
+- Dağıtım smoke kontrolü hedefin canlıda indekslenebilir olduğunu sınayacak şekilde güncellendi. `npm test`: 18/18, `npm run check`: 0 hata/uyarı, Wrangler staging kuru çalıştırması başarılı. Canlıya dağıtılmadı.
 
 ## Sıradaki işler
 
