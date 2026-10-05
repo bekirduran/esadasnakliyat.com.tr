@@ -64,11 +64,17 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - İki üçüncü taraf işletme dizini ([Eveusta](https://eveusta.com/nakliyat-firmalari/cankaya/esadas-evden-eve-nakliyat/), [Servis Merkez Listesi](https://servismerkezilisteleri.com.tr/ankara/cankaya/nakliyat/esadas-evden-eve-nakliyat.html)) `0535 679 74 69` numarasını gösteriyor. Kullanıcı 5 Ekim'de kullanılacak doğru numarayı `+90 534 670 74 69` olarak doğruladı. Sitenin telefon, arama bağlantısı, WhatsApp ve `llms.txt` alanları zaten bu numarayı kullanıyor; kod değişikliği gerekmedi. Üçüncü taraf kayıtları ve Google İşletme Profili bu numarayla karşılaştırılmalı.
 - Doğrulama: `npm run check` 0 hata/uyarı; `npm run build` 7.394 sayfa; `python3 scripts/audit-seo.py` 0 bulgu. Üretilen ana sayfa JSON-LD adres alanları ayrıca ayrıştırılarak kontrol edildi. Üretime dağıtılmadı.
 
+## Tamamlanan adım 9: İletişim hatlarının doğrulanması
+
+- Kullanıcı `+90 535 679 74 69` numarasının ikincil hat, `0312 481 98 39` numarasının aktif sabit hat olarak ayrıca gösterilmesini doğruladı. Ana hat ve WhatsApp `+90 534 670 74 69` olarak kaldı.
+- İletişim sayfası, site alt bilgisi, `MovingCompany` telefon listesi, hizmet JSON kataloğu ve `llms.txt` bu üç rolü yansıtıyor. Eski üçüncü taraf dizinlerinde görülen `0535` numarası artık doğrulanmış ikincil hat; tek başına yanlış kayıt sayılmıyor.
+- `npm test`: 18/18, `npm run check`: 0 hata/uyarı, `npm run build`: 7.394 sayfa, `python3 scripts/audit-seo.py`: 0 bulgu. Üretilen iletişim HTML'indeki üç `tel:` bağlantısı ve JSON-LD telefonları ile Worker hizmet kataloğundaki üç telefon alanı ayrıca kontrol edildi. Canlıya dağıtılmadı.
+
 ## Sıradaki işler
 
 1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
 2. Depolama sitesindeki yer tutucu telefon numarasını doğrulanan `+90 534 670 74 69` ile düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
-3. Google İşletme Profili ve üçüncü taraf dizinlerdeki telefon ile web sitesinin doğrulanmış numarasını karşılaştır; yanlış kayıtları düzelt. Yetki belgeleri doğrulanmadan belge iddiası ekleme.
+3. Google İşletme Profili ve üçüncü taraf dizinlerdeki numaraların doğrulanmış üç hattan biri olduğunu kontrol et; yanlış kayıtları düzelt. Yetki belgeleri doğrulanmadan belge iddiası ekleme.
 
 ## Bilinçli olarak açık kalan eski URL'ler
 

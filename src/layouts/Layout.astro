@@ -19,7 +19,7 @@ const business = {
   image: site.url + '/esadas-icon.png',
   hasMap: site.mapsUrl,
   areaServed: { '@type': 'City', name: 'Ankara' },
-  telephone: site.tel,
+  telephone: [site.tel, site.secondaryTel, site.landlineTel],
   email: site.email,
   address: {
     '@type': 'PostalAddress',
@@ -149,6 +149,8 @@ const website = {
       <div>
         <h3>Birlikte planlayalım</h3>
         <a href={`tel:${site.tel}`}>{site.phone}</a>
+        <a href={`tel:${site.secondaryTel}`}>İkincil hat: {site.secondaryPhone}</a>
+        <a href={`tel:${site.landlineTel}`}>Sabit hat: {site.landlinePhone}</a>
         <a href={`mailto:${site.email}`}>{site.email}</a>
         <p>{site.address}</p>
       </div>

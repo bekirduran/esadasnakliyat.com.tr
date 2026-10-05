@@ -299,6 +299,8 @@ async function route(request: Request, env: AppEnv) {
       name: site.name,
       url: site.url,
       telephone: site.tel,
+      secondaryTelephone: site.secondaryTel,
+      landlineTelephone: site.landlineTel,
       services: services.map((s) => ({
         name: s.name,
         url: site.url + '/' + s.slug + '/',
