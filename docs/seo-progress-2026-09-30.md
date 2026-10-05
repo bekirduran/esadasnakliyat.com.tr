@@ -2,11 +2,11 @@
 
 Bu dosya, çalışma kesilirse devam edilecek noktayı kaydeder. Kaynaklar: `esadasnakliyat.com.tr-Performance-on-Search-2026-09-30.zip` ve `esadasnakliyat.com.tr-Coverage-2026-09-30.zip` Search Console dışa aktarımları (kullanıcının Downloads klasöründe). Performans dönemi 11–27 Eylül 2026; 3.178 gösterim, 26 tıklama. Coverage özeti 35 dizine eklenen, 34 eklenmeyen sayfa gösteriyor. Coverage ZIP içinde örnek URL listesi yok.
 
-Çalışma dalı: `codex/seo-geo-improvements`. İlk beş adım `46405a5` commit'inde kayıtlıdır. Kullanıcının açık onayından sonra dal `https://github.com/bekirduran/esadasnakliyat.com.tr.git` deposuna push edildi. Staging dağıtımı `CLOUDFLARE_API_TOKEN` bulunmadığı için yapılmadı. Kuru çalıştırma başarılıdır; canlı ortam henüz değişmedi.
+Çalışma dalı: `codex/seo-geo-improvements`. İlk beş adım `46405a5` commit'inde kayıtlıdır. Kullanıcının açık onayından sonra dal `https://github.com/bekirduran/esadasnakliyat.com.tr.git` deposuna ve ardından `dev` dalına push edildi.
 
-Taslak PR: https://github.com/bekirduran/esadasnakliyat.com.tr/pull/1 (`dev` hedefine). GitHub Actions `verify` kontrolü geçti; `deploy` PR için atlandı. PR birleştirilmedi.
+PR #1 `dev` dalına, PR #3 `main` dalına birleştirildi. Production Worker yeni içerikle yanıt veriyor. Production CI dağıtım doğrulaması, eski Çankaya depolama URL'sinin hedefini `workers.dev` önizleme alanında `noindex` gördüğü için hata verdi; adım 11'deki test düzeltmesi bu yanlış alarmı gideriyor.
 
-Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenle staging/production dağıtımı ve PR birleştirmesi bu aşamada yapılmayacak.
+Canlıya alma işlemi başlangıçta ertelenmişti; daha sonra kullanıcı GitHub üzerinden `main` birleştirmesini yaptı. Bu dosyadaki önceki adımların "canlıya dağıtılmadı" notları o adımların yazıldığı andaki durumu gösterir.
 
 ## Tamamlanan adım 1: Eski URL yönlendirmeleri
 
@@ -75,9 +75,15 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - Kullanıcının isteğiyle telif satırına `Tasarım: BT Masasi` bağlantısı eklendi; hedef `https://btmasasi.com/`. Bağlantı yeni sekmede güvenli dış bağlantı olarak açılıyor. Alt bilgi bağlantısının telif metniyle aynı satırda kalması için küçük bir stil kuralı eklendi.
 - `npm run check` 0 hata/uyarı ve `npm run build` 7.394 sayfa başarılı. Üretilen ana sayfa HTML'inde bağlantı hedefi ve yeni sekme nitelikleri doğrulandı. Dış hedefin ağ erişimi bu ortamda doğrulanamadı.
 
+## Tamamlanan adım 11: Production smoke testindeki yanlış noindex hatası
+
+- Eski Çankaya depolama URL'sinin hedefi canlı ana alan adında `index,follow`; `workers.dev` önizleme alanı ise bilinçli olarak `noindex`. Smoke testi hedefin önizleme kopyasını kontrol ettiği için dağıtım doğrulaması yanlış alarm verdi.
+- Smoke testi 301 hedefinin yolunu koruyup indekslemeyi kanonik üretim alan adında kontrol edecek şekilde düzeltildi. Yalnızca başlık/durum için kullanılan HTTP yanıtlarının gövdeleri de serbest bırakıldı; böylece başarılı test süreci açık kalmıyor.
+- Düzeltme sonrası `node scripts/smoke-deployment.mjs production` ve `... staging` canlı ortamlarda `0` çıkış koduyla geçti. `npm test`: 18/18; JavaScript sözdizimi ve biçimlendirme kontrolü başarılı. Bu değişiklik Worker davranışını değiştirmiyor, yalnızca dağıtım kontrolünü düzeltiyor.
+
 ## Sıradaki işler
 
-1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
+1. Düzeltilmiş production CI kontrolünün GitHub'da geçtiğini doğrula; ardından Search Console'da yeni sitemap, eski URL yönlendirmeleri ve URL denetimini izle.
 2. Depolama sitesindeki yer tutucu telefon numarasını doğrulanan `+90 534 670 74 69` ile düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
 3. Google İşletme Profili ve üçüncü taraf dizinlerdeki numaraların doğrulanmış üç hattan biri olduğunu kontrol et; yanlış kayıtları düzelt. Yetki belgeleri doğrulanmadan belge iddiası ekleme.
 
