@@ -52,11 +52,23 @@ Kullanıcı canlıya alma işleminin en sona bırakılmasını istedi. Bu nedenl
 - Eski ilçe evden eve URL'leriyle aynı iş kuralı tek yardımcı fonksiyonda toplandı. Sorgu parametreleri korunuyor. Çankaya taslak, Mamak statik ve yayınlanmış Çankaya kayıtları test edildi.
 - Dağıtım smoke kontrolü hedefin canlıda indekslenebilir olduğunu sınayacak şekilde güncellendi. `npm test`: 18/18, `npm run check`: 0 hata/uyarı, Wrangler staging kuru çalıştırması başarılı. Canlıya dağıtılmadı.
 
+## Tamamlanan adım 7: Search Console eski URL envanteri kontrolü
+
+- Performans dışa aktarımındaki 36 sayfa URL'si mevcut Worker yönlendirme mantığı ve üretilmiş HTML ile yerel olarak eşleştirildi. Altı URL güncel ana/hizmet sayfası; 30 URL eski adres. Eski adreslerden 28'i indekslenebilir hedefe 301 gidiyor. Yalnızca `/galeri/` (24 gösterim, 1 tıklama) ve `/yetki-belgelerimiz/` (9 gösterim) için doğrulanmış yeni içerik bulunmadığından eşleme yapılmadı.
+- Kontrol üretim veritabanında yayınlanmış ek bölgesel içerik yokmuş gibi yapıldı. Üretimde yayınlı yerel içerik varsa bazı eski adreslerin hedefi daha özel indekslenebilir sayfa olabilir. Canlı HTTP davranışı dağıtım yapılmadan doğrulanamaz.
+
+## Tamamlanan adım 8: Yerel işletme adresi ve görsel yükü
+
+- Google Maps bağlantısındaki Çankaya/Ankara adresine göre görünür adres ilçe adıyla tamamlandı. `MovingCompany` yapısal verisinde sokak, ilçe ve il ayrı alanlara yazıldı; sokak metni tek kaynakta tutuluyor.
+- 13 Eylül denetiminde belirtilen 766 KiB logo yükü artık geçerli değil: mevcut PNG yaklaşık 30 KiB, başlık WebP görseli yaklaşık 1,8 KiB. Yeni bir görsel dönüşümü yapılmadı.
+- İki üçüncü taraf işletme dizini ([Eveusta](https://eveusta.com/nakliyat-firmalari/cankaya/esadas-evden-eve-nakliyat/), [Servis Merkez Listesi](https://servismerkezilisteleri.com.tr/ankara/cankaya/nakliyat/esadas-evden-eve-nakliyat.html)) `0535 679 74 69` numarasını gösterirken bu sitenin görünür numarası `0534 670 74 69`. Güncel Google İşletme Profili bilgisine doğrudan erişim olmadığı için telefon değiştirilmedi; kullanıcı doğrulaması bekleniyor.
+- Doğrulama: `npm run check` 0 hata/uyarı; `npm run build` 7.394 sayfa; `python3 scripts/audit-seo.py` 0 bulgu. Üretilen ana sayfa JSON-LD adres alanları ayrıca ayrıştırılarak kontrol edildi. Üretime dağıtılmadı.
+
 ## Sıradaki işler
 
 1. Kullanıcı canlıya alma aşamasını istediğinde birleştirme ve dağıtım planını ayrıca ele al. Dağıtımdan sonra canlı eski URL, robots, canonical ve sitemap kontrollerini yap. Search Console'da yeni sitemap ve URL denetimini izle.
 2. Depolama sitesindeki yer tutucu telefon numarasını düzelt. Bu depo sitesinin kodu bu çalışma alanında değildir.
-3. Yetki belgeleri ve Google Business Profile bilgileri doğrulanmadan bunlara ilişkin yeni iddialar ekleme.
+3. Yetki belgeleri ve Google İşletme Profili telefonu doğrulanmadan bunlara ilişkin yeni iddialar ekleme. Profildeki ad/adres/telefon ile web sitesini karşılaştır; farklıysa doğru kaydı düzelt.
 
 ## Bilinçli olarak açık kalan eski URL'ler
 
