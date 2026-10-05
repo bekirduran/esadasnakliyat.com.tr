@@ -5,14 +5,20 @@ const config = JSON.parse(
 );
 const base = config[env];
 if (!base) throw Error('Deployment URL is not configured');
+const canonical = 'https://esadasnakliyat.com.tr';
+async function fetchMetadata(url, options) {
+  const response = await fetch(url, options);
+  await response.body?.cancel();
+  return response;
+}
 const health = await fetch(base + '/api/health');
 if (!health.ok || (await health.json()).environment !== env)
   throw Error('Wrong deployment environment');
-const page = await fetch(base);
+const page = await fetchMetadata(base);
 if (!page.ok) throw Error('Homepage failed');
 if (!page.headers.get('x-robots-tag')?.includes('noindex'))
   throw Error('Preview host must not be indexed');
-const media = await fetch(base + '/media/hero');
+const media = await fetchMetadata(base + '/media/hero');
 if (!media.ok || !media.headers.get('content-type')?.startsWith('image/'))
   throw Error('Media unavailable');
 if (!media.headers.get('cache-control')?.includes('max-age=3600'))
@@ -21,12 +27,11 @@ const llms = await fetch(base + '/llms.txt');
 const llmsText = await llms.text();
 if (!llms.ok || !llmsText.startsWith('# Esadaş Nakliyat'))
   throw Error('llms.txt must be valid Markdown with an H1');
-const admin = await fetch(base + '/api/admin/leads');
+const admin = await fetchMetadata(base + '/api/admin/leads');
 if (admin.status !== 401) throw Error('Admin API must require authentication');
 console.log(`${env}: homepage, media, noindex, health and admin protection verified`);
 
 if (env === 'production') {
-  const canonical = 'https://esadasnakliyat.com.tr';
   const live = await fetch(canonical);
   const html = await live.text();
   if (
@@ -38,7 +43,7 @@ if (env === 'production') {
   const liveHealth = await fetch(canonical + '/api/health');
   if (!liveHealth.ok || (await liveHealth.json()).environment !== 'production')
     throw Error('Production domain must reach the production Worker');
-  const www = await fetch('https://www.esadasnakliyat.com.tr/hakkimizda/?source=smoke', {
+  const www = await fetchMetadata('https://www.esadasnakliyat.com.tr/hakkimizda/?source=smoke', {
     redirect: 'manual',
   });
   if (www.status !== 308 || www.headers.get('location') !== canonical + '/hakkimizda/?source=smoke')
@@ -46,12 +51,12 @@ if (env === 'production') {
   console.log('Production domain: health, indexing and canonical redirect verified');
 }
 
-const contact = await fetch(base + '/iletisim/');
+const contact = await fetchMetadata(base + '/iletisim/');
 if (!contact.ok) throw Error('Contact page unavailable');
-const legacy = await fetch(base + '/iletisim-2/?source=smoke', { redirect: 'manual' });
+const legacy = await fetchMetadata(base + '/iletisim-2/?source=smoke', { redirect: 'manual' });
 if (legacy.status !== 301 || legacy.headers.get('location') !== base + '/iletisim/?source=smoke')
   throw Error('Legacy contact URL must permanently redirect');
-const missing = await fetch(base + '/404/');
+const missing = await fetchMetadata(base + '/404/');
 if (missing.status !== 404 || !missing.headers.get('x-robots-tag')?.includes('noindex'))
   throw Error('Error page must return 404 and noindex');
 if (env === 'production') {
@@ -111,13 +116,16 @@ for (const [oldPath, newPath] of [
   ['/hizmetlerimiz/', '/hizmetler/'],
   ['/cankaya-evden-eve-nakliyat/', '/hizmetler/evden-eve-nakliyat/ankara/cankaya/'],
 ]) {
-  const r = await fetch(base + oldPath + '?source=smoke', { redirect: 'manual' });
+  const r = await fetchMetadata(base + oldPath + '?source=smoke', { redirect: 'manual' });
   if (r.status !== 301 || r.headers.get('location') !== base + newPath + '?source=smoke')
     throw Error(`Legacy redirect failed: ${oldPath}`);
 }
-const legacyCankayaStorage = await fetch(base + '/hizmetler/esya-depolama-2/ankara/cankaya/', {
-  redirect: 'manual',
-});
+const legacyCankayaStorage = await fetchMetadata(
+  base + '/hizmetler/esya-depolama-2/ankara/cankaya/',
+  {
+    redirect: 'manual',
+  },
+);
 const legacyCankayaTarget = legacyCankayaStorage.headers.get('location');
 if (
   legacyCankayaStorage.status !== 301 ||
@@ -127,7 +135,8 @@ if (
 )
   throw Error('Legacy Çankaya storage redirect failed');
 if (env === 'production') {
-  const destination = await fetch(legacyCankayaTarget);
+  // workers.dev is intentionally noindex; inspect the destination on the canonical host.
+  const destination = await fetch(canonical + new URL(legacyCankayaTarget).pathname);
   const html = await destination.text();
   if (
     !destination.ok ||
