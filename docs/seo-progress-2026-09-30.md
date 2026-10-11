@@ -81,6 +81,13 @@ Canlıya alma işlemi başlangıçta ertelenmişti; daha sonra kullanıcı GitHu
 - Smoke testi 301 hedefinin yolunu koruyup indekslemeyi kanonik üretim alan adında kontrol edecek şekilde düzeltildi. Yalnızca başlık/durum için kullanılan HTTP yanıtlarının gövdeleri de serbest bırakıldı; böylece başarılı test süreci açık kalmıyor.
 - Düzeltme sonrası `node scripts/smoke-deployment.mjs production` ve `... staging` canlı ortamlarda `0` çıkış koduyla geçti. `npm test`: 18/18; JavaScript sözdizimi ve biçimlendirme kontrolü başarılı. Bu değişiklik Worker davranışını değiştirmiyor, yalnızca dağıtım kontrolünü düzeltiyor.
 
+## Tamamlanan adım 12: Ankara merkezi ve ilçelerinin indekslenmesi
+
+- `/hizmetler/bolgeler/ankara/` ve Ankara'nın 25 ilçe sayfası `index,follow` olacak şekilde ayarlandı. Sayfa şablonundaki “ayrıntılı hizmet bilgisi henüz yayınlanmamıştır” metni, teklif uygunluğunun ilçe sayfasının şube/depo iddiası olmadığı açıklamasıyla değiştirildi.
+- Aynı 26 adres sitemap'in statik indekslenebilir URL listesine ve `llms.txt` içindeki Ankara bölge listesine eklendi. Üretim smoke testi artık 26 sayfanın tamamında sitemap kaydını, robots etiketini ve canonical adresini kontrol edecek.
+- `npm test`: 19/19; `npm run check`: 0 hata/uyarı; `npm run build`: 7.394 sayfa; statik SEO taraması 0 bulgu. Derlenmiş HTML'de Ankara merkezi ve 25 ilçenin tamamı için `index,follow` ve canonical doğrulandı.
+- Gerçek üretim ve Search Console kontrolü, bu değişiklik `main`e birleştirilip yayınlandıktan sonra yapılmalı. Google'ın tarayıp indekslemesi ve sıralama garantisi yoktur.
+
 ## Sıradaki işler
 
 1. Düzeltilmiş production CI kontrolünün GitHub'da geçtiğini doğrula; ardından Search Console'da yeni sitemap, eski URL yönlendirmeleri ve URL denetimini izle.

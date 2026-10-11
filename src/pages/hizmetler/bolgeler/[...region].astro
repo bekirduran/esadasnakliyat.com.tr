@@ -14,6 +14,7 @@ export function getStaticPaths() {
 const { city, district } = Astro.props;
 const label = district ? `${city.name} ${district.name}` : city.name;
 const isAnkaraHub = city.slug === 'ankara' && !district;
+const isAnkaraRegion = city.slug === 'ankara';
 const title = isAnkaraHub
   ? 'Ankara Nakliyat ve Evden Eve Taşımacılık'
   : `${label} Nakliyat ve Taşınma Planlama`;
@@ -49,7 +50,7 @@ const schema = {
       ? 'Ankara nakliyat, evden eve taşıma, asansörlü taşımacılık, ofis taşıma ve eşya depolama seçeneklerini inceleyin; taşınmanızı adres ve bina koşullarına göre planlayın.'
       : `${label} için Ankara bağlantılı taşınma talebi oluşturun. Eşya miktarı, tarih ve bina koşullarına göre hizmet uygunluğunu öğrenin.`
   }
-  noindex={!isAnkaraHub}
+  noindex={!isAnkaraRegion}
   schema={schema}
 >
   <section class="section">
@@ -93,13 +94,22 @@ const schema = {
       ) : (
         <>
           <p class="intro">
-            {label} çıkışlı veya varışlı, Ankara bağlantılı bir taşınma mı planlıyorsunuz? Eşya
-            miktarınızı, tarihinizi ve bina koşullarını paylaşarak güzergâhınıza uygun hizmeti
-            öğrenebilirsiniz.
+            {label} çıkışlı veya varışlı bir taşınma için adres, tarih ve eşya bilgilerinizi
+            paylaşın. Ankara merkezli ekibin güzergâh ve operasyon uygunluğu teklif sırasında
+            doğrulanır.
           </p>
+          <h2>{label} taşınma talebi nasıl hazırlanır?</h2>
           <p>
-            Bu bölge için ayrıntılı hizmet bilgisi henüz yayınlanmamıştır. Yerel şube veya depo
-            beyanı değildir; operasyon uygunluğu teklif sırasında doğrulanır.
+            Çıkış ve varış adresleriyle birlikte kat, bina asansörü, araç erişimi, eşya miktarı ve
+            paketleme ihtiyacını bildirin. Bu bilgiler taşıma yönteminin, araç planının ve tahmini
+            çalışma süresinin değerlendirilmesine yardımcı olur. Dış cephe asansörü gerekiyorsa bina
+            cephesi ve araç yerleşimi ayrıca kontrol edilir.
+          </p>
+          <h2>Hizmet uygunluğu nasıl netleşir?</h2>
+          <p>
+            İlçe sayfası bölgede şube veya depo bulunduğu anlamına gelmez. Talep edilen tarih,
+            güzergâh ve hizmet kapsamı operasyon ekibi tarafından kontrol edilir; kapsam ve ücret
+            yazılı teklifte netleştirilir.
           </p>
         </>
       )}
