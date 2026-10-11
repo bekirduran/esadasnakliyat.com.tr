@@ -61,6 +61,34 @@ if (missing.status !== 404 || !missing.headers.get('x-robots-tag')?.includes('no
   throw Error('Error page must return 404 and noindex');
 if (env === 'production') {
   const sitemap = await (await fetch('https://esadasnakliyat.com.tr/sitemap.xml')).text();
+  const ankaraSection = llmsText.split('## Ankara ilçe hizmet bölgeleri\n')[1]?.split('\n## ')[0];
+  const districtPaths = [
+    ...(ankaraSection ?? '').matchAll(
+      /\]\(https:\/\/esadasnakliyat\.com\.tr(\/hizmetler\/bolgeler\/ankara\/[^)]+)\)/g,
+    ),
+  ].map((match) => match[1]);
+  if (districtPaths.length !== 25) throw Error('llms.txt must list all 25 Ankara district pages');
+  const ankaraPaths = ['/hizmetler/bolgeler/ankara/', ...districtPaths];
+  for (const path of ankaraPaths) {
+    if (!sitemap.includes(`<loc>${canonical}${path}</loc>`))
+      throw Error(`Ankara region must be included in sitemap: ${path}`);
+  }
+  const ankaraPages = await Promise.all(
+    ankaraPaths.map(async (path) => ({
+      path,
+      response: await fetch(canonical + path),
+    })),
+  );
+  for (const { path, response } of ankaraPages) {
+    const html = await response.text();
+    if (
+      !response.ok ||
+      response.headers.get('x-robots-tag')?.includes('noindex') ||
+      /<meta[^>]+name="robots"[^>]+content="noindex/i.test(html) ||
+      !html.includes(`rel="canonical" href="${canonical}${path}"`)
+    )
+      throw Error(`Ankara region must be indexable with a canonical URL: ${path}`);
+  }
   if (
     !sitemap.includes('<loc>https://esadasnakliyat.com.tr/iletisim/</loc>') ||
     !sitemap.includes(

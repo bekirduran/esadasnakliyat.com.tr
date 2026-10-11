@@ -1,10 +1,22 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { provinces, findRegion, serviceRegionPath } from '../src/data/geo';
-import { services } from '../src/data/site';
+import { provinces, findRegion, regionPath, serviceRegionPath } from '../src/data/geo';
+import { services, staticIndexableRegionPaths } from '../src/data/site';
 import { keywordBrief } from '../src/data/keywords';
 import { validateLocation } from '../worker/content';
+
+test('All Ankara service-area hub and district pages are marked indexable', () => {
+  const ankara = provinces.find((city) => city.slug === 'ankara')!;
+  const ankaraPaths = [
+    regionPath(ankara.slug),
+    ...ankara.districts.map((district) => regionPath(ankara.slug, district.slug)),
+  ];
+  const indexableAnkaraPaths = staticIndexableRegionPaths.filter((path) =>
+    path.startsWith('/hizmetler/bolgeler/ankara/'),
+  );
+  assert.deepEqual(indexableAnkaraPaths, ankaraPaths);
+});
 
 test('Six services cover every province and district with distinct canonical routes', () => {
   assert.equal(services.length, 6);
@@ -84,7 +96,8 @@ test('Production sitemap includes validated service pages and excludes drafts, i
   assert.equal(response.status, 200);
   assert.ok(xml.includes(env.SITE_URL + path));
   assert.equal(
-    xml.match(/https:\/\/esadasnakliyat\.com\.tr\/hizmetler\/bolgeler\/ankara\//g)?.length,
+    xml.match(/<loc>https:\/\/esadasnakliyat\.com\.tr\/hizmetler\/bolgeler\/ankara\/<\/loc>/g)
+      ?.length,
     1,
   );
   assert.match(
@@ -92,6 +105,10 @@ test('Production sitemap includes validated service pages and excludes drafts, i
     /<loc>https:\/\/esadasnakliyat\.com\.tr\/hizmetler\/bolgeler\/ankara\/<\/loc><lastmod>2026-09-14<\/lastmod>/,
   );
   assert.ok(!xml.includes('/hizmetler/parca-esya-tasima/ankara/'));
+  for (const path of staticIndexableRegionPaths.filter((item) =>
+    item.startsWith('/hizmetler/bolgeler/ankara/'),
+  ))
+    assert.ok(xml.includes(`<loc>${env.SITE_URL}${path}</loc>`), path);
   const preview = await worker.fetch(
     new Request('https://preview.workers.dev/sitemap.xml'),
     env as any,
@@ -234,4 +251,8 @@ test('LLM guide links use the official site origins', async () => {
       );
     }),
   );
+  for (const path of staticIndexableRegionPaths.filter((item) =>
+    item.startsWith('/hizmetler/bolgeler/ankara/'),
+  ))
+    assert.ok(text.includes(`https://esadasnakliyat.com.tr${path}`), path);
 });

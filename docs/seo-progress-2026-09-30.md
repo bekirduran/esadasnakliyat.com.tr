@@ -81,6 +81,7 @@ Canlıya alma işlemi başlangıçta ertelenmişti; daha sonra kullanıcı GitHu
 - Smoke testi 301 hedefinin yolunu koruyup indekslemeyi kanonik üretim alan adında kontrol edecek şekilde düzeltildi. Yalnızca başlık/durum için kullanılan HTTP yanıtlarının gövdeleri de serbest bırakıldı; böylece başarılı test süreci açık kalmıyor.
 - Düzeltme sonrası `node scripts/smoke-deployment.mjs production` ve `... staging` canlı ortamlarda `0` çıkış koduyla geçti. `npm test`: 18/18; JavaScript sözdizimi ve biçimlendirme kontrolü başarılı. Bu değişiklik Worker davranışını değiştirmiyor, yalnızca dağıtım kontrolünü düzeltiyor.
 
+
 ## Sıradaki işler
 
 1. Düzeltilmiş production CI kontrolünün GitHub'da geçtiğini doğrula; ardından Search Console'da yeni sitemap, eski URL yönlendirmeleri ve URL denetimini izle.

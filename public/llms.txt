@@ -10,11 +10,42 @@ Bu dosya, büyük dil modellerinin sitenin resmî içeriğini ve kapsamını anl
 - [Hizmetler](https://esadasnakliyat.com.tr/hizmetler/): Altı hizmetin güncel listesi.
 - [Hizmet kataloğu](https://esadasnakliyat.com.tr/hizmetler.json): Makinece okunabilir hizmet bilgileri.
 - [Hizmet bölgeleri](https://esadasnakliyat.com.tr/hizmetler/bolgeler/): İl ve ilçe tabanlı taşıma planlama ağı.
+- [Ankara hizmet bölgesi](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/): Ankara geneli taşınma planlama rehberi.
 - [Hakkımızda](https://esadasnakliyat.com.tr/hakkimizda/): Firma yaklaşımı ve iletişim ilkeleri.
 - [İletişim](https://esadasnakliyat.com.tr/iletisim/): Telefon, e-posta, WhatsApp ve resmî adres.
 - [Teklif](https://esadasnakliyat.com.tr/teklif/): Nakliyat veya depolama talebi oluşturma formu.
 - [Mamak eşya depolama](https://esadasnakliyat.com.tr/hizmetler/esya-depolama/ankara/mamak/): Mamak depo bölgesi için hazırlık ve teklif bilgileri.
 - [Depo tesisleri](https://esadasankaraesyadepolama.com/depolar): Aynı firmanın Mamak, Eryaman ve Küçük Kayaş tesis bilgileri ve fotoğrafları.
+
+## Ankara ilçe hizmet bölgeleri
+
+Ankara merkezi ve 25 ilçesinin bölge planlama sayfaları indekslenebilir ve sitemap'te listelenir. Bu sayfalar ilçe içinde şube veya depo bulunduğu iddiası değildir; hizmet ve güzergâh uygunluğu teklif sırasında doğrulanır.
+
+- [Akyurt](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/akyurt/)
+- [Altındağ](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/altindag/)
+- [Ayaş](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/ayas/)
+- [Bala](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/bala/)
+- [Beypazarı](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/beypazari/)
+- [Çamlıdere](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/camlidere/)
+- [Çankaya](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/cankaya/)
+- [Çubuk](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/cubuk/)
+- [Elmadağ](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/elmadag/)
+- [Etimesgut](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/etimesgut/)
+- [Evren](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/evren/)
+- [Gölbaşı](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/golbasi/)
+- [Güdül](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/gudul/)
+- [Haymana](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/haymana/)
+- [Kahramankazan](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/kahramankazan/)
+- [Kalecik](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/kalecik/)
+- [Keçiören](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/kecioren/)
+- [Kızılcahamam](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/kizilcahamam/)
+- [Mamak](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/mamak/)
+- [Nallıhan](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/nallihan/)
+- [Polatlı](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/polatli/)
+- [Pursaklar](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/pursaklar/)
+- [Sincan](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/sincan/)
+- [Şereflikoçhisar](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/sereflikochisar/)
+- [Yenimahalle](https://esadasnakliyat.com.tr/hizmetler/bolgeler/ankara/yenimahalle/)
 
 ## Hizmetler
 
