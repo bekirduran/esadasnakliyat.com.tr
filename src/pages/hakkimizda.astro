@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Media from '../components/Media.astro';
+import { mediaAlt } from '../data/site';
 ---
 
 <Layout
@@ -20,7 +21,7 @@ import Media from '../components/Media.astro';
         ihtiyaçlarınızdan başlatıyoruz.
       </p>
     </div>
-    <Media slot="team" alt="Taşıma hazırlığını anlatan temsili ekip illüstrasyonu" />
+    <Media slot="team" alt={mediaAlt.team} />
   </section>
   <section class="section prose">
     <h2>Ankara merkezli, ihtiyacınıza odaklı.</h2>
