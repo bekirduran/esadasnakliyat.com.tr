@@ -668,15 +668,6 @@ nav a:hover {
 .tag-icon {
   font-size: 26px;
 }
-.image-caption {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  font-size: 9px;
-  background: #fff9;
-  padding: 4px 9px;
-  border-radius: 3px;
-}
 .actions {
   display: flex;
   gap: 26px;

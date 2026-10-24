@@ -18,12 +18,23 @@ export const site = {
   storageUrl: 'https://esadasankaraesyadepolama.com/',
 };
 export const storageAreas = ['Mamak', 'Eryaman', 'Küçük Kayaş'] as const;
+export const mediaAlt = {
+  hero: 'Ankara evden eve nakliyat operasyonunda Esadaş Nakliyat ekibinden fotoğraf.',
+  moving: 'Ankara’da evden eve nakliyat ve eşya taşıma operasyonundan fotoğraf.',
+  lift: 'Ankara’da asansörlü eşya taşıma operasyonundan fotoğraf.',
+  intercity: 'Ankara çıkışlı şehirler arası eşya taşıma operasyonundan fotoğraf.',
+  storage: 'Ankara eşya depolama hizmeti kapsamında hazırlanan eşyalardan fotoğraf.',
+  office: 'Ankara’da ofis eşyası taşıma operasyonundan fotoğraf.',
+  partial: 'Ankara’da parça eşya taşıma operasyonundan fotoğraf.',
+  team: 'Ankara’da evden eve nakliyat operasyonundaki Esadaş Nakliyat ekibi.',
+} as const;
 export const services = [
   {
     slug: 'evden-eve-nakliyat',
     name: 'Evden eve nakliyat',
     label: 'Yeni bir başlangıç',
     image: 'moving',
+    imageAlt: mediaAlt.moving,
     summary:
       'Eşyalarınızın paketlenmesinden yeni evinizdeki montajına kadar, taşınmanın her adımını birlikte planlayalım.',
     details:
@@ -44,6 +55,7 @@ export const services = [
     name: 'Asansörlü taşımacılık',
     label: 'Her kata bir çözüm',
     image: 'lift',
+    imageAlt: mediaAlt.lift,
     summary:
       'Bina ve sokak koşullarına göre değerlendirilen dış cephe asansörüyle daha düzenli bir taşıma süreci.',
     details:
@@ -64,6 +76,7 @@ export const services = [
     name: 'Şehirler arası nakliyat',
     label: 'Yolun sonunda eviniz var',
     image: 'intercity',
+    imageAlt: mediaAlt.intercity,
     summary:
       'Ankara çıkışlı veya varışlı taşınmalarda güzergâh, eşya hacmi ve teslimat planını önceden netleştirin.',
     details:
@@ -84,6 +97,7 @@ export const services = [
     name: 'Eşya depolama',
     label: 'Eşyalarınıza yer açın',
     image: 'storage',
+    imageAlt: mediaAlt.storage,
     summary:
       'Taşınma, tadilat veya alan ihtiyacında eşyalarınız için paketleme ve depolamayı birlikte planlayın.',
     details:
@@ -104,6 +118,7 @@ export const services = [
     name: 'Ofis ve büro taşıma',
     label: 'İşinize kaldığınız yerden',
     image: 'office',
+    imageAlt: mediaAlt.office,
     summary:
       'Mobilya, ekipman ve arşivleri yeni çalışma alanınıza taşımak için koordineli bir plan.',
     details:
@@ -124,6 +139,7 @@ export const services = [
     name: 'Parça eşya taşıma',
     label: 'Az eşya, net plan',
     image: 'partial',
+    imageAlt: mediaAlt.partial,
     summary:
       'Birkaç mobilya veya sınırlı miktarda eşya için güzergâha ve hacme uygun taşıma talebi.',
     details:

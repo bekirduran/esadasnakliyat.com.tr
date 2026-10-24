@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Media from '../components/Media.astro';
-import { services, site } from '../data/site';
+import { mediaAlt, services, site } from '../data/site';
 ---
 
 <Layout
@@ -36,14 +36,13 @@ import { services, site } from '../data/site';
       </div>
     </div>
     <div class="hero-visual">
-      <Media slot="hero" alt="Taşınma hazırlığını gösteren temsili illüstrasyon" eager />
+      <Media slot="hero" alt={mediaAlt.hero} eager />
       <div class="visual-tag">
         <span class="tag-icon">↗</span>
         <div>
           Her eşyanın bir hikâyesi var.<small>Yeni adresinizde devam etsin.</small>
         </div>
       </div>
-      <span class="image-caption">Temsili görsel</span>
     </div>
   </section>
   <div class="benefits">
@@ -80,7 +79,7 @@ import { services, site } from '../data/site';
       {services.slice(0, 3).map((s, i) => (
         <a class="service-card" href={`/${s.slug}/`}>
           <div class="card-image">
-            <Media slot={s.image} alt={`${s.name} için temsili illüstrasyon`} />
+            <Media slot={s.image} alt={s.imageAlt} />
             <span class="round-arrow">↗</span>
           </div>
           <div class="card-copy">
@@ -154,7 +153,7 @@ import { services, site } from '../data/site';
   </section>
   <section class="storage-feature">
     <div class="storage-image">
-      <Media slot="storage" alt="Depolama hizmeti için temsili oda ve kutu illüstrasyonu" />
+      <Media slot="storage" alt={mediaAlt.storage} />
     </div>
     <div class="storage-copy">
       <span class="eyebrow">BAZEN SADECE BİRAZ ALAN GEREKİR.</span>

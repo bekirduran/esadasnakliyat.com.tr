@@ -19,7 +19,7 @@ import { services } from '../../data/site';
       {services.map((s) => (
         <a class="service-card" href={`/${s.slug}/`}>
           <div class="card-image">
-            <Media slot={s.image} alt={`${s.name} temsili görsel`} />
+            <Media slot={s.image} alt={s.imageAlt} />
             <span class="round-arrow">↗</span>
           </div>
           <div class="card-copy">
